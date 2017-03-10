@@ -10,7 +10,7 @@ html, body {
     margin:10px;
     position: relative;
     display: block;
-    height: 80vh;//100% view height
+    height: 95vh;//100% view height
     width: 100vw;// 100% view width
     overflow-y: hidden;
   }
@@ -31,7 +31,7 @@ html, body {
     margin-right: 10vw;
     position: relative;
     display: block;
-    height: 80vh;//100% view height
+    height: 95vh;//100% view height
     width: 80vw;// 100% view width
     overflow-y: hidden;
   }
