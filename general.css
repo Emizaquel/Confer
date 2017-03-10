@@ -1,0 +1,210 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #9CC2E5;
+}
+
+@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */
+  #wrapper{
+    margin:10px;
+    position: relative;
+    display: block;
+    height: 100vh;//100% view height
+    width: 100vw;// 100% view width
+    overflow-y: hidden;
+  }
+
+  #image-border{
+    display: block;
+    height: 100%;
+    border-radius: 15px;
+    border-color: grey;
+    border-width: 10px;
+    overflow: hidden;
+  }
+}
+@media (min-width:800px)  {/* tablet, landscape iPad, lo-res laptops ands desktops */
+  #wrapper{
+    margin:10px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    position: relative;
+    display: block;
+    height: 100vh;//100% view height
+    width: 80vw;// 100% view width
+    overflow-y: hidden;
+  }
+
+  #image-border{
+    display: block;
+    height: 100%;
+    border-radius: 15px;
+    border-color: grey;
+    border-width: 10px;
+    overflow: hidden;
+  }
+}
+@media (min-width:1025px) {/* big landscape tablets, laptops, and desktops */
+  #wrapper{
+    margin:10px;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    position: relative;
+    display: block;
+    height: 100vh;//100% view height
+    width: 40vw;// 100% view width
+    overflow-y: hidden;
+  }
+
+  #image-border{
+    display: block;
+    height: 100%;
+    border-radius: 10px;
+    border-color: grey;
+    border-width: 10px;
+    overflow: hidden;
+  }
+}
+@media (min-width:1281px) {/* hi-res laptops and desktops */
+  #wrapper{
+    margin:10px;
+    margin-left: 35vw;
+    margin-right: 35vw;
+    position: relative;
+    display: block;
+    height: 100vh;//100% view height
+    width: 30vw;// 100% view width
+    overflow-y: hidden;
+  }
+
+  #image-border{
+    display: block;
+    height: 100%;
+    border-radius: 15px;
+    border-color: grey;
+    border-width: 10px;
+    overflow: hidden;
+  }
+}
+
+
+#header{
+  width:100%;
+  position:absolute;
+  display: block;
+}
+
+#logo-pane{
+  z-index: 3;
+  position:relative;
+  display: block;
+  border-radius: 15px 0 15px 15px;
+  width:30%;
+	padding-top: 30%;
+  float:left;
+}
+
+#logo-content{
+  z-index: 5;
+  padding:20px;
+  position:absolute;
+  display: block;
+  background-color: #1F4E79;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+  border-radius: 15px 0 15px 15px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 10px;
+}
+
+#title-pane{
+  z-index: 3;
+  position:relative;
+  display: block;
+  border-radius: 0 15px 15px 0;
+  width:70%;
+	padding-top: 20%;
+  float:right;
+}
+
+#title-content{
+  z-index: 6;
+  padding:5px;
+  position:absolute;
+  display: block;
+  background-color: #1F4E79;
+	top: 0;
+	left: -10.25;
+	bottom: 0;
+	right: 0;
+  border-radius: 0 15px 15px 0;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-color: grey;
+  border-width: 10px;
+  font-size: 7.5vh;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-family:verdana;
+}
+
+#corner-curve{
+  width:80%;
+  float:right;
+}
+
+#page-body{
+  z-index: 0;
+  position:absolute;
+  display: block;
+  font-size: 36px;
+  color: white;
+  font-family:verdana;
+	top: 10px;
+	left: 20px;
+  bottom: 5%;
+	right: 20px;
+  padding: 10px;
+  padding-top:30%;
+  padding-bottom: 13.25%;
+  background-color: #2F5496;
+  overflow: scroll;
+}
+
+#footer{
+  z-index: 5;
+  position:absolute;
+  background-color: #1F4E79;
+  display: block;
+	bottom: 30px;
+  width: 97.5%;
+  border-radius: 15px;
+  padding-bottom:20%;
+  border-style: solid;
+  border-color: grey;
+  border-width: 10px;
+  overflow-x: hidden;
+}
+
+#nav-bar{
+  padding:10px;
+  position:absolute;
+  display: block;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  justify-content: space-around;
+}
+
+#page-body::-webkit-scrollbar {
+ display: none;
+}
