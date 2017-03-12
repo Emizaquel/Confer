@@ -54,7 +54,7 @@
 
       $query = mysql_fetch_row($retval);
 
-      echo $query;
+      echo $query[0];
       ?>
       <br><!-- This is for readability on a computer, don't get rid of it. -->
     </div>
