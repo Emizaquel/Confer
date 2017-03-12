@@ -38,7 +38,7 @@
         die('Could not connect: ' . mysql_error());
       }
 
-      $sql = "SELECT usernumber FROM userdata WHERE email = $email AND password = $password";
+      $sql = "SELECT usernumber FROM userdata WHERE email = $email AND password = $password;";
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
       if(! $retval ) {
