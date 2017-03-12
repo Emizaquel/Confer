@@ -28,7 +28,7 @@
     <br>
 
     <?php
-    echo $_POST['name'];
+    echo $_POST['email'];
     echo $_POST['pass'];
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
