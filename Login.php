@@ -5,7 +5,7 @@
   <div id="header">
     <div id="logo-pane">
       <div id="logo-content">
-        <div id="image-border"><a href="home.php"><img src="Logo.jpg" width="100%"></a></div>
+        <div id="image-border"><img src="Logo.jpg" width="100%"></div>
       </div>
     </div>
     <div id="title-pane">
@@ -26,7 +26,10 @@
       <input type = "submit" name = "sub" value = "submit">
       <br>
       <br>
+
       <?php
+      $email = $_POST['email'];
+      $password = $_POST['pass'];
       $dbserver = "127.0.0.1:51097";
       $dbuser = "azure";
       $dbpass = "6#vWHD_$";
@@ -38,16 +41,14 @@
         die('Could not connect: ' . mysql_error());
       }
 
-      $sql = "SELECT usernumber FROM userdata WHERE email = 'testymctestface2109@gmail.com' AND password = 'ThisIsNotSecure'";
+      $sql = "SELECT usernumber FROM userdata WHERE email = " . $email . " AND password = " . $password;
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
-      if(! $retval ) {
-        die('Could not get data: ' . mysql_error());
+      if($retval ) {
+        $query = mysql_fetch_row($retval);
+
+        echo $query[0];
       }
-
-      $query = mysql_fetch_row($retval);
-
-      echo $query[0];
       ?>
       <br><!-- This is for readability on a computer, don't get rid of it. -->
     </div>
