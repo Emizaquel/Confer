@@ -24,17 +24,12 @@
     <input type="text" placeholder="Enter Email" name="email"><br>
     <input type="password" placeholder="Enter Password" name="pass"><br>
     <input type = "submit" name = "sub" value = "submit">
+    <br>
+    <br>
 
     <?php
-    if(isset($_POST['sub'])){
-    $name = $_POST['name'];
-    $pass = $_POST['pass'];
-
-    if($name == 'NAME1' AND $pass == 'PASS1'){
-    header("Location:Veriy.php");
-    }else
-    echo "Credentials not matched.";
-    }
+    echo $_POST['name'];
+    echo $_POST['pass'];
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
