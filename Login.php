@@ -50,6 +50,14 @@
 
         setcookie("UserID", $query, time() + (86400 * 30), "/");
         echo $query[0];
+
+        $userID = $query[0];
+
+        if($userID){
+          echo "hi";
+        }else{
+          echo "oops";
+        }
       }else{
         echo "User Details Not Valid";
       }
