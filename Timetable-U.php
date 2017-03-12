@@ -47,6 +47,9 @@
         mysql_select_db("conferdata");
         $retval = mysql_query( $sql, $conn );
 
+        echo $retval;
+        echo "<br>";
+
         while($row = mysql_fetch_array($retval))
         {
            echo $row['eventnumber'];
