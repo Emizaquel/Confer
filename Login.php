@@ -42,7 +42,6 @@
       }
 
       $sql = "SELECT usernumber FROM userdata WHERE email = " . $email . " AND password = " . $password . ";";
-      echo $sql
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
       if(! $retval ) {
