@@ -34,19 +34,19 @@
       ?>
       <br>
       <?php
-      $servername = "confer.scm.azurewebsites.net";
-      $username = "azure";
-      $password = "6#vWHD_$";
+      $dbserver = "confer.scm.azurewebsites.net";
+      $dbuser = "azure";
+      $dbpass = "6#vWHD_$";
       $dbname = "localdb";
 
-      $conn = mysql_connect($servername, $username, $password);
+      $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
       if(! $conn ) {
         die('Could not connect: ' . mysql_error());
       }
-      mysql_select_db($dbname);
 
       $sql = "SELECT email FROM userdata WHERE usernumber = 1";
+      mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
       if(! $retval ) {
         die('Could not get data: ' . mysql_error());
