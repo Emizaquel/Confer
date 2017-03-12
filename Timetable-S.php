@@ -37,49 +37,50 @@
     if(! $conn ) {
       die('Could not connect: ' . mysql_error());
     }
-        $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
-        mysql_select_db("conferdata");
-        $retval = mysql_query( $sql, $conn );
 
-        $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
-        $StartDate = $OldDate;
+      $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
+      mysql_select_db("conferdata");
+      $retval = mysql_query( $sql, $conn );
 
-        while($row = mysql_fetch_array($retval))
-        {
-           $EventID = $row['eventnumber'];
-           $EventName = $row['eventname'];
-           $EventDateTime = $row['eventtime'];
-           $date = date('Y-m-d', strtotime($EventDateTime));
-           $time = date('H:i:s', strtotime($EventDateTime));
+      $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
+      $StartDate = $OldDate;
 
-           if($OldDate === $StartDate){
-             $OldDate  = $date;
-             echo "<div id='DateSplitter'>";
-             echo "<div id='DateHeader'>";
-             echo $date;
-             echo "</div>";
-             echo "<div id='EventHolder'>";
-           }else if(!($OldDate === $date)){
-             $OldDate  = $date;
-             echo "<div id='EventBottom'></div>";
-             echo "</div></div><br>";
-             echo "<div id='DateSplitter'>";
-             echo "<div id='DateHeader'>";
-             echo $date;
-             echo "</div><div id='EventHolder'>";
+      while($row = mysql_fetch_array($retval))
+      {
+         $EventID = $row['eventnumber'];
+         $EventName = $row['eventname'];
+         $EventDateTime = $row['eventtime'];
+         $date = date('Y-m-d', strtotime($EventDateTime));
+         $time = date('H:i:s', strtotime($EventDateTime));
 
-
-           }
-
-           echo "<div id='EventListing'>";
-           echo $time;
-           echo " - ";
-           echo $EventName;
-           echo "<br>";
+         if($OldDate === $StartDate){
+           $OldDate  = $date;
+           echo "<div id='DateSplitter'>";
+           echo "<div id='DateHeader'>";
+           echo $date;
            echo "</div>";
-        }
-        echo "<div id='EventBottom'></div>";
-        echo "</div></div>";
+           echo "<div id='EventHolder'>";
+         }else if(!($OldDate === $date)){
+           $OldDate  = $date;
+           echo "<div id='EventBottom'></div>";
+           echo "</div></div><br>";
+           echo "<div id='DateSplitter'>";
+           echo "<div id='DateHeader'>";
+           echo $date;
+           echo "</div><div id='EventHolder'>";
+
+
+         }
+
+         echo "<div id='EventListing'>";
+         echo $time;
+         echo " - ";
+         echo $EventName;
+         echo "<br>";
+         echo "</div>";
+      }
+      echo "<div id='EventBottom'></div>";
+      echo "</div></div>";
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
