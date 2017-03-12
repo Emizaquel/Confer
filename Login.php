@@ -28,9 +28,9 @@
     <br>
 
     <?php
-    $usernumber = "SELECT usernumber FROM userdata WHERE email = $_POST['email'] AND password = $_POST['email']";
+    $usernumber = "123";
     echo $usernumber;
     ?>
-    <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><!-- This is for readability on a computer, don't get rid of it. SELECT usernumber FROM userdata WHERE email = $_POST['email'] AND password = $_POST['email']-->
   </div>
 </div>
