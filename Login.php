@@ -45,12 +45,10 @@
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
 
-      if(empty($retval)){
-        echo "User Details Not Entered";
-      } else if($retval ) {
+      if($retval>0) {
         $query = mysql_fetch_row($retval);
 
-        setcookie("UserID", $query, time() + (86400 * 30), "/");
+        // setcookie("UserID", $query, time() + (86400 * 30), "/");
         echo $query[0];
       }else{
         echo "User Details Not Valid";
