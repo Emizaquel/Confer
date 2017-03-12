@@ -21,7 +21,6 @@
   </div>
   <div id="page-body">
     <?php
-
     $email = $_POST['email'];
     $password = $_POST['pass'];
     $dbserver = "127.0.0.1:51097";
@@ -57,11 +56,10 @@
           }else if ($userID == 4){
             header("Location:Home-A.php");
           }else{
-
+            header("Location:login.php");
           }
         }
     }
-
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
