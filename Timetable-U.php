@@ -47,17 +47,51 @@
         mysql_select_db("conferdata");
         $retval = mysql_query( $sql, $conn );
 
-        echo $retval;
-        echo "<br>";
+        $OldDate = date('Y-m-d', strtotime("0009-01-01 01:01:00.000000"));
+        $StartDate = $OldDate;
 
         while($row = mysql_fetch_array($retval))
         {
-           echo $row['eventnumber'];
-           echo ", ";
-           echo $row['eventname'];
-           echo ", ";
-           echo $row['eventtime'];
-           echo "<br>";
+           $EventID = $row['eventnumber'];
+           $EventName = $row['eventname'];
+           $EventDateTime = $row['eventtime'];
+           $date = date('Y-m-d', strtotime($EventDateTime));
+           $time = date('H:i:s', strtotime($EventDateTime));
+
+           if($OldDate == $SatartDate){
+             $Olddate = $date;
+             echo "<div id='DateSplitter'>";
+             echo "<div id='DateHeader'>";
+             echo $date;
+             echo "</div>";
+             echo "<div id='EventHolder'>";
+             echo "<div id='EventListing'>";
+             echo $time;
+             echo " - "
+             echo $EventName;
+             echo "</div>";
+           }else if($Olddate != $date){
+             $Olddate = $date;
+             echo "<div id='EventBottom'></div>";
+             echo "</div>";
+             echo "</div>";
+             echo "<div id='DateSplitter'>";
+             echo "<div id='DateHeader'>";
+             echo $date;
+             echo "</div>";
+             echo "<div id='EventHolder'>";
+             echo $time;
+             echo " - "
+             echo $EventName;
+             echo "</div>";
+           }else{
+
+             echo "<div id='EventHolder'>";
+             echo $time;
+             echo " - "
+             echo $EventName;
+             echo "</div>";
+           }
         }
 
     }
