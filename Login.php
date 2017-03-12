@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" type="text/css" href="general.css">
+  <link rel="icon" type="image/png" href="icon.ico">
 </head>
 <div id="wrapper">
   <div id="header">
