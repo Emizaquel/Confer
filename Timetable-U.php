@@ -60,8 +60,15 @@
            $date = date('Y-m-d', strtotime($EventDateTime));
            $time = date('H:i:s', strtotime($EventDateTime));
 
-           echo $date;
-           echo " - ";
+           if($OldDate === $StartDate){
+             $date = $OldDate;
+             echo $date;
+             echo "<br>";
+           }else if(!($OldDate === $date)){
+             $date = $OldDate;
+             echo $date;
+             echo "<br>";
+           }
            echo $time;
            echo " - ";
            echo $EventName;
