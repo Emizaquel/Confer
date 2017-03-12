@@ -61,11 +61,11 @@
            $time = date('H:i:s', strtotime($EventDateTime));
 
            if($OldDate === $StartDate){
-             $date = $OldDate;
+             $OldDate  = $date;
              echo $date;
              echo "<br>";
            }else if(!($OldDate === $date)){
-             $date = $OldDate;
+             $OldDate  = $date;
              echo $date;
              echo "<br>";
            }
