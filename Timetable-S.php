@@ -37,31 +37,6 @@
     if(! $conn ) {
       die('Could not connect: ' . mysql_error());
     }
-
-    if(!isset($_COOKIE["UserID"])) {
-      header("Location:login.php");
-    } else {
-        $UID = $_COOKIE["UserID"];
-
-        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-        mysql_select_db("conferdata");
-        $retval = mysql_query( $sql, $conn );
-
-        if($retval ) {
-          $query = mysql_fetch_row($retval);
-          $userID = $query[0];
-
-          if($userID == 1){
-            header("Location:Timetable-U.php");
-          }else if ($userID == 3){
-            header("Location:Timetable-St.php");
-          }else if ($userID == 4){
-            header("Location:Timetable-A.php");
-          }else{
-            header("Location:login.php");
-          }
-        }
-
         $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
         mysql_select_db("conferdata");
         $retval = mysql_query( $sql, $conn );
@@ -105,8 +80,6 @@
         }
         echo "<div id='EventBottom'></div>";
         echo "</div></div>";
-
-    }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
