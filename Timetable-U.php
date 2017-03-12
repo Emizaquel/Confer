@@ -47,7 +47,7 @@
         mysql_select_db("conferdata");
         $retval = mysql_query( $sql, $conn );
 
-        $OldDate = date('Y-m-d', strtotime("0009-01-01 01:01:00.000000"));
+        $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
         $StartDate = $OldDate;
 
         while($row = mysql_fetch_array($retval))
@@ -85,7 +85,6 @@
              echo $EventName;
              echo "</div>";
            }else{
-
              echo "<div id='EventHolder'>";
              echo $time;
              echo " - "
