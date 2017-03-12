@@ -44,6 +44,25 @@
     } else {
         $UID = $_COOKIE["UserID"];
 
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        if($retval) {
+          $query = mysql_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+            header("Location:Timetable-U.php");
+          }else if ($userID == 2){
+            header("Location:Timetable-S.php");
+          }else if ($userID == 3){
+            header("Location:Timetable-St.php");
+          }else{
+            header("Location:login.php");
+          }
+        }
+
         $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
         mysql_select_db("conferdata");
         $retval = mysql_query( $sql, $conn );

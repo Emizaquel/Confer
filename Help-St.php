@@ -25,6 +25,45 @@
     </div>
   </div>
   <div id="page-body">
+    <?php
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+    $dbserver = "127.0.0.1:51097";
+    $dbuser = "azure";
+    $dbpass = "6#vWHD_$";
+    $dbname = "localdb";
+
+    $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+    if(! $conn ) {
+      die('Could not connect: ' . mysql_error());
+    }
+
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        if($retval ) {
+          $query = mysql_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+            header("Location:Help-U.php");
+          }else if ($userID == 2){
+            header("Location:Help-S.php");
+          }else if ($userID == 4){
+            header("Location:Help-A.php");
+          }else{
+            header("Location:login.php");
+          }
+        }
+    }
+    ?>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta quam nec felis cursus placerat. Ut risus enim, maximus vel dapibus eget, convallis quis mi. Proin eget ornare est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus. In velit ex, bibendum nec dui eu, molestie malesuada augue. Duis sed congue urna. Fusce mattis lobortis euismod. Nullam pretium sed velit at lobortis. Proin volutpat leo sit amet lacus viverra, id convallis ex venenatis. Phasellus eleifend lacus orci, non luctus libero viverra et. Donec hendrerit libero sed maximus ornare. Cras convallis ipsum risus, et feugiat magna lobortis in.
     <br>
     <br>Aenean non mi metus. Ut ultrices dignissim erat, quis tristique quam sagittis vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies ultrices risus vitae imperdiet. Aliquam aliquet ex aliquam velit maximus congue. Integer lobortis a ante in ultricies. Donec ac sem scelerisque, vulputate eros sit amet, auctor dolor. Nulla eu risus aliquet risus ultrices imperdiet imperdiet eu ex. Proin mattis eros nulla, in placerat urna auctor vitae. Nullam posuere tortor nisl, eu interdum dolor porta ac. Proin at dapibus dolor, imperdiet tempor libero. Morbi mollis pellentesque urna, sed cursus quam aliquet nec. Nunc mattis leo imperdiet, sagittis ex ut, dignissim augue. Suspendisse vulputate tortor at imperdiet bibendum.
