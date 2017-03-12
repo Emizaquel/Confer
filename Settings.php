@@ -52,9 +52,9 @@
           }else if ($userID == 2){
             header("Location:Settings-S.php");
           }else if ($userID == 3){
-            header("Location:Setting-St.php");
+            header("Location:Settings-St.php");
           }else if ($userID == 4){
-            header("Location:Setting-A.php");
+            header("Location:Settings-A.php");
           }else{
             header("Location:login.php");
 
