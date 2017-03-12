@@ -28,12 +28,8 @@
     <br>
 
     <?php
-    $email = $_POST['email'];
-    echo $email
-    ?><br>
-    <?php
-    $password
-    echo $_POST['pass'];
+    $usernumber = "SELECT usernumber FROM userdata WHERE email = $_POST['email'] AND password = $_POST['email'];
+    echo $usernumber;
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
