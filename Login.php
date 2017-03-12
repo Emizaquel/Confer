@@ -28,8 +28,17 @@
     <br>
 
     <?php
-    echo $_POST['email'];
-    echo $_POST['pass'];
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+
+    $userid = "SELECT usernumber FROM userdata WHERE username = $email AND password = $password";
+
+    if($userid){
+      echo $userid
+    }else{
+      echo "details not recognised"
+    }
+
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
