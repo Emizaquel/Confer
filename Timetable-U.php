@@ -62,17 +62,29 @@
 
            if($OldDate === $StartDate){
              $OldDate  = $date;
+             echo "<div id='DateSplitter'>";
+             echo "<div id='DateHeader'>";
              echo $date;
-             echo "<br>";
+             echo "</div>";
+             echo "<div id='EventHolder'>";
            }else if(!($OldDate === $date)){
              $OldDate  = $date;
+             echo "<div id='EventBottom'></div>";
+             echo "</div></div>";
+             echo "<div id='DateSplitter'>";
+             echo "<div id='DateHeader'>";
              echo $date;
-             echo "<br>";
+             echo "</div><div id='EventHolder'>";
+
+
            }
+
+           echo "<div id='EventListing'>";
            echo $time;
            echo " - ";
            echo $EventName;
            echo "<br>";
+           echo "</div>";
         }
 
     }
