@@ -24,7 +24,41 @@
     </div>
   </div>
   <div id="page-body">
-    Add PHP timetable thing here!
+    <?php
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+    $dbserver = "127.0.0.1:51097";
+    $dbuser = "azure";
+    $dbpass = "6#vWHD_$";
+    $dbname = "localdb";
+
+    $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+    if(! $conn ) {
+      die('Could not connect: ' . mysql_error());
+    }
+
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        while($row = mysql_fetch_array($retval))
+        {
+           echo $row['eventnumber'];
+           echo ", ";
+           echo $row['eventname'];
+           echo ", ";
+           echo $row['eventtime'];
+           echo "<br>";
+        }
+
+    }
+    ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>

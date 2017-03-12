@@ -208,3 +208,53 @@ html, body {
 #page-body::-webkit-scrollbar {
  display: none;
 }
+
+#DateSplitter{
+
+}
+
+#DateHeader{
+  display: block;
+  background-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: grey;
+  border-width: 10px;
+  color: black;
+  overflow-x: hidden;
+}
+
+#EventHolder{
+  display: block;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#EventListing{
+  display: block;
+  background-color: white;
+  border-color: grey;
+  overflow-x: hidden;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-top-style: hidden;
+  border-color: grey;
+  color: black;
+  border-width: 10px;
+  border-bottom-width: 2px;
+}
+
+#EventBottom{
+  display: block;
+  border-color: grey;
+  border-radius: 0 0 15px 15px;
+  background-color: white;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: solid;
+  border-top-style: hidden;
+  border-color: grey;
+  color: black;
+  border-width: 10px;
+}
