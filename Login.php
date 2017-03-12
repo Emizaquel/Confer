@@ -52,7 +52,9 @@
         die('Could not get data: ' . mysql_error());
       }
 
-      echo $retval
+      $query = mysql_fetch_row($retval);
+
+      echo $query;
       ?>
       <br><!-- This is for readability on a computer, don't get rid of it. -->
     </div>
