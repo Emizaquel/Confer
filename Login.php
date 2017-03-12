@@ -57,7 +57,6 @@
           echo "User Details Not Valid";
         }
       }else{
-        echo "User Details Not Valid";
       }
       ?>
       <br><!-- This is for readability on a computer, don't get rid of it. -->

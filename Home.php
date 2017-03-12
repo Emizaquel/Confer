@@ -22,11 +22,44 @@
   <div id="page-body">
     <?php
 
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+    $dbserver = "127.0.0.1:51097";
+    $dbuser = "azure";
+    $dbpass = "6#vWHD_$";
+    $dbname = "localdb";
+
+    $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+    if(! $conn ) {
+      die('Could not connect: ' . mysql_error());
+    }
+
     if(!isset($_COOKIE["UserID"])) {
-      echo "Cookie named UserID is not set!";
+      header("Location:login.php");
     } else {
-        echo "Cookie UserID is set!<br>";
-        echo "Value is: " . $_COOKIE["UserID"];
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        if($retval ) {
+          $query = mysql_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+            header("Location:Home-U.php");
+          }else if ($userID == 2){
+            header("Location:Home-S.php");
+          }else if ($userID == 3){
+            header("Location:Home-St.php");
+          }else if ($userID == 4){
+            header("Location:Home-A.php");
+          }else{
+
+          }
+        }
     }
 
     ?>
