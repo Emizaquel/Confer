@@ -39,7 +39,7 @@
       $password = "6#vWHD_$";
       $dbname = "localdb";
 
-      $conn = mysql_connect($servername, $username, $dbname);
+      $conn = mysql_connect($servername, $username, $password, $dbname);
 
       if(! $conn ) {
         die('Could not connect: ' . mysql_error());
