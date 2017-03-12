@@ -10,7 +10,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          Timetable
         </div>
       </div>
     </div>
@@ -24,7 +24,12 @@
     </div>
   </div>
   <div id="page-body">
-    Add PHP timetable thing here!
+    <?php
+    $servername = "confer.scm.azurewebsites.net";
+    $username = "azure";
+    $password = "6#vWHD_$";
+    $dbname = "localdb";
+    ?>
     <br>
     <br> Add "Add event" button here.
     <br><!-- This is for readability on a computer, don't get rid of it. -->

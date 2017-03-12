@@ -10,7 +10,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          Login
         </div>
       </div>
     </div>
@@ -20,11 +20,22 @@
     </div>
   </div>
   <div id="page-body">
-    <form method = "POST" action = "">
-    Name:<input type = "text" name = "name">
-    Pass:<input type = "text" name = "pass">
+    <form method="POST" action="">
+    <input type="text" placeholder="Enter Email" name="email"><br>
+    <input type="password" placeholder="Enter Password" name="pass"><br>
     <input type = "submit" name = "sub" value = "submit">
-    </form>
+
+    <?php
+    if(isset($_POST['sub'])){
+    $name = $_POST['name'];
+    $pass = $_POST['pass'];
+
+    if($name === 'NAME1' AND $pass === 'PASS1'){
+    header("Location:profil.php");
+    }else
+    echo "Credentials not matched.";
+    }
+    ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>

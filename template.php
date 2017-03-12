@@ -10,7 +10,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          Timetable
         </div>
       </div>
     </div>
