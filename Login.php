@@ -34,7 +34,7 @@
       ?>
       <br>
       <?php
-      $dbserver = "127.0.0.1";
+      $dbserver = "127.0.0.1:51097";
       $dbuser = "azure";
       $dbpass = "6#vWHD_$";
       $dbname = "localdb";
