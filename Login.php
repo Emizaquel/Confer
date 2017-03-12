@@ -48,7 +48,7 @@
         $query = mysql_fetch_row($retval);
 
         setcookie("UserID", $query, time() + (86400 * 30), "/");
-        header("Location:Home.php");
+        echo $query[0];
       }else{
         echo "User Details Not Valid";
       }
