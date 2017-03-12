@@ -26,10 +26,69 @@
   </div>
   <div id="page-body">
     <?php
-    $servername = "confer.scm.azurewebsites.net";
-    $username = "azure";
-    $password = "6#vWHD_$";
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+    $dbserver = "127.0.0.1:51097";
+    $dbuser = "azure";
+    $dbpass = "6#vWHD_$";
     $dbname = "localdb";
+
+    $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+    if(! $conn ) {
+      die('Could not connect: ' . mysql_error());
+    }
+
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
+        $StartDate = $OldDate;
+
+        while($row = mysql_fetch_array($retval))
+        {
+           $EventID = $row['eventnumber'];
+           $EventName = $row['eventname'];
+           $EventDateTime = $row['eventtime'];
+           $date = date('Y-m-d', strtotime($EventDateTime));
+           $time = date('H:i:s', strtotime($EventDateTime));
+
+           if($OldDate === $StartDate){
+             $OldDate  = $date;
+             echo "<div id='DateSplitter'>";
+             echo "<div id='DateHeader'>";
+             echo $date;
+             echo "</div>";
+             echo "<div id='EventHolder'>";
+           }else if(!($OldDate === $date)){
+             $OldDate  = $date;
+             echo "<div id='EventBottom'></div>";
+             echo "</div></div><br>";
+             echo "<div id='DateSplitter'>";
+             echo "<div id='DateHeader'>";
+             echo $date;
+             echo "</div><div id='EventHolder'>";
+
+
+           }
+
+           echo "<div id='EventListing'>";
+           echo $time;
+           echo " - ";
+           echo $EventName;
+           echo "<br>";
+           echo "</div>";
+        }
+        echo "<div id='EventBottom'></div>";
+        echo "</div></div>";
+
+    }
     ?>
     <br>
     <br> Add "Add event" button here.
