@@ -39,14 +39,14 @@
       $password = "6#vWHD_$";
       $dbname = "localdb";
 
-      $conn = mysql_connect($servername, $username, $password, $dbname);
+      $conn = mysql_connect($servername, $username, $password);
 
       if(! $conn ) {
         die('Could not connect: ' . mysql_error());
       }
+      mysql_select_db($dbname);
 
       $sql = "SELECT email FROM userdata WHERE usernumber = 1";
-      mysql_select_db('conferdata');
       $retval = mysql_query( $sql, $conn );
       if(! $retval ) {
         die('Could not get data: ' . mysql_error());
