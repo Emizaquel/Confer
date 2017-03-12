@@ -44,7 +44,10 @@
       $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
-      if($retval ) {
+
+      if(empty($retval)){
+        echo "User Details Not Entered";
+      } else if($retval ) {
         $query = mysql_fetch_row($retval);
 
         setcookie("UserID", $query, time() + (86400 * 30), "/");
