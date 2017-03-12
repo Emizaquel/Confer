@@ -48,15 +48,13 @@
       if($retval ) {
         $query = mysql_fetch_row($retval);
 
-        setcookie("UserID", $query, time() + (86400 * 30), "/");
-        echo $query[0];
-
         $userID = $query[0];
 
         if($userID){
-          echo "hi";
+          setcookie("UserID", $userID, time() + (86400 * 30), "/");
+          header("Location:Home.php");
         }else{
-          echo "oops";
+          echo "User Details Not Valid";
         }
       }else{
         echo "User Details Not Valid";
