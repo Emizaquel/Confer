@@ -81,7 +81,7 @@
          echo "</div>";
       }
       echo "<div id='EventBottom'></div>";
-      echo "</div></div>";
+      echo "</div></div><br>";
     ?>
     <br>
     <br> Add "Add event" button here.

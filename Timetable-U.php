@@ -80,7 +80,7 @@
          echo "</div>";
       }
       echo "<div id='EventBottom'></div>";
-      echo "</div></div>";
+      echo "</div></div><br>";
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
