@@ -70,7 +70,7 @@
            }else if(!($OldDate === $date)){
              $OldDate  = $date;
              echo "<div id='EventBottom'></div>";
-             echo "</div></div>";
+             echo "</div></div><br>";
              echo "<div id='DateSplitter'>";
              echo "<div id='DateHeader'>";
              echo $date;
@@ -86,6 +86,8 @@
            echo "<br>";
            echo "</div>";
         }
+        echo "<div id='EventBottom'></div>";
+        echo "</div></div>";
 
     }
     ?>
