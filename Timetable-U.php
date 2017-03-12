@@ -58,39 +58,11 @@
            $date = date('Y-m-d', strtotime($EventDateTime));
            $time = date('H:i:s', strtotime($EventDateTime));
 
-           if($OldDate == $SatartDate){
-             $Olddate = $date;
-            //  echo "<div id='DateSplitter'>";
-            //  echo "<div id='DateHeader'>";
-             echo $date;
-            //  echo "</div>";
-            //  echo "<div id='EventHolder'>";
-            //  echo "<div id='EventListing'>";
-             echo $time;
-             echo " - "
-             echo $EventName;
-            //  echo "</div>";
-           }else if($Olddate != $date){
-             $Olddate = $date;
-            //  echo "<div id='EventBottom'></div>";
-            //  echo "</div>";
-            //  echo "</div>";
-            //  echo "<div id='DateSplitter'>";
-            //  echo "<div id='DateHeader'>";
-             echo $date;
-            //  echo "</div>";
-            //  echo "<div id='EventHolder'>";
-             echo $time;
-            //  echo " - "
-             echo $EventName;
-            //  echo "</div>";
-           }else{
-            //  echo "<div id='EventHolder'>";
-             echo $time;
-            //  echo " - "
-             echo $EventName;
-            //  echo "</div>";
-           }
+           echo $date;
+           echo $time;
+           echo " - ";
+           echo $EventName;
+           echo "<br>";
         }
 
     }
