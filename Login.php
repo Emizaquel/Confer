@@ -28,8 +28,11 @@
     <br>
 
     <?php
-    echo $_POST['email'];?><br>
+    $email = $_POST['email'];
+    echo $email
+    ?><br>
     <?php
+    $password
     echo $_POST['pass'];
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
