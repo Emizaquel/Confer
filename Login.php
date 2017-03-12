@@ -30,8 +30,8 @@
     $name = $_POST['name'];
     $pass = $_POST['pass'];
 
-    if($name === 'NAME1' AND $pass === 'PASS1'){
-    header("Location:profil.php");
+    if($name == 'NAME1' AND $pass == 'PASS1'){
+    header("Location:Veriy.php");
     }else
     echo "Credentials not matched.";
     }
