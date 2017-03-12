@@ -31,8 +31,6 @@
     $email = $_POST['email'];
     $password = $_POST['pass'];
 
-    $userid = "SELECT usernumber FROM userdata WHERE username = $email AND password = $password";
-
     if($userid){
       echo $userid
     }else{
