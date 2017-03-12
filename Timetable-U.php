@@ -39,7 +39,7 @@
     }
 
     if(!isset($_COOKIE["UserID"])) {
-      header("Location:login.php");
+      echo "is this why?"
     } else {
         $UID = $_COOKIE["UserID"];
 
