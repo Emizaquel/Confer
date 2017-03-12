@@ -1,5 +1,4 @@
 <head>
-<meta http-equiv="refresh" content="0; url=Home-U.php" />
 <link rel="stylesheet" type="text/css" href="general.css">
 </head>
 <div id="wrapper">
@@ -11,7 +10,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          Event Name
         </div>
       </div>
     </div>
@@ -21,7 +20,16 @@
     </div>
   </div>
   <div id="page-body">
-    Create redirect here.
+    <?php
+
+    if(!isset($_COOKIE["UserID"])) {
+      echo "Cookie named UserID is not set!";
+    } else {
+        echo "Cookie UserID is set!<br>";
+        echo "Value is: " . $_COOKIE["UserID"];
+    }
+
+    ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>
