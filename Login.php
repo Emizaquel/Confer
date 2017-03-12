@@ -28,15 +28,9 @@
     <br>
 
     <?php
-    $email = $_POST['email'];
-    $password = $_POST['pass'];
-
-    if($userid){
-      echo $userid
-    }else{
-      echo "details not recognised"
-    }
-
+    echo $_POST['email'];?><br>
+    <?php
+    echo $_POST['pass'];
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
