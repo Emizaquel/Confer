@@ -26,13 +26,6 @@
       <input type = "submit" name = "sub" value = "submit">
       <br>
       <br>
-
-      <?php
-      $email = $_POST['email'];
-      $password = $_POST['pass'];
-      echo $password;
-      ?>
-      <br>
       <?php
       $dbserver = "127.0.0.1:51097";
       $dbuser = "azure";
@@ -45,7 +38,7 @@
         die('Could not connect: ' . mysql_error());
       }
 
-      $sql = "SELECT email FROM userdata WHERE usernumber = 1";
+      $sql = "SELECT usernumber FROM userdata WHERE email = $email AND password = $password";
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
       if(! $retval ) {
