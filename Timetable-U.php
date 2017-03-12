@@ -49,6 +49,8 @@
 
         $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
         $StartDate = $OldDate;
+        echo $OldDate;
+        echo "<br>";
 
         while($row = mysql_fetch_array($retval))
         {
@@ -59,6 +61,7 @@
            $time = date('H:i:s', strtotime($EventDateTime));
 
            echo $date;
+           echo " - ";
            echo $time;
            echo " - ";
            echo $EventName;
