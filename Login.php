@@ -30,10 +30,12 @@
     <?php
     $email = $_POST['email'];
     $password = $_POST['pass'];
-    $usernumber = "SELECT usernumber FROM userdata WHERE email = $_POST['email'] AND password = $_POST['pass']";
-    if($usernumber){
-      echo $usernumber;
-    }
+    echo $password;
+    ?>
+    <br>
+    <?php
+    $SQLTest = "SELECT username FROM userdata WHERE usernumber = 1";
+    echo $SQLTest;
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
