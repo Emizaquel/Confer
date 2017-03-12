@@ -44,13 +44,14 @@
       $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
-      if(! $retval ) {
-        die('Could not get data: ' . mysql_error());
+      if($retval ) {
+        $query = mysql_fetch_row($retval);
+
+        setcookie("UserID", $query, time() + (86400 * 30), "/");
+        header("Location:Home.php");
+      }else{
+        echo "User Details Not Valid";
       }
-
-      $query = mysql_fetch_row($retval);
-
-      echo $query[0];
       ?>
       <br><!-- This is for readability on a computer, don't get rid of it. -->
     </div>
