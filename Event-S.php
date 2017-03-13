@@ -11,7 +11,31 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          <?php
+          $dbserver = "127.0.0.1:51097";
+          $dbuser = "azure";
+          $dbpass = "6#vWHD_$";
+          $dbname = "localdb";
+
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+          if(! $conn ) {
+            die('Could not connect: ' . mysql_error());
+          }
+
+          if(isset($_GET["EventID"])){
+              $EventID = $_GET["EventID"];
+            $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = '" . $EventID . "';");
+
+            $EName = $query[0];
+
+            if($EName){
+              echo $EName;
+            }else{
+              echo "!!Error : name not found!!";
+            }
+          }
+          ?>
         </div>
       </div>
     </div>

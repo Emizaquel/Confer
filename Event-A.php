@@ -25,7 +25,6 @@
 
           if(isset($_GET["EventID"])){
               $EventID = $_GET["EventID"];
-          }else{
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = '" . $EventID . "';");
 
             $EName = $query[0];
