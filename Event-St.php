@@ -26,8 +26,18 @@
           if(isset($_GET["EventID"])){
             $EventID = $_GET["EventID"];
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
+            $retval = mysql_query( $sql, $conn );
+            if($retval) {
+              $query = mysql_fetch_row($retval);
 
-            echo $sql;
+              $EName = $query[0];
+
+              if($EName){
+                echo $EName;
+              }else{
+                echo "!!Error : name not found!!";
+              }
+            }
           }
           ?>
         </div>
