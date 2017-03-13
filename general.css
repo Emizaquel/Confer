@@ -288,6 +288,7 @@ html, body {
   color: black;
   border-width: 10px;
   border-bottom-width: 2px;
+  min-height: 72px;
 }
 
 #EventBottom{
