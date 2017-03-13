@@ -38,49 +38,76 @@
       die('Could not connect: ' . mysql_error());
     }
 
-      $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
-      mysql_select_db("conferdata");
-      $retval = mysql_query( $sql, $conn );
+    $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
+    mysql_select_db("conferdata");
+    $retval = mysql_query( $sql, $conn );
 
-      $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
-      $StartDate = $OldDate;
+    $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
+    $StartDate = $OldDate;
 
-      while($row = mysql_fetch_array($retval))
-      {
-         $EventID = $row['eventnumber'];
-         $EventName = $row['eventname'];
-         $EventDateTime = $row['eventtime'];
-         $date = date('Y-m-d', strtotime($EventDateTime));
-         $time = date('H:i:s', strtotime($EventDateTime));
+    while($row = mysql_fetch_array($retval))
+    {
+       $EventID = $row['eventnumber'];
+       $EventName = $row['eventname'];
+       $EventDateTime = $row['eventtime'];
+       $date = date('Y-m-d', strtotime($EventDateTime));
+       $time = date('H:i:s', strtotime($EventDateTime));
 
-         if($OldDate === $StartDate){
-           $OldDate  = $date;
-           echo "<div id='DateSplitter'>";
-           echo "<div id='DateHeader'>";
-           echo $date;
-           echo "</div>";
-           echo "<div id='EventHolder'>";
-         }else if(!($OldDate === $date)){
-           $OldDate  = $date;
-           echo "<div id='EventBottom'></div>";
-           echo "</div></div><br>";
-           echo "<div id='DateSplitter'>";
-           echo "<div id='DateHeader'>";
-           echo $date;
-           echo "</div><div id='EventHolder'>";
-
-
-         }
-
-         echo "<div id='EventListing'>";
-         echo $time;
-         echo " - ";
-         echo $EventName;
-         echo "<br>";
+       if($OldDate === $StartDate){
+         $OldDate  = $date;
+         echo "<div id='DateSplitter'>";
+         echo "<div id='DateHeader'>";
+         echo $date;
          echo "</div>";
-      }
-      echo "<div id='EventBottom'></div>";
-      echo "</div></div><br>";
+         echo "<div id='EventHolder'>";
+       }else if(!($OldDate === $date)){
+         $OldDate  = $date;
+         echo "<div id='EventBottom'></div>";
+         echo "</div></div><br>";
+         echo "<div id='DateSplitter'>";
+         echo "<div id='DateHeader'>";
+         echo $date;
+         echo "</div><div id='EventHolder'>";
+
+
+       }
+
+       echo "<div id='EventListing'>";
+       echo $time;
+       echo " - ";
+       echo $EventName;
+       echo "<br>";
+       echo "</div>";
+    }
+    echo "<div id='EventBottom'></div>";
+    echo "</div></div><br>";
+
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        if($retval ) {
+          $query = mysql_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+          }else if ($userID == 2){
+            header("Location:Timetable-S.php");
+          }else if ($userID == 3){
+            header("Location:Timetable-St.php");
+          }else if ($userID == 4){
+            header("Location:Timetable-A.php");
+          }else{
+            header("Location:login.php");
+
+          }
+        }
+    }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
