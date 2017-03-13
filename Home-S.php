@@ -18,9 +18,9 @@
 
   <div id="footer">
     <div id="nav-bar">
-      <div id="image-border"><a href="timetable.html"><img src="home.png" height="100%"></a></div>
-      <div id="image-border"><a href="help.html"><img src="help.png" height="100%"></a></div>
-      <div id="image-border"><a href="settings.html"><img src="setting.png" height="100%"></a></div>
+      <div id="image-border"><a href="timetable.php"><img src="home.png" height="100%"></a></div>
+      <div id="image-border"><a href="help.php"><img src="help.png" height="100%"></a></div>
+      <div id="image-border"><a href="settings.php"><img src="setting.png" height="100%"></a></div>
     </div>
   </div>
   <div id="page-body">
