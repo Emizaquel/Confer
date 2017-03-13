@@ -70,27 +70,32 @@
 
     $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
     $query = mysql_fetch_array($retval);
+    mysql_select_db("conferdata");
+    $retval = mysql_query( $sql, $conn );
 
     $EventDateTime = $query['eventtime'];
-    echo $query['location'];
-    echo $query['description'];
+    $LocationSpaces = $query['location'];
+    $Description = $query['description'];
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
+
+    $LocationArray = split(" ", $LocationSpaces);
+    $Location = join("+", $LocationArray);
 
     echo $date;
     echo "<br>";
     echo $time;
     echo "<br>";
     echo "<br>";
-    // echo $Description;
-    // echo "<br>";
-    // echo "<br>";
-    // echo "<a href ='";
-    // echo "test";
-    // echo "'>";
-    // echo $LocationSpaces;
-    // echo "</a>";
+    echo $Description;
+    echo "<br>";
+    echo "<br>";
+    echo "<a href ='";
+    echo $Location;
+    echo "'>";
+    echo $LocationSpaces;
+    echo "</a>";
 
     if(!isset($_COOKIE["UserID"])) {
       header("Location:login.php");
