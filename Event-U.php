@@ -76,6 +76,8 @@
     }
 
     $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
+    mysql_select_db("conferdata");
+    $retval = mysql_query( $sql, $conn );
     $query = mysql_fetch_array($retval);
 
     $EventDateTime = $query['eventtime'];
@@ -96,10 +98,10 @@
     echo $Description;
     echo "<br>";
     echo "<br>";
-    echo "<a href ='";
+    echo "<a href ='https://www.google.co.uk/maps/place/";
     echo $Location;
-    echo "'>"
-    echo $Location;
+    echo "'>";
+    echo $LocationSpaces;
     echo "</a>";
 
 

@@ -23,6 +23,35 @@
             die('Could not connect: ' . mysql_error());
           }
 
+          $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
+          mysql_select_db("conferdata");
+          $retval = mysql_query( $sql, $conn );
+          $query = mysql_fetch_array($retval);
+
+          $EventDateTime = $query['eventtime'];
+          $LocationSpaces = $query['location'];
+          $Description = $query['description'];
+
+          $date = date('Y-m-d', strtotime($EventDateTime));
+          $time = date('H:i:s', strtotime($EventDateTime));
+
+          $LocationArray = split(" ", $LocationSpaces);
+          $Location = join("+", $LocationArray);
+
+          echo $date;
+          echo "<br>";
+          echo $time;
+          echo "<br>";
+          echo "<br>";
+          echo $Description;
+          echo "<br>";
+          echo "<br>";
+          echo "<a href ='https://www.google.co.uk/maps/place/";
+          echo $Location;
+          echo "'>";
+          echo $LocationSpaces;
+          echo "</a>";
+
           if(isset($_GET["EventID"])){
             $EventID = $_GET["EventID"];
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
