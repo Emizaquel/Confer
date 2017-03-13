@@ -35,8 +35,10 @@
       die('Could not connect: ' . mysql_error());
     }
 
-    if(isset($_GET["EventID"])
+    if(isset($_GET["EventID"]))
     {
+        $EventID = $_GET["EventID"];
+        echo $EventID;
     }
     else{
       echo "Return to Login";
