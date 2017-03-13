@@ -25,10 +25,10 @@
 
           if(isset($_GET["EventID"])){
             $EventID = $_GET["EventID"];
-            echo $EventID;
-            // $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
-            // mysql_select_db("conferdata");
-            // $retval = mysql_query( $sql, $conn );
+            $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
+            mysql_select_db("conferdata");
+            $retval = mysql_query( $sql, $conn );
+            echo $retval;
             //
             // if($retval) {
             //   $query = mysql_fetch_row($retval);
