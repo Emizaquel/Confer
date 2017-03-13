@@ -29,9 +29,10 @@
             mysql_select_db("conferdata");
             $retval = mysql_query( $sql, $conn );
             echo $retval;
-            //
-            // if($retval) {
-            //   $query = mysql_fetch_row($retval);
+
+            if($retval) {
+              $query = mysql_fetch_row($retval);
+              echo $query;
             //
             //   $EName = $query[0];
             //
@@ -40,8 +41,8 @@
             //   }else{
             //     echo "User Details Not Valid";
             //   }
-            // }else{
-            // }
+            }else{
+            }
           }
           ?>
         </div>
