@@ -268,8 +268,8 @@ html, body {
   color: black;
   overflow-x: hidden;
   min-height: 72px;
-  padding: 18px;
-  padding-bottom: 10px;
+  padding-top: 18px;
+  padding-bottom: 8px;
   padding-left: 36px;
 }
 
@@ -293,8 +293,8 @@ html, body {
   border-width: 10px;
   border-bottom-width: 2px;
   min-height: 72px;
-  padding: 18px;
-  padding-bottom: 10px;
+  padding-top: 18px;
+  padding-bottom: 8px;
   text-align: center;
 }
 
