@@ -27,13 +27,7 @@
               $EventID = $_GET["EventID"];
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = '" . $EventID . "';");
 
-            $EName = $query[0];
-
-            if($EName){
-              echo $EName;
-            }else{
-              echo "!!Error : name not found!!";
-            }
+            echo $query;
           }
           ?>
         </div>
