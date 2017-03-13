@@ -28,14 +28,15 @@
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
             $retval = mysql_query( $sql, $conn );
             if($retval) {
-              $query = mysql_fetch_row($retval);
-
-              $EName = $query[0];
-
-              if($EName){
-                echo $EName;
-              }else{
-                echo "!!Error : name not found!!";
+              echo $retval;
+              // $query = mysql_fetch_row($retval);
+              //
+              // $EName = $query[0];
+              //
+              // if($EName){
+              //   echo $EName;
+              // }else{
+              //   echo "!!Error : name not found!!";
               }
             }
           }
