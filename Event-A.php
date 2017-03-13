@@ -24,8 +24,10 @@
           }
 
           if(isset($_GET["EventID"])){
-              $EventID = $_GET["EventID"];
+            $EventID = $_GET["EventID"];
+            mysql_select_db("conferdata");
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = '" . $EventID . "';");
+            $retval = mysql_query( $sql, $conn );
 
             $EName = $query[0];
 
