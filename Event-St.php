@@ -71,15 +71,12 @@
     $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
     $query = mysql_fetch_array($retval);
 
-    $EventDateTime = $query[0];
-    $LocationSpaces = $query[1];
-    $Description = $query[2];
+    $EventDateTime = $query['eventtime'];
+    $LocationSpaces = $query['location'];
+    $Description = $query['description'];
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
-
-    $LocationArray = split(" ", $LocationSpaces);
-    $Location = join("+", $LocationArray);
 
     echo $date;
     echo "<br>";
@@ -90,7 +87,7 @@
     echo "<br>";
     echo "<br>";
     echo "<a href ='";
-    echo $Location;
+    echo "test";
     echo "'>";
     echo $LocationSpaces;
     echo "</a>";
