@@ -24,8 +24,8 @@
           }
 
           if(isset($_GET["EventID"])){
-              $EventID = $_GET["EventID"];
-            $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = '" . $EventID . "';");
+            $EventID = $_GET["EventID"];
+            $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
 
             echo $query;
           }
