@@ -91,7 +91,7 @@
     echo $Description;
     echo "<br>";
     echo "<br>";
-    echo "<a href ='";
+    echo "<a href ='https://www.google.co.uk/maps/place/";
     echo $Location;
     echo "'>";
     echo $LocationSpaces;
