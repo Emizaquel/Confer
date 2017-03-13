@@ -292,6 +292,7 @@ html, body {
   border-bottom-width: 2px;
   min-height: 88px;
   padding-top: 45px;
+  text-align: center;
 }
 
 #EventBottom{
