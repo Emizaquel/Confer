@@ -25,16 +25,21 @@
 
           if(isset($_GET["EventID"])){
             $EventID = $_GET["EventID"];
+            $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
             mysql_select_db("conferdata");
-            $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = '" . $EventID . "';");
             $retval = mysql_query( $sql, $conn );
 
-            $EName = $query[0];
+            if($retval) {
+              $query = mysql_fetch_row($retval);
 
-            if($EName){
-              echo $EName;
+              $EName = $query[0];
+
+              if($EName){
+                echo $EName;
+              }else{
+                echo "User Details Not Valid";
+              }
             }else{
-              echo "!!Error : name not found!!";
             }
           }
           ?>

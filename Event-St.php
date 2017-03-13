@@ -68,14 +68,32 @@
       die('Could not connect: ' . mysql_error());
     }
 
-    if(isset($_GET["EventID"]))
-    {
-        $EventID = $_GET["EventID"];
-        echo $EventID;
-    }
-    else{
-      echo "Return to Login";
-    }
+    $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
+    $query = mysql_fetch_array($retval);
+
+    $EventDateTime = $query['eventtime'];
+    $LocationSpaces = $query['location'];
+    $Description = $query['description'];
+
+    $date = date('Y-m-d', strtotime($EventDateTime));
+    $time = date('H:i:s', strtotime($EventDateTime));
+
+    $LocationArray = split(" ", $LocationSpaces);
+    $Location = join("+", $LocationArray);
+
+    echo $date;
+    echo "<br>";
+    echo $time;
+    echo "<br>";
+    echo "<br>";
+    echo $Description;
+    echo "<br>";
+    echo "<br>";
+    echo "<a href ='";
+    echo $Location;
+    echo "'>"
+    echo $Location;
+    echo "</a>";
 
     if(!isset($_COOKIE["UserID"])) {
       header("Location:login.php");
