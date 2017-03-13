@@ -82,6 +82,33 @@
       }
       echo "<div id='EventBottom'></div>";
       echo "</div></div><br>";
+
+      if(!isset($_COOKIE["UserID"])) {
+        header("Location:login.php");
+      } else {
+          $UID = $_COOKIE["UserID"];
+
+          $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+          mysql_select_db("conferdata");
+          $retval = mysql_query( $sql, $conn );
+
+          if($retval ) {
+            $query = mysql_fetch_row($retval);
+            $userID = $query[0];
+
+            if($userID == 1){
+              header("Location:Timetable-U.php");
+            }else if ($userID == 2){
+              header("Location:Timetable-S.php");
+            }else if ($userID == 3){
+              header("Location:Timetable-St.php");
+            }else if ($userID == 4){
+            }else{
+              header("Location:login.php");
+
+            }
+          }
+      }
     ?>
     <br>
     <br> Add "Add event" button here.
