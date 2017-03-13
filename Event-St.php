@@ -27,7 +27,7 @@
             $EventID = $_GET["EventID"];
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
 
-            echo $query;
+            echo $sql;
           }
           ?>
         </div>
