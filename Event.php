@@ -35,32 +35,41 @@
       die('Could not connect: ' . mysql_error());
     }
 
-    if(!isset($_COOKIE["UserID"])) {
-      header("Location:login.php");
-    } else {
-        $UID = $_COOKIE["UserID"];
-
-        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-        mysql_select_db("conferdata");
-        $retval = mysql_query( $sql, $conn );
-
-        if($retval ) {
-          $query = mysql_fetch_row($retval);
-          $userID = $query[0];
-
-          if($userID == 1){
-            header("Location:Event-U.php");
-          }else if ($userID == 2){
-            header("Location:Event-S.php");
-          }else if ($userID == 3){
-            header("Location:Event-St.php");
-          }else if ($userID == 4){
-            header("Location:Event-A.php");
-          }else{
-            header("Location:login.php");
-          }
-        }
+    if(isset($_GET["data"]) && isset($_GET["data2"]))
+    {
+        $EventID = $_GET["EventID"];
+        echo $EventID;
     }
+    else{
+      echo "Return to Login";
+    }
+
+    // if(!isset($_COOKIE["UserID"])) {
+    //   header("Location:login.php");
+    // } else {
+    //     $UID = $_COOKIE["UserID"];
+    //
+    //     $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+    //     mysql_select_db("conferdata");
+    //     $retval = mysql_query( $sql, $conn );
+    //
+    //     if($retval ) {
+    //       $query = mysql_fetch_row($retval);
+    //       $userID = $query[0];
+    //
+    //       if($userID == 1){
+    //         header("Location:Event-U.php");
+    //       }else if ($userID == 2){
+    //         header("Location:Event-S.php");
+    //       }else if ($userID == 3){
+    //         header("Location:Event-St.php");
+    //       }else if ($userID == 4){
+    //         header("Location:Event-A.php");
+    //       }else{
+    //         header("Location:login.php");
+    //       }
+    //     }
+    // }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
