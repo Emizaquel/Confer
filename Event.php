@@ -37,8 +37,6 @@
 
     if(isset($_GET["EventID"])
     {
-        $EventID = $_GET["EventID"];
-        echo $EventID;
     }
     else{
       echo "Return to Login";
