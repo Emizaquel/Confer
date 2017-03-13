@@ -168,13 +168,17 @@ html, body {
   font-family:verdana;
 	top: 10px;
 	left: 20px;
-  bottom: 5%;
+  bottom: 10px;
 	right: 20px;
   padding: 10px;
   padding-top:30%;
   padding-bottom: 13.25%;
   background-color: #2F5496;
   overflow: scroll;
+}
+
+#page-body::-webkit-scrollbar {
+ display: none;
 }
 
 #footer{
@@ -203,10 +207,6 @@ html, body {
   display: -webkit-flex; /* Safari */
   -webkit-justify-content: space-around; /* Safari 6.1+ */
   justify-content: space-around;
-}
-
-#page-body::-webkit-scrollbar {
- display: none;
 }
 
 #DateSplitter{

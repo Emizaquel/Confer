@@ -46,7 +46,7 @@
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
 
-      if($retval ) {
+      if($retval) {
         $query = mysql_fetch_row($retval);
 
         $userID = $query[0];
