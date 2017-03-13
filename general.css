@@ -267,6 +267,8 @@ html, body {
   border-width: 10px;
   color: black;
   overflow-x: hidden;
+  min-height: 72px;
+  padding-top: 18px;
 }
 
 #EventHolder{
@@ -288,7 +290,8 @@ html, body {
   color: black;
   border-width: 10px;
   border-bottom-width: 2px;
-  min-height: 72px;
+  min-height: 88px;
+  padding-top: 45px;
 }
 
 #EventBottom{
