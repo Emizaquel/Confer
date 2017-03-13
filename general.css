@@ -269,6 +269,7 @@ html, body {
   overflow-x: hidden;
   min-height: 72px;
   padding: 18px;
+  padding-left: 36px;
 }
 
 #EventHolder{
