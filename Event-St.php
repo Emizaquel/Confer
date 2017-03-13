@@ -92,7 +92,7 @@
     echo "<a href ='";
     echo $Location;
     echo "'>";
-    echo $Location;
+    echo $LocationSpaces;
     echo "</a>";
 
     if(!isset($_COOKIE["UserID"])) {
