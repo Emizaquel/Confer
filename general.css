@@ -27,12 +27,12 @@ html, body {
 @media (min-width:800px)  {/* tablet, landscape iPad, lo-res laptops ands desktops */
   #wrapper{
     margin:10px;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
     position: relative;
     display: block;
     height: 89vh;//100% view height
-    width: 80vw;// 100% view width
+    width: 90vw;// 100% view width
     overflow-y: hidden;
   }
 
