@@ -72,12 +72,15 @@
 
          }
 
+         echo "<a href = 'Event.php?EventID=";
+         echo $EventID;
+         echo "'>";
          echo "<div id='EventListing'>";
          echo $time;
          echo " - ";
          echo $EventName;
          echo "<br>";
-         echo "</div>";
+         echo "</div></a>";
       }
       echo "<div id='EventBottom'></div>";
       echo "</div></div><br>";
