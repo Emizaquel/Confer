@@ -71,9 +71,9 @@
     $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
     $query = mysql_fetch_array($retval);
 
-    $EventDateTime = $query['eventtime'];
-    $LocationSpaces = $query['location'];
-    $Description = $query['description'];
+    $EventDateTime = $query[0];
+    $LocationSpaces = $query[1];
+    $Description = $query[2];
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
