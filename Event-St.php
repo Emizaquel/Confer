@@ -33,13 +33,12 @@
               $query = mysql_fetch_row($retval);
 
               $EName = $query[0];
-              echo $EName;
-            //
-            //   if($userID){
-            //     echo $EName;
-            //   }else{
-            //     echo "User Details Not Valid";
-            //   }
+
+              if($userID){
+                echo $EName;
+              }else{
+                echo "User Details Not Valid";
+              }
             }else{
             }
           }
