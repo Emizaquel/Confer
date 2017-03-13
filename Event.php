@@ -35,7 +35,7 @@
       die('Could not connect: ' . mysql_error());
     }
 
-    if(isset($_GET["data"]) && isset($_GET["data2"]))
+    if(isset($_GET["EventID"])
     {
         $EventID = $_GET["EventID"];
         echo $EventID;
