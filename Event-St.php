@@ -34,7 +34,7 @@
 
               $EName = $query[0];
 
-              if($userID){
+              if($EName){
                 echo $EName;
               }else{
                 echo "User Details Not Valid";
