@@ -69,9 +69,9 @@
     }
 
     $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
-    $query = mysql_fetch_array($retval);
     mysql_select_db("conferdata");
     $retval = mysql_query( $sql, $conn );
+    $query = mysql_fetch_array($retval);
 
     $EventDateTime = $query['eventtime'];
     $LocationSpaces = $query['location'];
