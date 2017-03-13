@@ -168,7 +168,8 @@ html, body {
   font-family:verdana;
 	top: 10px;
 	left: 20px;
-  bottom: 10px;
+  bottom: 5%;
+  margin-bottom: 2.5%;
 	right: 20px;
   padding: 10px;
   padding-top:30%;
