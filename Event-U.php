@@ -47,24 +47,30 @@
       echo "Return to Login";
     }
 
-    $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-    mysql_select_db("conferdata");
-    $retval = mysql_query( $sql, $conn );
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
 
-    if($retval ) {
-      $query = mysql_fetch_row($retval);
-      $userID = $query[0];
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
 
-      if($userID == 1){
-      }else if ($userID == 2){
-        header("Location:Event-S.php?EventID={$EventID}");
-      }else if ($userID == 3){
-        header("Location:Event-St.php?EventID={$EventID}");
-      }else if ($userID == 4){
-        header("Location:Event-A.php?EventID={$EventID}");
-      }else{
-        header("Location:login.php");
-      }
+        if($retval ) {
+          $query = mysql_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+          }else if ($userID == 2){
+            header("Location:Event-S.php?EventID={$EventID}");
+          }else if ($userID == 3){
+            header("Location:Event-St.php?EventID={$EventID}");
+          }else if ($userID == 4){
+            header("Location:Event-A.php?EventID={$EventID}");
+          }else{
+            header("Location:login.php");
+          }
+        }
     }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
