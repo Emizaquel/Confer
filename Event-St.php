@@ -32,9 +32,9 @@
 
             if($retval) {
               $query = mysql_fetch_row($retval);
-              echo $query;
-            //
-            //   $EName = $query[0];
+
+              $EName = $query[0];
+              echo $EName;
             //
             //   if($userID){
             //     echo $EName;
