@@ -72,8 +72,8 @@
     $query = mysql_fetch_array($retval);
 
     $EventDateTime = $query['eventtime'];
-    $LocationSpaces = $query['location'];
-    $Description = $query['description'];
+    echo $query['location'];
+    echo $query['description'];
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
@@ -83,14 +83,14 @@
     echo $time;
     echo "<br>";
     echo "<br>";
-    echo $Description;
-    echo "<br>";
-    echo "<br>";
-    echo "<a href ='";
-    echo "test";
-    echo "'>";
-    echo $LocationSpaces;
-    echo "</a>";
+    // echo $Description;
+    // echo "<br>";
+    // echo "<br>";
+    // echo "<a href ='";
+    // echo "test";
+    // echo "'>";
+    // echo $LocationSpaces;
+    // echo "</a>";
 
     if(!isset($_COOKIE["UserID"])) {
       header("Location:login.php");
