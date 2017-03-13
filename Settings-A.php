@@ -25,9 +25,8 @@
     </div>
   </div>
   <div id="page-body">
-    <span id="UserDetails"><?php
-    $email = $_POST['email'];
-    $password = $_POST['pass'];
+    <span id="UserDetails">
+      <?php
     $dbserver = "127.0.0.1:51097";
     $dbuser = "azure";
     $dbpass = "6#vWHD_$";

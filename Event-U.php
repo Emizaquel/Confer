@@ -11,7 +11,32 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          <?php
+          $dbserver = "127.0.0.1:51097";
+          $dbuser = "azure";
+          $dbpass = "6#vWHD_$";
+          $dbname = "localdb";
+
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+          if(! $conn ) {
+            die('Could not connect: ' . mysql_error());
+          }
+
+          if(isset($_GET["EventID"])){
+              $EventID = $_GET["EventID"];
+          }else{
+            $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = '" . $EventID . "';");
+
+            $EName = $query[0];
+
+            if($EName){
+              echo $EName;
+            }else{
+              echo "!!Error : name not found!!";
+            }
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -25,8 +50,6 @@
   </div>
   <div id="page-body">
     <?php
-    $email = $_POST['email'];
-    $password = $_POST['pass'];
     $dbserver = "127.0.0.1:51097";
     $dbuser = "azure";
     $dbpass = "6#vWHD_$";
@@ -41,11 +64,14 @@
     if(isset($_GET["EventID"]))
     {
         $EventID = $_GET["EventID"];
-        echo $EventID;
     }
     else{
-      echo "Return to Login";
+      header("Location:Timetable.php");
     }
+
+    $sql = ("SELECT  FROM eventdata WHERE eventnumber = '" . $EventID . "';");
+
+
 
     if(!isset($_COOKIE["UserID"])) {
       header("Location:login.php");
