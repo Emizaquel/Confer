@@ -110,6 +110,29 @@ html, body {
     border-width: 10px;
     overflow: hidden;
   }
+
+  #title-content{
+    z-index: 6;
+    padding:5px;
+    position:absolute;
+    display: block;
+    background-color: #1F4E79;
+  	top: 0;
+  	left: -10.25;
+  	bottom: 0;
+  	right: 0;
+    border-radius: 0 15px 15px 0;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-color: grey;
+    border-width: 10px;
+    font-size: 12.5vw;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-family:verdana;
+  }
 }
 @media (min-width:1281px) {/* hi-res laptops and desktops */
   #wrapper{
