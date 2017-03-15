@@ -23,8 +23,8 @@
   <div id="page-body">
     <form method="POST" action="">
       <input type="text" placeholder="Enter Email" name="email" style="height: 40px;width: 80%;font-size: 35px;"><br>
-      <input type="password" placeholder="Enter Password" name="pass"><br>
-      <input type = "submit" name = "sub" value = "submit">
+      <input type="password" placeholder="Enter Password" name="pass" style="height: 40px;width: 80%;font-size: 35px;"><br>
+      <input type = "submit" name = "sub" value = "Login" style="height: 40px;width: 80%;font-size: 35px;">
       <br>
       <br>
 
@@ -55,9 +55,10 @@
           setcookie("UserID", $userID, time() + (86400 * 30), "/");
           header("Location:Home.php");
         }else{
-          echo "User Details Not Valid";
+          echo "User Details Not Valid in";
         }
       }else{
+        echo "User Details Not Valid out";
       }
       ?>
       <br><!-- This is for readability on a computer, don't get rid of it. -->
