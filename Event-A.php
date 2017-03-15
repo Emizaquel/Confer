@@ -75,7 +75,7 @@
       header("Location:Timetable.php");
     }
 
-    $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
+    $sql = ("SELECT eventtime,location,description,speaker FROM eventdata WHERE eventnumber = " . $EventID . ";");
     mysql_select_db("conferdata");
     $retval = mysql_query( $sql, $conn );
     $query = mysql_fetch_array($retval);
@@ -83,6 +83,7 @@
     $EventDateTime = $query['eventtime'];
     $LocationSpaces = $query['location'];
     $Description = $query['description'];
+    $SID = $query['speaker'];
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
@@ -90,9 +91,19 @@
     $LocationArray = split(" ", $LocationSpaces);
     $Location = join("+", $LocationArray);
 
+    $sql = ("SELECT name FROM userdtata WHERE usernumber = " . $SID . ";");
+    mysql_select_db("conferdata");
+    $retval = mysql_query( $sql, $conn );
+    $query = mysql_fetch_array($retval);
+
+    $Presenter = $query[0];
+
     echo $date;
     echo "<br>";
     echo $time;
+    echo "<br>";
+    echo "<br>";
+    echo $Presenter;
     echo "<br>";
     echo "<br>";
     echo $Description;
