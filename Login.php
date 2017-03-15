@@ -25,7 +25,7 @@
       <form method="POST" action="">
         <input type="text" placeholder="Enter Email" name="email" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
         <input type="password" placeholder="Enter Password" name="pass" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
-        <input type = "submit" name = "sub" value = "Login" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;" onclick='document.getElementById(&#34;login_text&#34;).style.display=''">
+        <input type = "submit" name = "sub" value = "Login" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
         <br>
         <br>
 
@@ -56,7 +56,7 @@
             setcookie("UserID", $userID, time() + (86400 * 30), "/");
             header("Location:Home.php");
           }else{
-            echo "<div id='login_text'>User Details Not Valid</div>";
+            echo "<div id='login_text' style='display:none'>User Details Not Valid</div>";
           }
         }else{
         }
