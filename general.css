@@ -353,27 +353,9 @@ html, body {
 }
 
 #customButton1{
-  /*height: 45px;
+  height: 45px;
   width: 100%;
   font-size: 35px;
   margin: 5px;
-  border-radius: 0;*/
-
-
-  display: block;
-  background-color: white;
-  width: 100%;
-  font-size: 35px;
-  border-color: grey;
-  overflow-x: hidden;
-  border-style: solid;
-  border-color: grey;
-  color: black;
-  border-width: 10px;
-  height: 45px;
-  padding-top: 24px;
-  padding-bottom: 8px;
-  text-align: center;
-  text-decoration: none;
-  -webkit-appearance: none;
+  border-radius: 0;
 }
