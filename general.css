@@ -335,3 +335,7 @@ html, body {
   color: black;
   border-width: 10px;
 }
+
+#login_text{
+  display: none;
+}

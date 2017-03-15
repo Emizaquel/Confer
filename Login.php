@@ -21,46 +21,48 @@
     </div>
   </div>
   <div id="page-body">
-    <form method="POST" action="">
-      <input type="text" placeholder="Enter Email" name="email" style="height: 40px;width: 80%;font-size: 35px;margin: 5px;vertical-align: middle;"><br>
-      <input type="password" placeholder="Enter Password" name="pass" style="height: 40px;width: 80%;font-size: 35px;margin: 5px;vertical-align: middle;"><br>
-      <input type = "submit" name = "sub" value = "Login" style="height: 40px;width: 80%;font-size: 35px;margin: 5px;vertical-align: middle;">
-      <br>
-      <br>
+    <div style = "display:block;vertical-align:middle;">
+      <form method="POST" action="">
+        <input type="text" placeholder="Enter Email" name="email" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
+        <input type="password" placeholder="Enter Password" name="pass" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
+        <input type = "submit" name = "sub" value = "Login" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text').style.display=''">
+        <br>
+        <br>
 
-      <?php
-      $email = $_POST['email'];
-      $password = $_POST['pass'];
-      $dbserver = "127.0.0.1:51097";
-      $dbuser = "azure";
-      $dbpass = "6#vWHD_$";
-      $dbname = "localdb";
+        <?php
+        $email = $_POST['email'];
+        $password = $_POST['pass'];
+        $dbserver = "127.0.0.1:51097";
+        $dbuser = "azure";
+        $dbpass = "6#vWHD_$";
+        $dbname = "localdb";
 
-      $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
-      if(! $conn ) {
-        die('Could not connect: ' . mysql_error());
-      }
-
-      $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
-      mysql_select_db("conferdata");
-      $retval = mysql_query( $sql, $conn );
-
-      if($retval) {
-        $query = mysql_fetch_row($retval);
-
-        $userID = $query[0];
-
-        if($userID){
-          setcookie("UserID", $userID, time() + (86400 * 30), "/");
-          header("Location:Home.php");
-        }else{
-          echo "User Details Not Valid in";
+        if(! $conn ) {
+          die('Could not connect: ' . mysql_error());
         }
-      }else{
-        echo "User Details Not Valid out";
-      }
-      ?>
-      <br><!-- This is for readability on a computer, don't get rid of it. -->
+
+        $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        if($retval) {
+          $query = mysql_fetch_row($retval);
+
+          $userID = $query[0];
+
+          if($userID){
+            setcookie("UserID", $userID, time() + (86400 * 30), "/");
+            header("Location:Home.php");
+          }else{
+            echo "<div id='login_text'>User Details Not Valid</div>";
+          }
+        }else{
+        }
+        ?>
+      </form>
     </div>
+    <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
+</div>
