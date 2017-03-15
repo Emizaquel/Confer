@@ -23,9 +23,9 @@
   <div id="page-body">
     <div style = "display:block;vertical-align:middle; margin:10%;">
       <form method="POST" action="">
-        <input type="text" placeholder="Enter Email" name="email" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
-        <input type="password" placeholder="Enter Password" name="pass" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
-        <input type = "submit" name = "sub" value = "Login" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;" onclick='document.getElementById(&#34;login_text&#34;).style.display=''">
+        <input type="text" placeholder="Enter Email" name="email" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
+        <input type="password" placeholder="Enter Password" name="pass" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
+        <input type = "submit" name = "sub" value = "Login" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;" onclick='document.getElementById(&#34;login_text&#34;).style.display=''">
         <br>
         <br>
 
