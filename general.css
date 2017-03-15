@@ -322,26 +322,6 @@ html, body {
   text-decoration: none;
 }
 
-#FancyLink{
-  display: block;
-  background-color: white;
-  border-color: grey;
-  overflow-x: hidden;
-  border-right-style: solid;
-  border-left-style: solid;
-  border-bottom-style: solid;
-  border-top-style: hidden;
-  border-color: grey;
-  color: black;
-  border-width: 10px;
-  border-bottom-width: 2px;
-  min-height: 72px;
-  padding-top: 24px;
-  padding-bottom: 8px;
-  text-align: center;
-  text-decoration: none;
-}
-
 #EventBottom{
   display: block;
   border-color: grey;

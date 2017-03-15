@@ -73,7 +73,23 @@
       <br>Insert Edit Details Button.
       <br>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">[EDIT USER DATA]</a>
-      <br><a id="FancyLink" href="logout.php">logout</a>
+      <br><a style="display: block;
+      background-color: white;
+      border-color: grey;
+      overflow-x: hidden;
+      border-right-style: solid;
+      border-left-style: solid;
+      border-bottom-style: solid;
+      border-top-style: hidden;
+      border-color: grey;
+      color: black;
+      border-width: 10px;
+      border-bottom-width: 2px;
+      min-height: 72px;
+      padding-top: 24px;
+      padding-bottom: 8px;
+      text-align: center;
+      text-decoration: none;" href="logout.php">logout</a>
     </span>
     <span id="EditDetails" style="display: none">
     Insert Image upload link here
