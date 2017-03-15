@@ -73,14 +73,7 @@
       <br>Insert Edit Details Button.
       <br>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">[EDIT USER DATA]</a>
-      <form method="POST" action="">
-        <input type = "submit" name = "logout" value = "Logout" id="customButton1">
-        <?php
-          if( isset($_POST["logout"]) ){
-            header("logout.php");
-          }
-        ?>
-      </form>
+      <br><a id="cookieclear" href="logout.php"><button type="button">logout</button></a>
     </span>
     <span id="EditDetails" style="display: none">
     Insert Image upload link here
