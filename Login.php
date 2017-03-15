@@ -21,7 +21,7 @@
     </div>
   </div>
   <div id="page-body">
-    <div style = "display:block;vertical-align:middle; margin:10%;padding-top:35%;">
+    <div style = "display:block;vertical-align:middle; margin:10%;padding-top:30%;">
       <form method="POST" action="">
         <input type="text" placeholder="Enter Email" name="email" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
         <input type="password" placeholder="Enter Password" name="pass" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
@@ -58,9 +58,11 @@
           }else{
           }
         }else{
-          echo "User Details Not Valid";
         }
         ?>
+        if( isset($_POST["btnSubmit"]) ){
+           $result= '<p>Thanks!</p>';
+        }
       </form>
     </div>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
