@@ -77,9 +77,8 @@
       <br>Insert Edit Details Button.
       <br>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">[EDIT USER DATA]</a>
-      <br><a id="cookieclear" href="logout.php">logout</a>
       <form method="POST" action="">
-        <input type = "submit" name = "logout" value = "Logout" id="customButton1" onclick="document.getElementById('login_text'.style.display=''">
+        <input type = "submit" name = "logout" value = "Logout" id="customButton1">
       </form>
     </span>
     <span id="EditDetails" style="display: none">
