@@ -55,13 +55,13 @@
               $userID = $query[0];
 
               if($userID == 1){
-                header("Location:Settings-U.php");
+                header("Location:Home-U.php");
               }else if ($userID == 2){
-                header("Location:Settings-S.php");
+                header("Location:Home-S.php");
               }else if ($userID == 3){
-                header("Location:Settings-St.php");
+                header("Location:Home-St.php");
               }else if ($userID == 4){
-                header("Location:Settings-A.php");
+                header("Location:Home-A.php");
               }else{
               }
             }
