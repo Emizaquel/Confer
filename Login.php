@@ -56,12 +56,12 @@
             setcookie("UserID", $userID, time() + (86400 * 30), "/");
             header("Location:Home.php");
           }else{
-            echo "<div id='login_text' style='display:none'>User Details Not Valid</div>";
           }
         }else{
         }
         ?>
       </form>
+      <div id='login_text' style='display:none'>User Details Not Valid</div>
     </div>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
