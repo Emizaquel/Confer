@@ -336,6 +336,23 @@ html, body {
   border-width: 10px;
 }
 
+#cookieclear{
+  display: block;
+  background-color: white;
+  border-color: grey;
+  overflow-x: hidden;
+  border-style: solid;
+  border-color: grey;
+  color: black;
+  border-width: 10px;
+  height: 45
+  px;
+  padding-top: 24px;
+  padding-bottom: 8px;
+  text-align: center;
+  text-decoration: none;
+}
+
 #customButton1{
   height: 45px;
   width: 100%;
