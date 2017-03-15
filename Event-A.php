@@ -95,7 +95,6 @@
     mysql_select_db("conferdata");
     $retval = mysql_query( $sql, $conn );
     $query = mysql_fetch_array($retval);
-    echo $query;
 
     $Presenter = $query[0];
 
