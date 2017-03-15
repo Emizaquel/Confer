@@ -22,9 +22,9 @@
   </div>
   <div id="page-body">
     <form method="POST" action="">
-      <input type="text" placeholder="Enter Email" name="email" style="height: 40px;width: 80%;font-size: 35px;"><br>
-      <input type="password" placeholder="Enter Password" name="pass" style="height: 40px;width: 80%;font-size: 35px;"><br>
-      <input type = "submit" name = "sub" value = "Login" style="height: 40px;width: 80%;font-size: 35px;">
+      <input type="text" placeholder="Enter Email" name="email" style="height: 40px;width: 80%;font-size: 35px;margin: 5px;vertical-align: middle;"><br>
+      <input type="password" placeholder="Enter Password" name="pass" style="height: 40px;width: 80%;font-size: 35px;margin: 5px;vertical-align: middle;"><br>
+      <input type = "submit" name = "sub" value = "Login" style="height: 40px;width: 80%;font-size: 35px;margin: 5px;vertical-align: middle;">
       <br>
       <br>
 
