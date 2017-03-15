@@ -82,8 +82,8 @@
             if($userID){
               setcookie("UserID", $userID, time() + (86400 * 30), "/");
               header("Location:Home.php");
-                 echo 'Is this working';
             }else{
+              echo "Login Credentials Invalid";
             }
           }else{
           }
