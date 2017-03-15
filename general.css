@@ -335,3 +335,9 @@ html, body {
   color: black;
   border-width: 10px;
 }
+
+#linkbutton{
+  display: block;
+  height: 45px;
+  width: 100%;
+}
