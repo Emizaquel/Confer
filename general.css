@@ -357,4 +357,5 @@ html, body {
   width: 100%;
   font-size: 35px;
   margin: 5px;
+  -webkit-appearance: none;
 }
