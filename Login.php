@@ -25,7 +25,7 @@
       <form method="POST" action="">
         <input type="text" placeholder="Enter Email" name="email" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
         <input type="password" placeholder="Enter Password" name="pass" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
-        <input type = "submit" name = "sub" value = "Login" id="customButton1">
+        <input type = "submit" name = "sub" value = "Login" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
         <br>
         <br>
 
@@ -44,7 +44,7 @@
         }
 
         if(!isset($_COOKIE["UserID"])) {
-        } else {
+        }else{
             $UID = $_COOKIE["UserID"];
 
             $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
@@ -56,13 +56,13 @@
               $userID = $query[0];
 
               if($userID == 1){
-                header("Location:Home-U.php");
+                header("Location:Settings-U.php");
               }else if ($userID == 2){
-                header("Location:Home-S.php");
+                header("Location:Settings-S.php");
               }else if ($userID == 3){
-                header("Location:Home-St.php");
+                header("Location:Settings-St.php");
               }else if ($userID == 4){
-                header("Location:Home-A.php");
+                header("Location:Settings-A.php");
               }else{
 
               }
@@ -70,6 +70,8 @@
         }
 
         if( isset($_POST["sub"]) ){
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
           $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
           mysql_select_db("conferdata");
           $retval = mysql_query( $sql, $conn );
@@ -83,7 +85,7 @@
               setcookie("UserID", $userID, time() + (86400 * 30), "/");
               header("Location:Home.php");
             }else{
-              echo "Login Credentials Invalid";
+               echo 'User details not valid';
             }
           }else{
           }

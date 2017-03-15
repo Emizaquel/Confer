@@ -75,7 +75,7 @@
       header("Location:Timetable.php");
     }
 
-    $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
+    $sql = ("SELECT eventtime,location,description,speaker FROM eventdata WHERE eventnumber = " . $EventID . ";");
     mysql_select_db("conferdata");
     $retval = mysql_query( $sql, $conn );
     $query = mysql_fetch_array($retval);
@@ -83,6 +83,14 @@
     $EventDateTime = $query['eventtime'];
     $LocationSpaces = $query['location'];
     $Description = $query['description'];
+    $SpeakerID = $query['speaker'];
+
+    $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SpeakerID . ";");
+    mysql_select_db("conferdata");
+    $retval = mysql_query( $sql, $conn );
+    $query = mysql_fetch_array($retval);
+
+    $Speaker = $query[0];
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
@@ -93,11 +101,11 @@
     echo $date;
     echo "<br>";
     echo $time;
-    echo "<br>";
-    echo "<br>";
+    echo "<br><br>"
+    echo $Speaker;
+    echo "<br><br>"
     echo $Description;
-    echo "<br>";
-    echo "<br>";
+    echo "<br><br>"
     echo "<a href ='https://www.google.co.uk/maps/place/";
     echo $Location;
     echo "'>";
