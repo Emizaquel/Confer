@@ -37,36 +37,14 @@
         $dbpass = "6#vWHD_$";
         $dbname = "localdb";
 
-
-
-        if( isset($_POST["sub"]) ){
-          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
-
-          if(! $conn ) {
-            die('Could not connect: ' . mysql_error());
-          }
-
-          $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
-
-          if($retval) {
-            $query = mysql_fetch_row($retval);
-
-            $userID = $query[0];
-
-            if($userID){
-              setcookie("UserID", $userID, time() + (86400 * 30), "/");
-              header("Location:Home.php");
-            }else{
-               echo 'User details not valid';
-            }
-          }else{
-          }
-        }
-
         if(isset($_COOKIE["UserID"])){
             $UID = $_COOKIE["UserID"];
+
+            $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+            if(! $conn ) {
+              die('Could not connect: ' . mysql_error());
+            }
 
             $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
             mysql_select_db("conferdata");
@@ -87,6 +65,26 @@
               }else{
               }
             }
+        }
+
+        if( isset($_POST["sub"]) ){
+          $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
+          mysql_select_db("conferdata");
+          $retval = mysql_query( $sql, $conn );
+
+          if($retval) {
+            $query = mysql_fetch_row($retval);
+
+            $userID = $query[0];
+
+            if($userID){
+              setcookie("UserID", $userID, time() + (86400 * 30), "/");
+              header("Location:Home.php");
+            }else{
+               echo 'User details not valid';
+            }
+          }else{
+          }
         }
         ?>
       </form>
