@@ -64,11 +64,7 @@
                 header("Location:Home-A.php");
               }else{
               }
-            }
-        }
-
-        if( isset($_POST["sub"]) ){
-          $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
+            }cookieata WHERE email = '" . $email . "' AND password = '" . $password . "';");
           mysql_select_db("conferdata");
           $retval = mysql_query( $sql, $conn );
 

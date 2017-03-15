@@ -314,7 +314,6 @@ html, body {
   border-color: grey;
   color: black;
   border-width: 10px;
-  border-width: 10px;
   border-bottom-width: 2px;
   min-height: 72px;
   padding-top: 24px;
@@ -335,14 +334,4 @@ html, body {
   border-color: grey;
   color: black;
   border-width: 10px;
-}
-
-#linkbutton{
-  display: block;
-  height: 45px;
-  width: 100%;
-  border-style: solid;
-  border-color: grey;
-  border-width: 10px;
-  background-color: white;
 }
