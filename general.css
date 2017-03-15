@@ -335,3 +335,14 @@ html, body {
   color: black;
   border-width: 10px;
 }
+
+#LinkButton{
+  display: block;
+  border-color: grey;
+  border-color: grey;
+  background-color: white;
+  border-style: solid;
+  border-radius: 15px;
+  color: black;
+  border-width: 10px;
+}
