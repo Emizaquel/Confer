@@ -21,7 +21,7 @@
     </div>
   </div>
   <div id="page-body">
-    <div style = "display:block;vertical-align:middle; margin:10%;">
+    <div style = "display:block;vertical-align:middle; margin:10%;margin-top:30%;">
       <form method="POST" action="">
         <input type="text" placeholder="Enter Email" name="email" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
         <input type="password" placeholder="Enter Password" name="pass" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
