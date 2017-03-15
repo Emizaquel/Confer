@@ -341,10 +341,7 @@ html, body {
   background-color: white;
   border-color: grey;
   overflow-x: hidden;
-  border-right-style: solid;
-  border-left-style: solid;
-  border-bottom-style: solid;
-  border-top-style: hidden;
+  border-style: solid;
   border-color: grey;
   color: black;
   border-width: 10px;
