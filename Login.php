@@ -37,6 +37,12 @@
         $dbpass = "6#vWHD_$";
         $dbname = "localdb";
 
+        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+        if(! $conn ) {
+          die('Could not connect: ' . mysql_error());
+        }
+
         if( isset($_POST["sub"]) ){
           $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
           mysql_select_db("conferdata");
