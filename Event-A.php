@@ -91,7 +91,7 @@
     $LocationArray = split(" ", $LocationSpaces);
     $Location = join("+", $LocationArray);
 
-    $sql = ("SELECT name FROM userdtata WHERE usernumber = " . $SID . ";");
+    $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SID . ";");
     mysql_select_db("conferdata");
     $retval = mysql_query( $sql, $conn );
     $query = mysql_fetch_array($retval);
