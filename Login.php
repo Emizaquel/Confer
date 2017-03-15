@@ -58,10 +58,10 @@
           }else{
           }
         }else{
+          echo "User Details Not Valid";
         }
         ?>
       </form>
-      <div id='login_text' style='display:none'>User Details Not Valid</div>
     </div>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
