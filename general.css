@@ -375,4 +375,5 @@ html, body {
   padding-bottom: 8px;
   text-align: center;
   text-decoration: none;
+  -webkit-appearance: none;
 }
