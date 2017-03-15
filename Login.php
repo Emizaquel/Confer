@@ -66,7 +66,6 @@
         }
 
         if(!isset($_COOKIE["UserID"])) {
-          header("Location:login.php");
         } else {
             $UID = $_COOKIE["UserID"];
 
@@ -87,7 +86,6 @@
               }else if ($userID == 4){
                 header("Location:Settings-A.php");
               }else{
-                header("Location:login.php");
 
               }
             }
