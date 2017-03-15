@@ -65,8 +65,7 @@
           }
         }
 
-        if(!isset($_COOKIE["UserID"])) {
-        } else {
+        if(isset($_COOKIE["UserID"])){
             $UID = $_COOKIE["UserID"];
 
             $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
@@ -86,7 +85,6 @@
               }else if ($userID == 4){
                 header("Location:Settings-A.php");
               }else{
-
               }
             }
         }
