@@ -64,10 +64,6 @@
           }
         }
     }
-
-    if( isset($_POST["logout"]) ){
-      header("logout.php");
-    }
     ?>
       Insert Image here
       <br>
@@ -79,6 +75,11 @@
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">[EDIT USER DATA]</a>
       <form method="POST" action="">
         <input type = "submit" name = "logout" value = "Logout" id="customButton1">
+        <?php
+          if( isset($_POST["logout"]) ){
+            header("logout.php");
+          }
+        ?>
       </form>
     </span>
     <span id="EditDetails" style="display: none">
