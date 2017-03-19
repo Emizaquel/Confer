@@ -137,7 +137,7 @@
          echo "<a id='EventListing' href = 'User.php?UserID={$UserID}'>{$UserName}<br></a>";
       }
       echo "<div id='EventBottom'></div>";
-      echo "</div></div><br>";
+      echo "</div></div><br><br><br><br>";
 
       if(!isset($_COOKIE["UserID"])) {
         header("Location:login.php");
@@ -166,6 +166,6 @@
           }
       }
     ?>
-    <br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>
