@@ -80,7 +80,7 @@
     </span>
     <a onclick="document.getElementById('NewEvent').style.display='block'; document.getElementById('NewEventButton').style.display='none';" class="link">
       <span id="NewEventButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
-        New Event
+        New User
       </span>
     </a>
     <br>
