@@ -110,8 +110,7 @@
           }
       }
     ?>
-    <br>
     <br> Add "Add event" button here.
-    <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>
