@@ -337,6 +337,20 @@ html, body {
   border-width: 10px;
 }
 
+#EventTop{
+  display: block;
+  border-color: grey;
+  border-radius: 15px 15px 0px 0px;
+  background-color: white;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: solid;
+  border-top-style: hidden;
+  border-color: grey;
+  color: black;
+  border-width: 10px;
+}
+
 #cookieclear{
   display: block;
   background-color: white;

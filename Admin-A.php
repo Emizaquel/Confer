@@ -127,6 +127,8 @@
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
 
+      echo "<div id='EventTop'></div>";
+
       while($row = mysql_fetch_array($retval))
       {
          $UserID = $row['usernumber'];
@@ -164,6 +166,6 @@
           }
       }
     ?>
-    <br><br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>
