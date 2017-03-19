@@ -332,7 +332,21 @@ html, body {
   border-left-style: hidden;
   border-bottom-style: solid;
   border-top-style: hidden;
-  margin-bottom: 100vw;
+  border-color: grey;
+  color: black;
+  border-width: 10px;
+}
+
+#UserBottom{
+  display: block;
+  border-color: grey;
+  border-radius: 0 0 15px 15px;
+  background-color: white;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: solid;
+  border-top-style: hidden;
+  margin-bottom: 100vh;
   border-color: grey;
   color: black;
   border-width: 10px;
