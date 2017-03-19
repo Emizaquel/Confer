@@ -138,7 +138,7 @@
                $UserID = $row['usernumber'];
                $Name = $row['name'];
 
-               echo " <input type=\"radio\" name=\"speaker\" value=\"";
+               echo " <input type=\"radio\" name=\"speaker\" style=\"width:4em;height:4em;\" value=\"";
                echo $UserID;
                echo "\">";
                echo $Name;
