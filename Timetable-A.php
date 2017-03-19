@@ -55,7 +55,7 @@
 
              echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
              echo $UserID;
-             echo "\">";
+             echo "\">  ";
              echo $Name;
              echo "<br>";
           }
