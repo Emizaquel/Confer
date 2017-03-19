@@ -154,8 +154,11 @@
           $dbuser = "azure";
           $dbpass = "6#vWHD_$";
           $dbname = "localdb";
-          $email = addslashes($_POST['email']);
-          $password = addslashes(_POST['pass']);
+          $eventname = addslashes($_POST['name']);
+          $description = addslashes($_POST['description']);
+          $location = addslashes($_POST['location']);
+          $eventtime = addslashes($_POST['datetime']);
+          $speaker = addslashes($_POST['speaker']);
 
           $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
