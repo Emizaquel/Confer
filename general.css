@@ -360,29 +360,3 @@ html, body {
   margin: 5px;
   border-radius: 0;
 }
-
-#NewEvent{
-  display: block;
-  background-color: white;
-  border-radius: 15px;
-  border-style: solid;
-  border-color: grey;
-  border-width: 10px;
-  color: black;
-  overflow-x: hidden;
-  min-height: 72px;
-  padding: 10px;
-}
-
-#NewEventButton{
-  display: block;
-  background-color: white;
-  border-radius: 15px;
-  border-style: solid;
-  border-color: grey;
-  border-width: 10px;
-  color: black;
-  overflow-x: hidden;
-  min-height: 72px;
-  padding: 10px;
-}
