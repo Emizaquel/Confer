@@ -111,12 +111,12 @@
       }
     ?>
     <span id="NewEvent" style="display: none">
-      <div id='DateHeader'>
         <form method="POST" action="">
           <input type="text" placeholder="Enter Name" name="name" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;"><br>
           <input type="text" placeholder="Enter Description" name="description" style="height: 135px;width: 90%;font-size: 35px;margin: 5px;"><br>
           <input type="text" placeholder="location" name="location" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;"><br>
           <input type="datetime-local" name="datetime" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;"><br>
+          <br>Speaker<br>
           <?php
           $dbserver = "127.0.0.1:51097";
           $dbuser = "azure";
@@ -145,9 +145,8 @@
                echo "<br>";
             }
           ?>
+          <br>
           <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
-          <br>
-          <br>
 
           <?php
           $dbserver = "127.0.0.1:51097";
@@ -189,10 +188,12 @@
           }
           ?>
         </form>
-      </div>
-      <br><a onclick="document.getElementById('NewEvent').style.display='none';" class="link">[Hide]</a>
-    </span>
-    <br><a onclick="document.getElementById('NewEvent').style.display='';" class="link">[New Event]</a>
+      <br><a onclick="document.getElementById('NewEventButton').style.display=''; document.getElementById('NewEvent').style.display='none';" class="link">[Hide]</a>
+      <br>
+      </span>
+      <span id="NewEventButton">
+        <a onclick="document.getElementById('NewEvent').style.display=''; document.getElementById('NewEventButton').style.display='none';" class="link">[New Event]</a>
+      </span>
     <br><br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>
