@@ -137,7 +137,6 @@
          echo "<a id='EventListing' href = 'User.php?UserID={$UserID}'>{$UserName}<br></a>";
       }
       echo "<div id='EventBottom'></div>";
-      echo "</div></div><br><br><br><br>";
 
       if(!isset($_COOKIE["UserID"])) {
         header("Location:login.php");

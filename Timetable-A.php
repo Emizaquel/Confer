@@ -167,7 +167,6 @@
          echo "</a>";
       }
       echo "<div id='EventBottom'></div>";
-      echo "</div></div><br>";
 
       if(!isset($_COOKIE["UserID"])) {
         header("Location:login.php");
