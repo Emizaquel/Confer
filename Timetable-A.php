@@ -110,7 +110,7 @@
           }
       }
     ?>
-    <span id="NewEvent" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-bottom: -10px;display: none;">
+    <span id="NewEvent" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;display: none;">
         <form method="POST" action="">
           <input type="text" placeholder="Enter Name" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
           <textarea name="description" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;">Enter Description here</textarea><br>
