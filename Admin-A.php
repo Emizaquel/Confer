@@ -123,14 +123,14 @@
       die('Could not connect: ' . mysql_error());
     }
 
-      $sql = ("SELECT usernumber,name FROM `userdata` ORDER BY `userdata`.`usernumber` ASC");
+      $sql = ("SELECT usernumber,name FROM `userdata`");
       mysql_select_db("conferdata");
       $retval = mysql_query( $sql, $conn );
 
       while($row = mysql_fetch_array($retval))
       {
-         $UserID = $row['eventnumber'];
-         $UserName = $row['eventname'];
+         $UserID = $row['usernumber'];
+         $UserName = $row['name'];
 
          echo "<a id='EventListing' href = 'User.php?UserID={$UserID}'>{$UserName}<br></a>";
       }
