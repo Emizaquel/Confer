@@ -332,7 +332,7 @@ html, body {
   border-left-style: hidden;
   border-bottom-style: solid;
   border-top-style: hidden;
-  margin-bottom: 100vh;
+  margin-bottom: 100vw;
   border-color: grey;
   color: black;
   border-width: 10px;
