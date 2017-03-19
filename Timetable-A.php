@@ -188,11 +188,10 @@
           }
           ?>
         </form>
-      <br><a onclick="document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';" class="link"><button type="button" id="customButton1">Cancel</button></a>
-      <br>
+      <br><a onclick="document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';" class="link"><button type="button" id="customButton2">Cancel</button></a>
       </span>
-      <span id="NewEventButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;">
-        <a onclick="document.getElementById('NewEvent').style.display='block'; document.getElementById('NewEventButton').style.display='none';" class="link"><button type="button" id="customButton1">New Event</button></a>
+      <span id="NewEventButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
+        <a onclick="document.getElementById('NewEvent').style.display='block'; document.getElementById('NewEventButton').style.display='none';" class="link">New Event</a>
       </span>
     <br><br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
