@@ -110,7 +110,7 @@
           }
       }
     ?>
-    <span id="NewEvent" style="display: none">
+    <span id="NewEvent" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;display: none;">
         <form method="POST" action="">
           <input type="text" placeholder="Enter Name" name="name" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;"><br>
           <input type="text" placeholder="Enter Description" name="description" style="height: 135px;width: 90%;font-size: 35px;margin: 5px;"><br>
@@ -191,7 +191,7 @@
       <br><a onclick="document.getElementById('NewEventButton').style.display=''; document.getElementById('NewEvent').style.display='none';" class="link">[Hide]</a>
       <br>
       </span>
-      <span id="NewEventButton">
+      <span id="NewEventButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;">
         <a onclick="document.getElementById('NewEvent').style.display=''; document.getElementById('NewEventButton').style.display='none';" class="link">[New Event]</a>
       </span>
     <br><br><!-- This is for readability on a computer, don't get rid of it. -->
