@@ -113,10 +113,10 @@
     <span id="NewEvent" style="display: none">
       <div id='DateHeader'>
         <form method="POST" action="">
-          <input type="text" placeholder="Enter Name" name="name" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
-          <input type="text" placeholder="Enter Description" name="description" style="height: 135px;width: 100%;font-size: 35px;margin: 5px;"><br>
-          <input type="text" placeholder="location" name="location" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
-          <input type="datetime-local" name="datetime" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;"><br>
+          <input type="text" placeholder="Enter Name" name="name" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
+          <input type="text" placeholder="Enter Description" name="description" style="height: 135px;width: 80%;font-size: 35px;margin: 5px;"><br>
+          <input type="text" placeholder="location" name="location" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
+          <input type="datetime-local" name="datetime" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
           <?php
           $dbserver = "127.0.0.1:51097";
           $dbuser = "azure";
@@ -145,7 +145,7 @@
                echo "<br>";
             }
           ?>
-          <input type = "submit" name = "sub" value = "Login" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
+          <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
           <br>
           <br>
 
@@ -156,9 +156,9 @@
           $dbname = "localdb";
           $eventname = addslashes($_POST['name']);
           $description = addslashes($_POST['description']);
-          $location = addslashes($_POST['location']);
           $eventtime = addslashes($_POST['datetime']);
-          $speaker = addslashes($_POST['speaker']);
+          $speaker = $_POST['speaker'];
+          $location = addslashes($_POST['location']);
 
           $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -169,7 +169,7 @@
           if( isset($_POST["sub"]) ){
             $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
-            $sql = ("INSERT INTO `eventdata` (`eventnumber`, `eventname`, `description`, `eventtime`, `speaker`, `location`) VALUES (NULL, 'Get Rid Of this, It\'s a temp', 'Temp Desc', '2017-03-19 23:30:59.000000', '3', 'test location');");
+            $sql = ("INSERT INTO `eventdata` (`eventnumber`, `eventname`, `description`, `eventtime`, `speaker`, `location`) VALUES (NULL, \"{$eventname}\", \"{$description}\", \"{$eventtime}\", \"{$speaker}\", \"{$location}\");");
             mysql_select_db("conferdata");
             $retval = mysql_query( $sql, $conn );
 
