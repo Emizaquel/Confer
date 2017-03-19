@@ -113,10 +113,10 @@
     <span id="NewEvent" style="display: none">
       <div id='DateHeader'>
         <form method="POST" action="">
-          <input type="text" placeholder="Enter Name" name="name" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
-          <input type="text" placeholder="Enter Description" name="description" style="height: 135px;width: 80%;font-size: 35px;margin: 5px;"><br>
-          <input type="text" placeholder="location" name="location" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
-          <input type="datetime-local" name="datetime" style="height: 45px;width: 80%;font-size: 35px;margin: 5px;"><br>
+          <input type="text" placeholder="Enter Name" name="name" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;"><br>
+          <input type="text" placeholder="Enter Description" name="description" style="height: 135px;width: 90%;font-size: 35px;margin: 5px;"><br>
+          <input type="text" placeholder="location" name="location" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;"><br>
+          <input type="datetime-local" name="datetime" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;"><br>
           <?php
           $dbserver = "127.0.0.1:51097";
           $dbuser = "azure";
@@ -145,7 +145,7 @@
                echo "<br>";
             }
           ?>
-          <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 100%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
+          <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 90%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
           <br>
           <br>
 
