@@ -110,6 +110,7 @@
         New Event
       </span>
     </a>
+    <br><br>
     <?php
     $dbserver = "127.0.0.1:51097";
     $dbuser = "azure";
