@@ -207,13 +207,13 @@
         }
 
         if( isset($_POST["sub"]) ){
-          $eventname = addslashes($_POST['name']);
-          $description = addslashes($_POST['description']);
-          $eventtime = addslashes($_POST['datetime']);
-          $speaker = addslashes($_POST['speaker']);
-          $location = addslashes($_POST['location']);
+          $EditName = addslashes($_POST['name']);
+          $EditDesc = addslashes($_POST['description']);
+          $EditTime = addslashes($_POST['datetime']);
+          $EditSpeaker = addslashes($_POST['speaker']);
+          $EditLocation = addslashes($_POST['location']);
 
-          echo "UPDATE `eventdata` SET `eventname` = '{$eventname}',`description` = '{$description}',`datetime` = {$eventtime},`speaker` = {$speaker},`location` = '{$location}', WHERE `eventdata`.`eventnumber` = {$EventID};";
+          echo "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`={$EditTime},`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
           // mysql_select_db("conferdata");
           // mysql_query( $sql, $conn );
         }
