@@ -102,7 +102,7 @@
         <input type="password" name="password2" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         Re-enter Password :<br>
         <input type="password" name="password3" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
-        <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''"><br>
+        <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''"><br><br>
         <a onclick="document.getElementById('UserDetails').style.display=''; document.getElementById('EditDetails').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
 
         <?php
