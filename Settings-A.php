@@ -91,11 +91,76 @@
       <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
     </span>
     <span id="EditDetails" style="display: none">
-    Insert Image upload link here
-    <br>
-    <br>Edit Name : (First/Last)
-    <br>Edit Email : (Insert here)
-    <br>
+      <form method="POST" action="">
+        Name :<br>
+        <input type="text" value="<?php echo $username ?>" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        Email :<br>
+        <input type="text"  value="<?php echo $usermail ?>" name="email" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        Current Password :<br>
+        <input type="password" name="password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        New Password (not required) :<br>
+        <input type="password" name="password2" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        Re-enter Password :<br>
+        <input type="password" name="password3" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
+        <a onclick="document.getElementById('EditEventButton').style.display='block'; document.getElementById('EditEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
+
+        <?php
+        $dbserver = "127.0.0.1:51097";
+        $dbuser = "azure";
+        $dbpass = "6#vWHD_$";
+        $dbname = "localdb";
+
+        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+        if(! $conn ) {
+          die('Could not connect: ' . mysql_error());
+        }
+
+        if( isset($_POST["sub"]) ){
+          $email = addslashes($_POST['email']);
+          $password = addslashes($_POST['password']);
+          $EditPass = addslashes($_POST['password2']);
+          $EditPass2 = addslashes($_POST['password3']);
+          $EditName = addslashes($_POST['name']);
+
+          if( isset($_POST["sub"]) ){
+            $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+            $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
+            mysql_select_db("conferdata");
+            $retval = mysql_query( $sql, $conn );
+
+            if($retval) {
+              $query = mysql_fetch_row($retval);
+
+              $userID = $query[0];
+
+              if($userID){
+                if($EditPass == $EditPass2){
+                  if($EditPass == NULL){
+                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$password}\",`name`=\"{$EditName}\" WHERE 1;");
+                    mysql_select_db("conferdata");
+                    mysql_query( $sql, $conn );
+                  }else{
+                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE 1;");
+                    mysql_select_db("conferdata");
+                    mysql_query( $sql, $conn );
+                  }
+                }
+              }else{
+                 echo 'User details not valid';
+              }
+            }else{
+            }
+          }
+
+          $sql = "UPDATE `userdata` SET `email`=\"{$EditEmail}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE `eventdata`.`usernumber` = {$UID};";
+          mysql_select_db("conferdata");
+          mysql_query( $sql, $conn );
+        }
+        ?>
+      </form>
     <br><a onclick="document.getElementById('UserDetails').style.display=''; document.getElementById('EditDetails').style.display='none';" class="link">[SAVE DETAILS]</a>
     </span>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
