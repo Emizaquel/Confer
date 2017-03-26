@@ -101,9 +101,9 @@
         New Password (not required) :<br>
         <input type="password" name="password2" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         Re-enter Password :<br>
-        <input type="password" name="password3" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
-        <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
-        <a onclick="document.getElementById('EditEventButton').style.display='block'; document.getElementById('EditEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
+        <input type="password" name="password3" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
+        <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''"><br>
+        <a onclick="document.getElementById('UserDetails').style.display=''; document.getElementById('EditDetails').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
 
         <?php
         $dbserver = "127.0.0.1:51097";
@@ -161,7 +161,6 @@
         }
         ?>
       </form>
-    <br><a onclick="document.getElementById('UserDetails').style.display=''; document.getElementById('EditDetails').style.display='none';" class="link">[SAVE DETAILS]</a>
     </span>
     <br><br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
