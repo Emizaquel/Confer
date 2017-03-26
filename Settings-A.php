@@ -11,7 +11,28 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          <?php
+          $dbserver = "127.0.0.1:51097";
+          $dbuser = "azure";
+          $dbpass = "6#vWHD_$";
+          $dbname = "localdb";
+
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+          if(! $conn ) {
+            die('Could not connect: ' . mysql_error());
+          }
+
+          $UID = $_COOKIE["UserID"];
+          $sql = ("SELECT name FROM userdata WHERE usernumber = '" . $UID . "';");
+          mysql_select_db("conferdata");
+          $retval = mysql_query( $sql, $conn );
+          $query = mysql_fetch_array($retval);
+
+          $username = $query['name'];
+
+          echo $username;
+          ?>
         </div>
       </div>
     </div>
@@ -26,6 +47,9 @@
   </div>
   <div id="page-body">
     <span id="UserDetails">
+      <object data="/userimages/usrdefault.png">
+        <img src="/userimages/usrimg<?php echo $UID?>.png">
+      </object>
       <?php
       $dbserver = "127.0.0.1:51097";
       $dbuser = "azure";
@@ -73,9 +97,7 @@
       $username = $query['name'];
       $usermail = $query['email'];
 
-      // echo "<object data=\"/userimages/usrdefault.png\">";
-      echo "<img src=\"/userimages/usrdefault.png\">";
-      // echo "</object>";
+
       echo "<br><br>"
 
       echo $username;
