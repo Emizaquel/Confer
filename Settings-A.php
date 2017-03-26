@@ -47,9 +47,7 @@
   </div>
   <div id="page-body">
     <span id="UserDetails">
-      <object data="/userimages/usrdefault.png">
-        <img src="/userimages/usrimg<?php echo $UID?>.png">
-      </object>
+      <img src="/userimages/usrdefault.png">
       <?php
       $dbserver = "127.0.0.1:51097";
       $dbuser = "azure";
