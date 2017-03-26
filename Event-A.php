@@ -148,7 +148,7 @@
     ?>
     <a onclick="document.getElementById('EditEvent').style.display='block'; document.getElementById('EditEventButton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Edit Event</button></a>
     </span>
-    <span id="EditEvent" style="none;">
+    <span id="EditEvent" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;">
       <form method="POST" action="">
         <input type="text" value="<?php echo $EName ?>" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         <textarea name="description" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;"><?php echo $Description ?></textarea><br>
