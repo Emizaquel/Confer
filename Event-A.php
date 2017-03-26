@@ -190,46 +190,6 @@
         ?>
         <br>
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
-
-        <?php
-        $dbserver = "127.0.0.1:51097";
-        $dbuser = "azure";
-        $dbpass = "6#vWHD_$";
-        $dbname = "localdb";
-        $eventname = addslashes($_POST['name']);
-        $description = addslashes($_POST['description']);
-        $eventtime = addslashes($_POST['datetime']);
-        $speaker = $_POST['speaker'];
-        $location = addslashes($_POST['location']);
-
-        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
-
-        if(! $conn ) {
-          die('Could not connect: ' . mysql_error());
-        }
-
-        if( isset($_POST["sub"]) ){
-          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
-
-          $sql = ("UPDATE `eventdata` SET UPDATE `eventdata` SET `eventname` = '{$eventname}', `description` = '{$description}', `eventtime` = '{$eventtime}', `speaker` = '{$speaker}', `location` = '{$location}' WHERE `eventdata`.`eventnumber` = 7;");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
-
-          if($retval) {
-            $query = mysql_fetch_row($retval);
-
-            $userID = $query[0];
-
-            if($userID){
-              setcookie("UserID", $userID, time() + (86400 * 30), "/");
-              header("Location:Home.php");
-            }else{
-               echo 'User details not valid';
-            }
-          }else{
-          }
-        }
-        ?>
         <a onclick="document.getElementById('EditEventButton').style.display='block'; document.getElementById('EditEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
       </form>
     </span>
