@@ -107,7 +107,7 @@
     echo $Presenter;
     echo "<br>";
     echo "<br>";
-    echo $Description;
+    echo nl2br($Description);
     echo "<br>";
     echo "<br>";
     echo "<a href ='https://www.google.co.uk/maps/place/";
@@ -150,8 +150,8 @@
       <form method="POST" action="">
         <input type="text" value="<?php echo $EName ?>" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         <textarea name="description" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;"><?php echo $Description ?></textarea><br>
-        <input type="text"  value="<?php echo $Location ?>" name="location" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
-        <input type="datetime-local" value="<?php echo $EventDateTime ?>" name="datetime" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        <input type="text"  value="<?php echo $LocationSpaces ?>" name="location" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        <input type="datetime-local" value="<?php echo $date; echo "T"; echo $time ?>" step="1" name="datetime" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         <br>Speaker<br>
         <?php
         $dbserver = "127.0.0.1:51097";
