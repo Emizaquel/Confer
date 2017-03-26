@@ -191,6 +191,30 @@
         <br>
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
         <a onclick="document.getElementById('EditEventButton').style.display='block'; document.getElementById('EditEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
+
+        <?php
+        $dbserver = "127.0.0.1:51097";
+        $dbuser = "azure";
+        $dbpass = "6#vWHD_$";
+        $dbname = "localdb";
+
+        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+        if(! $conn ) {
+          die('Could not connect: ' . mysql_error());
+        }
+
+        if( isset($_POST["sub"]) ){
+          $eventname = addslashes($_POST['name']);
+          $description = addslashes($_POST['description']);
+          $eventtime = addslashes($_POST['datetime']);
+          $speaker = addslashes($_POST['speaker']);
+          $location = addslashes($_POST['location']);
+
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+          $sql  = "UPDATE `eventdata` SET `eventname` = '{$eventname}',`description` = '{$description}',`datetime` = {$eventtime},`speaker` = {$speaker},`location` = '{$location}', WHERE `eventdata`.`eventnumber` = {$SID}";
+        }
+        ?>
       </form>
     </span>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
