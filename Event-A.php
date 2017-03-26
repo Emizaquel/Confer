@@ -213,9 +213,9 @@
           $speaker = addslashes($_POST['speaker']);
           $location = addslashes($_POST['location']);
 
-          $sql  = "UPDATE `eventdata` SET `eventname` = '{$eventname}',`description` = '{$description}',`datetime` = {$eventtime},`speaker` = {$speaker},`location` = '{$location}', WHERE `eventdata`.`eventnumber` = {$SID}";
-          mysql_select_db("conferdata");
-          mysql_query( $sql, $conn );
+          echo "UPDATE `eventdata` SET `eventname` = '{$eventname}',`description` = '{$description}',`datetime` = {$eventtime},`speaker` = {$speaker},`location` = '{$location}', WHERE `eventdata`.`eventnumber` = {$SID}";
+          // mysql_select_db("conferdata");
+          // mysql_query( $sql, $conn );
         }
         ?>
       </form>
