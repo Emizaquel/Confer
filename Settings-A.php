@@ -64,6 +64,18 @@
           }
         }
     }
+
+    $sql = ("SELECT name,email FROM userdata WHERE usernumber = '" . $UID . "';");
+    mysql_select_db("conferdata");
+    $retval = mysql_query( $sql, $conn );
+    $query = mysql_fetch_array($retval);
+
+    $username = $query['name'];
+    $usermail = $query['email'];
+
+    echo $username;
+    echo "<br><br>";
+    echo $usermail;
     ?>
       Insert Image here
       <br>
