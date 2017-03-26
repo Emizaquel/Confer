@@ -172,7 +172,7 @@
           while($row = mysql_fetch_array($retval))
           {
              $UserID = $row['usernumber'];
-             if($SID == $UserID){
+             if($SID != $UserID){
                $Name = $row['name'];
 
                echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
