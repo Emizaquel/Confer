@@ -27,62 +27,53 @@
   <div id="page-body">
     <span id="UserDetails">
       <?php
-      $dbserver = "127.0.0.1:51097";
-      $dbuser = "azure";
-      $dbpass = "6#vWHD_$";
-      $dbname = "localdb";
+    $dbserver = "127.0.0.1:51097";
+    $dbuser = "azure";
+    $dbpass = "6#vWHD_$";
+    $dbname = "localdb";
 
-      $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+    $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
-      if(! $conn ) {
-        die('Could not connect: ' . mysql_error());
-      }
+    if(! $conn ) {
+      die('Could not connect: ' . mysql_error());
+    }
 
-      if(!isset($_COOKIE["UserID"])) {
-        header("Location:login.php");
-      } else {
-          $UID = $_COOKIE["UserID"];
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
 
-          $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
 
-          if($retval ) {
-            $query = mysql_fetch_row($retval);
-            $userID = $query[0];
+        if($retval ) {
+          $query = mysql_fetch_row($retval);
+          $userID = $query[0];
 
-            if($userID == 1){
-              header("Location:Settings-U.php?EventID={$EventID}");
-            }else if ($userID == 2){
-              header("Location:Settings-S.php?EventID={$EventID}");
-            }else if ($userID == 3){
-              header("Location:Settings-St.php?EventID={$EventID}");
-            }else if ($userID == 4){
-            }else{
-              header("Location:login.php");
-            }
+          if($userID == 1){
+            header("Location:Settings-U.php");
+          }else if ($userID == 2){
+            header("Location:Settings-S.php");
+          }else if ($userID == 3){
+            header("Location:Settings-St.php");
+          }else if ($userID == 4){
+          }else{
+            header("Location:login.php");
+
           }
-      }
-
-      $sql = ("SELECT name,email FROMuserdata WHERE usernumber = '" . $UID . ";");
-      mysql_select_db("conferdata");
-      $retval = mysql_query( $sql, $conn );
-      $query = mysql_fetch_array($retval);
-
-      $usermail = $query['email'];
-      $username = $query['name'];
-
-      echo "<img src=\"/userimages/Default.png\" />"
-      echo "<br>";
-      echo $username;
-      echo "<br>";
-      echo "<br>";
-      echo $usermail;
-      echo "<br>";
-      ?>
+        }
+    }
+    ?>
+      Insert Image here
+      <br>
+      <br>Name : (First/Last)
+      <br>Email : (Insert here)
+      <br>
+      <br>Insert Edit Details Button.
       <br>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">[EDIT USER DATA]</a>
-      <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
+      <br><ahref="logout.php">logout</a>
     </span>
     <span id="EditDetails" style="display: none">
     Insert Image upload link here
