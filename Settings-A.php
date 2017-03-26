@@ -73,12 +73,16 @@
       $username = $query['name'];
       $usermail = $query['email'];
 
+      echo "<object data=\"/userimages/usrdefault.png\">";
+      echo "<img src=\"/userimages/usrimg{$UID}\">;"
+      echo "</object>";
+      echo "<br><br>";
+
       echo $username;
       echo "<br><br>";
       echo $usermail;
       echo "<br><br>";
       ?>
-      <img src="/userimages/usrdefault.png">
       Insert Image here
       <br>
       <br>Insert Edit Details Button.
