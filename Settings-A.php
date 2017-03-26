@@ -76,7 +76,7 @@
     <span id="UserDetails">
 
       <?php
-      echo "<img src='/userimages/usrdefault.png'>"
+      echo "<img src=\"/userimages/usrdefault.png\">";
       echo "<br><br>";
       echo $username;
       echo "<br><br>";
