@@ -11,7 +11,55 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          Title
+          <?php
+          $dbserver = "127.0.0.1:51097";
+          $dbuser = "azure";
+          $dbpass = "6#vWHD_$";
+          $dbname = "localdb";
+
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+          if(! $conn ) {
+            die('Could not connect: ' . mysql_error());
+          }
+
+          if(!isset($_COOKIE["UserID"])) {
+            header("Location:login.php");
+          } else {
+              $UID = $_COOKIE["UserID"];
+
+              $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+              mysql_select_db("conferdata");
+              $retval = mysql_query( $sql, $conn );
+
+              if($retval ) {
+                $query = mysql_fetch_row($retval);
+                $userID = $query[0];
+
+                if($userID == 1){
+                  header("Location:Settings-U.php");
+                }else if ($userID == 2){
+                  header("Location:Settings-S.php");
+                }else if ($userID == 3){
+                  header("Location:Settings-St.php");
+                }else if ($userID == 4){
+                }else{
+                  header("Location:login.php");
+
+                }
+              }
+          }
+
+          $sql = ("SELECT name,email FROM userdata WHERE usernumber = '" . $UID . "';");
+          mysql_select_db("conferdata");
+          $retval = mysql_query( $sql, $conn );
+          $query = mysql_fetch_array($retval);
+
+          $username = $query['name'];
+          $usermail = $query['email'];
+
+          echo $username;
+          ?>
         </div>
       </div>
     </div>
@@ -26,64 +74,17 @@
   </div>
   <div id="page-body">
     <span id="UserDetails">
+      <img src="/userimages/usrdefault.png">
+
+      <br><br>
+
       <?php
-      $dbserver = "127.0.0.1:51097";
-      $dbuser = "azure";
-      $dbpass = "6#vWHD_$";
-      $dbname = "localdb";
-
-      $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
-
-      if(! $conn ) {
-        die('Could not connect: ' . mysql_error());
-      }
-
-      if(!isset($_COOKIE["UserID"])) {
-        header("Location:login.php");
-      } else {
-          $UID = $_COOKIE["UserID"];
-
-          $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
-
-          if($retval ) {
-            $query = mysql_fetch_row($retval);
-            $userID = $query[0];
-
-            if($userID == 1){
-              header("Location:Settings-U.php");
-            }else if ($userID == 2){
-              header("Location:Settings-S.php");
-            }else if ($userID == 3){
-              header("Location:Settings-St.php");
-            }else if ($userID == 4){
-            }else{
-              header("Location:login.php");
-
-            }
-          }
-      }
-
-      $sql = ("SELECT name,email FROM userdata WHERE usernumber = '" . $UID . "';");
-      mysql_select_db("conferdata");
-      $retval = mysql_query( $sql, $conn );
-      $query = mysql_fetch_array($retval);
-
-      $username = $query['name'];
-      $usermail = $query['email'];
-
       echo $username;
       echo "<br><br>";
       echo $usermail;
       echo "<br><br>";
       ?>
-      <img src="/userimages/usrdefault.png"><br>
-      Insert Image here
-      <br>
-      <br>Insert Edit Details Button.
-      <br>
-      <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">[EDIT USER DATA]</a>
+      <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">Edit Details</a><br><br>
       <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
     </span>
     <span id="EditDetails" style="display: none">
