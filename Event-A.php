@@ -213,9 +213,9 @@
           $EditSpeaker = addslashes($_POST['speaker']);
           $EditLocation = addslashes($_POST['location']);
 
-          echo "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`={$EditTime},`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
-          // mysql_select_db("conferdata");
-          // mysql_query( $sql, $conn );
+          $sql = "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`=\"{$EditTime}\",`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
+          mysql_select_db("conferdata");
+          mysql_query( $sql, $conn );
         }
         ?>
       </form>
