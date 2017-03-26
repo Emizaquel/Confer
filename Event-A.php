@@ -211,7 +211,7 @@
         if( isset($_POST["sub"]) ){
           $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
-          $sql = ("UPDATE `eventdata` SET UPDATE `eventdata` SET `eventname` = '{$eventname}', `description` = '{$description}', `eventtime` = '{$eventtime}', `speaker` = '{$speaker}', `location` = '{$location}' WHERE `eventdata`.`eventnumber` = 7; WHERE `eventdata`.`eventnumber` = 7;");
+          $sql = ("UPDATE `eventdata` SET UPDATE `eventdata` SET `eventname` = '{$eventname}', `description` = '{$description}', `eventtime` = '{$eventtime}', `speaker` = '{$speaker}', `location` = '{$location}' WHERE `eventdata`.`eventnumber` = 7;");
           mysql_select_db("conferdata");
           $retval = mysql_query( $sql, $conn );
 
