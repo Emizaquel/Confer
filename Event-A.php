@@ -115,6 +115,8 @@
     echo "'>";
     echo $LocationSpaces;
     echo "</a>";
+    echo "<br>";
+    echo "<br>";
 
 
 
@@ -211,7 +213,6 @@
           $speaker = addslashes($_POST['speaker']);
           $location = addslashes($_POST['location']);
 
-          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
           $sql  = "UPDATE `eventdata` SET `eventname` = '{$eventname}',`description` = '{$description}',`datetime` = {$eventtime},`speaker` = {$speaker},`location` = '{$location}', WHERE `eventdata`.`eventnumber` = {$SID}";
           mysql_select_db("conferdata");
           mysql_query( $sql, $conn );
