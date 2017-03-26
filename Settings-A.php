@@ -76,11 +76,9 @@
     echo $username;
     echo "<br><br>";
     echo $usermail;
+    echo "<br><br>";
     ?>
       Insert Image here
-      <br>
-      <br>Name : (First/Last)
-      <br>Email : (Insert here)
       <br>
       <br>Insert Edit Details Button.
       <br>
