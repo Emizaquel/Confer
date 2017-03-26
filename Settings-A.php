@@ -73,9 +73,9 @@
     $username = $query['name'];
     $usermail = $query['email'];
 
-    echo "<object data=\"/userimage/usrimg{$UID}.png\" type=\"image/png\">"
+    // echo "<object data=\"/userimage/usrimg{$UID}.png\" type=\"image/png\">"
     echo "<img src="/userimage/Default.png">"
-    echo "</object>"
+    // echo "</object>"
 
     echo $username;
     echo "<br><br>";
