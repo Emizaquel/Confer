@@ -73,7 +73,7 @@
       <br>Insert Edit Details Button.
       <br>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link">[EDIT USER DATA]</a>
-      <br><ahref="logout.php">logout</a>
+      <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
     </span>
     <span id="EditDetails" style="display: none">
     Insert Image upload link here
