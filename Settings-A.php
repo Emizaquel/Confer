@@ -11,28 +11,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content">
-          <?php
-          $dbserver = "127.0.0.1:51097";
-          $dbuser = "azure";
-          $dbpass = "6#vWHD_$";
-          $dbname = "localdb";
-
-          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
-
-          if(! $conn ) {
-            die('Could not connect: ' . mysql_error());
-          }
-
-          $UID = $_COOKIE["UserID"];
-          $sql = ("SELECT name FROM userdata WHERE usernumber = '" . $UID . "';");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
-          $query = mysql_fetch_array($retval);
-
-          $username = $query['name'];
-
-          echo $username;
-          ?>
+          Title
         </div>
       </div>
     </div>
@@ -47,7 +26,6 @@
   </div>
   <div id="page-body">
     <span id="UserDetails">
-      <img src="/userimages/usrdefault.png">
       <?php
       $dbserver = "127.0.0.1:51097";
       $dbuser = "azure";
@@ -95,14 +73,12 @@
       $username = $query['name'];
       $usermail = $query['email'];
 
-
-      echo "<br><br>"
-
       echo $username;
       echo "<br><br>";
       echo $usermail;
       echo "<br><br>";
       ?>
+      <img src="/userimages/usrdefault.png"><br>
       Insert Image here
       <br>
       <br>Insert Edit Details Button.
