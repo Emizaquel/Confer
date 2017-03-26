@@ -139,11 +139,11 @@
               if($userID){
                 if($EditPass == $EditPass2){
                   if($EditPass == NULL){
-                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$password}\",`name`=\"{$EditName}\" WHERE 1;");
+                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
                     mysql_select_db("conferdata");
                     mysql_query( $sql, $conn );
                   }else{
-                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE 1;");
+                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
                     mysql_select_db("conferdata");
                     mysql_query( $sql, $conn );
                   }
