@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="general.css">
 <link rel="icon" type="image/png" href="icon.ico">
 </head>
+<body>
 <div id="wrapper">
   <div id="header">
     <div id="logo-pane">
@@ -166,3 +167,4 @@
   </div>
 </div>
 <script src="scripts.js"></script>
+</body>

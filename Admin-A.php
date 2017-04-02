@@ -3,6 +3,7 @@
 <link rel="icon" type="image/png" href="icon.ico">
 <script src="myScript.js"></script>
 </head>
+<body>
 <div id="wrapper">
   <div id="header">
     <div id="logo-pane">
@@ -142,3 +143,4 @@
     <br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>
+</body>
