@@ -1,6 +1,5 @@
 var autoSizeText;
 autoSizeText = function() {
-  alert("HEY!!!");
   var el, elements, _i, _len, _results;
   elements = $('#title-content');
   console.log(elements);
@@ -25,6 +24,7 @@ autoSizeText = function() {
     })(el));
   }
   return _results;
+  alert("hey!!");
 };
 
 
