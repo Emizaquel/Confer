@@ -1,8 +1,8 @@
 <head>
 <link rel="stylesheet" type="text/css" href="general.css">
 <link rel="icon" type="image/png" href="icon.ico">
+<script src="scripts.js"></script>
 </head>
-<body>
 <div id="wrapper">
   <div id="header">
     <div id="logo-pane">
@@ -166,5 +166,3 @@
     <br><br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
   </div>
 </div>
-<script src="scripts.js"></script>
-</body>
