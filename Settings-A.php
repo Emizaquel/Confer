@@ -91,7 +91,7 @@
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link"><button type="button" id="customButton1">Edit Details</button></a><br>
       <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
 
-      <script>test();</script>
+      <script>autoSizeText();</script>
     </span>
     <span id="EditDetails" style="display: none">
       <form method="POST" action="">
