@@ -2,7 +2,7 @@ var autoSizeText;
 autoSizeText = function() {
   alert("HEY!!!");
   var el, elements, _i, _len, _results;
-  elements = $('.resize');
+  elements = $('#title-content');
   console.log(elements);
   if (elements.length < 0) {
     return;
