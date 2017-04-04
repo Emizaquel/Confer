@@ -1,10 +1,5 @@
 var autoSizeText;
 
-function test(){
-  alert("HEYYY!");
-}
-
-
 autoSizeText = function() {
   var el, elements, i, len, results;
   elements = $('#title-content');
@@ -30,6 +25,10 @@ autoSizeText = function() {
     })(el));
   }
   return results;
+};
+
+function test(){
+  alert("HEYYY!");
 };
 
 $(document).ready(function() {
