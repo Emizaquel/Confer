@@ -10,9 +10,7 @@
       </div>
     </div>
     <div id="title-pane">
-      <div id="title-content">
-        Login
-      </div>
+      <div id="title-content"><div id="content">Login</div></div>
     </div>
   </div>
 

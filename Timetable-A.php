@@ -10,9 +10,7 @@
         </div>
       </div>
       <div id="title-pane">
-        <div id="title-content">
-          Timetable
-        </div>
+        <div id="title-content"><div id="content">Timetable</div></div>
       </div>
     </div>
 

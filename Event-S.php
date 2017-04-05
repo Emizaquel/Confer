@@ -10,8 +10,7 @@
         </div>
       </div>
       <div id="title-pane">
-        <div id="title-content">
-          <?php
+        <div id="title-content"><div id="content"><?php
           $dbserver = "127.0.0.1:51097";
           $dbuser = "azure";
           $dbpass = "6#vWHD_$";
@@ -42,8 +41,7 @@
             }else{
             }
           }
-          ?>
-        </div>
+          ?></div></div>
       </div>
     </div>
 

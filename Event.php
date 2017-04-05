@@ -10,9 +10,7 @@
         </div>
       </div>
       <div id="title-pane">
-        <div id="title-content">
-          Event
-        </div>
+        <div id="title-content"><div id="content">Event</div></div>
       </div>
     </div>
 
