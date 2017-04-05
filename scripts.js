@@ -1,15 +1,15 @@
 autoSizeText() {
   var contentHeight = $('#content').height();
-  var containerHeight = $('#resize').height();
-  var el = document.getElementById('resize');
+  var containerHeight = $('#title-content').height();
+  var el = document.getElementById('title-content');
   var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
   var fontSize = parseFloat(style);
-  var newFont = fontSize - 10;
+  var newFont = fontSize - 1;
   alert(contentHeight);
   while(contentHeight > containerHeight) {
   	el.style.fontSize = (newFont) + 'px';
-    var newFont = newFont - 10;
+    var newFont = newFont - 1;
     var contentHeight = $('#content').height();
-    alert(contentHeight);
   }
+  alert(contentHeight);
 };
