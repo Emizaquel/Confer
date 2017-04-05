@@ -1,27 +1,15 @@
-function autoSizeText() {
-  alert("HEY!!");
-  var el, elements, i, len, results;
-  elements = $('#title-content');
-  console.log(elements);
-  if (elements.length < 0) {
-    return;
+autoSizeText() {
+  var contentHeight = $('#content').height();
+  var containerHeight = $('#resize').height();
+  var el = document.getElementById('resize');
+  var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+  var fontSize = parseFloat(style);
+  var newFont = fontSize - 10;
+  alert(contentHeight);
+  while(contentHeight > containerHeight) {
+  	el.style.fontSize = (newFont) + 'px';
+    var newFont = newFont - 10;
+    var contentHeight = $('#content').height();
+    alert(contentHeight);
   }
-  results = [];
-  for (i = 0, len = elements.length; i < len; i++) {
-    el = elements[i];
-    results.push((function(el) {
-      var resizeText, results1;
-      resizeText = function() {
-        var elNewFontSize;
-        elNewFontSize = (parseInt($(el).css('font-size').slice(0, -2)) - 1) + 'px';
-        return $(el).css('font-size', elNewFontSize);
-      };
-      results1 = [];
-      while (el.scrollHeight > el.offsetHeight) {
-        results1.push(resizeText());
-      }
-      return results1;
-    })(el));
-  }
-  return results;
 };
