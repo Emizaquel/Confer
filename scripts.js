@@ -13,3 +13,7 @@ autoSizeText() {
   }
   alert(contentHeight);
 };
+
+$(document).ready(function() {
+  return autoSizeText();
+});
