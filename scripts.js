@@ -11,7 +11,9 @@ function greetings(){
   var el = document.getElementById('title-content');
   var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
   var fontSize = parseFloat(style);
-  alert(contentHeight);
+  var newFont = fontSize - 1;
+
+  alert(contentHeight + " | " + containerHeight + " | " + newFont);
   alert("testing2");
 }
 
