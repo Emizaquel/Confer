@@ -64,5 +64,6 @@
     <br>
     <br>Praesent pharetra lobortis urna non tincidunt. Fusce arcu libero, vulputate maximus ullamcorper eget, euismod et enim. Nullam bibendum enim neque. Donec maximus est libero, id lacinia eros vehicula vel. Mauris commodo tempus nulla, in volutpat nulla. Vestibulum quis venenatis mi. In risus justo, vulputate nec ultrices ac, pulvinar a lectus. Vestibulum ultrices ex eu mi lacinia dignissim. Aliquam placerat in risus at mattis. Duis et est ut tellus accumsan rhoncus. Nulla consequat turpis et diam suscipit dignissim. Proin sed venenatis lacus, in vehicula velit. Maecenas et lacinia arcu. Donec ac sem augue.
     <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <script>autoSizeText();</script>
   </div>
 </div>

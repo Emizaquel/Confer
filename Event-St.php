@@ -133,5 +133,6 @@
     }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <script>autoSizeText();</script>
   </div>
 </div>
