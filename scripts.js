@@ -1,7 +1,8 @@
 function greetings(){
-  var contentHeight = $('#content').height();
-  var containerHeight = $('#title-content').height();
-  alert("testing");
+  alert("testing1");
+  var el = document.getElementById('title-content');
+  var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+  alert("testing2");
 }
 
 var autoSizeText;
