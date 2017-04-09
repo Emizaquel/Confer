@@ -8,8 +8,8 @@ var autoSizeText;
 
 autoSizeText = function() {
   var contentHeight = $('#content').height();
-  var containerHeight = $('#resize').height();
-  var el = document.getElementById('resize');
+  var containerHeight = $('#title-content').height();
+  var el = document.getElementById('title-content');
   var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
   var fontSize = parseFloat(style);
   var newFont = fontSize - 1;
