@@ -1,6 +1,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="general.css">
 <link rel="icon" type="image/png" href="icon.ico">
+<script src="scripts.js">autoSizeText();</script>
 </head>
 <div id="wrapper">
   <div id="header">
@@ -87,7 +88,6 @@
       ?>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link"><button type="button" id="customButton1">Edit Details</button></a><br>
       <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
-      <script src="scripts.js">autoSizeText();</script>
     </span>
     <span id="EditDetails" style="display: none">
       <form method="POST" action="">
