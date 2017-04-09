@@ -1,3 +1,7 @@
+function greetings(){
+  alert("testing");
+}
+
 var autoSizeText;
 
 autoSizeText = function() {
