@@ -1,3 +1,7 @@
+greetings(){
+  alert('hello');
+}
+
 autoSizeText() {
   var contentHeight = $('#content').height();
   var containerHeight = $('#title-content').height();
