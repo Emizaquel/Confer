@@ -1,6 +1,6 @@
 function greetings(){
   var contentHeight = $('#content').height();
-  var containerHeight = $('#resize').height();
+  var containerHeight = $('#title-content').height();
   alert("testing");
 }
 
