@@ -1,8 +1,8 @@
-greetings(){
+function greetings(){
   alert('hello');
 }
 
-autoSizeText() {
+function autoSizeText() {
   var contentHeight = $('#content').height();
   var containerHeight = $('#title-content').height();
   var el = document.getElementById('title-content');
