@@ -148,12 +148,27 @@
             }
 
             if($imageFileType == "jpg" || $imageFileType == "jpeg"){
-              imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
+               imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
             }else if($imageFileType == "png"){
               move_uploaded_file($_FILES["usrimgup"]["tmp_name"], $target_file);
             }else{
                 echo "Sorry, only JPG, JPEG & PNG files are allowed.";
+                $uploadOk = 0;
             }
+
+            list($width, $height) = getimagesize($target_file);
+            $myImage = imagecreatefrompng($imgSrc);
+
+            if ($width > $height) {
+              $xstart = ($width - $height)/2;
+              $xend = $width - $xstart;
+              $im2 = imagecrop($im, ['x' => $xstart, 'y' => 0, 'width' => $xend, 'height' => $height]);
+            } else {
+              $ystart = ($width - $height)/2;
+              $yend =  - $xstart;
+              $im2 = imagecrop($im, ['x' => 0, 'y' => $ystart, 'width' => $width, 'height' => $yend]);
+            }
+            imagepng($im2, $final_file);
 
             $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
