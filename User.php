@@ -100,7 +100,7 @@
             $sendpass .= $keyspace[rand(0, 62)];
         }
         echo 'Current PHP version: ' . phpversion();
-        echo "<br>"
+        echo "<br>";
         echo $sendpass;
         echo "\n";
       }
