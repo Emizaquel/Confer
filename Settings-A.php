@@ -177,14 +177,12 @@
                     $xend = $xstart + $srcheight;
                     $im2 = imagecreatetruecolor(500, 500);
                     if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $srcheight , $srcheight )){
-                      echo ("success x");
                     }
                   } else {
                     $ystart = ($srcheight - $srcwidth)/2;
                     $yend = $ystart + $srcwidth;
                     $im2 = imagecreatetruecolor(500, 500);
                     if(imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 500 , 500 , $srcwidth , $srcwidth )){
-                      echo ("success y");
                     }
                   }
                   imagepng($im2, $target_file);
