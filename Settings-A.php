@@ -127,79 +127,79 @@
           $EditPass2 = addslashes($_POST['password3']);
           $EditName = addslashes($_POST['name']);
 
-          if( isset($_POST["sub"]) ){
+          $target_dir = "userimages/";
+          $target_file = $target_dir . basename($_FILES["usrimgup"]["name"]);
+          $final_file = $target_dir . "usrimg" . $UID . ".png";
+          $uploadOk = 1;
+          $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/" . "userimages/";
-            $target_file = $target_dir . basename($_FILES["usrimgup"]["tmp_name"]);
-            $final_file = $target_dir . "usrimg" . $UID . ".png";
-            $uploadOk = 1;
-            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+          $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+          if($check !== false) {
+              echo "File is an image - " . $check["mime"] . ".";
+              $uploadOk = 1;
+          } else {
+              echo "File is not an image.";
+              $uploadOk = 0;
+          }
 
-            $check = getimagesize($_FILES["usrimgup"]["tmp_name"]);
-            if($check !== false) {
-                $uploadOk = 1;
-            } else {
-                $uploadOk = 0;
-            }
+          // if ($_FILES["fileToUpload"]["size"] > 500000) {
+          //     echo "Sorry, your file is too large.";
+          //     $uploadOk = 0;
+          // }
+          //
+          // if($imageFileType == "jpg" || $imageFileType == "jpeg"){
+          //   //  imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
+          //   echo ("image file is of type {$imageFileType}");
+          // }else if($imageFileType == "png"){
+          //   // move_uploaded_file($_FILES["usrimgup"]["tmp_name"], $target_file);
+          //   echo ("image file is of type {$imageFileType}");
+          // }else{
+          //     echo "Sorry, only JPG, JPEG & PNG files are allowed. <br>";
+          //     echo ("image file is of type {$imageFileType}");
+          //     $uploadOk = 0;
+          // }
 
-            if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
-                $uploadOk = 0;
-            }
+          // list($width, $height) = getimagesize($target_file);
+          // $myImage = imagecreatefrompng($imgSrc);
+          //
+          // if ($width > $height) {
+          //   $xstart = ($width - $height)/2;
+          //   $xend = $width - $xstart;
+          //   $im2 = imagecrop($im, ['x' => $xstart, 'y' => 0, 'width' => $xend, 'height' => $height]);
+          // } else {
+          //   $ystart = ($width - $height)/2;
+          //   $yend =  - $xstart;
+          //   $im2 = imagecrop($im, ['x' => 0, 'y' => $ystart, 'width' => $width, 'height' => $yend]);
+          // }
+          // imagepng($im2, $final_file);
 
-            if($imageFileType == "jpg" || $imageFileType == "jpeg"){
-               imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
-            }else if($imageFileType == "png"){
-              move_uploaded_file($_FILES["usrimgup"]["tmp_name"], $target_file);
-            }else{
-                echo "Sorry, only JPG, JPEG & PNG files are allowed. <br>";
-                echo ("image file is of type {$imageFileType}");
-                $uploadOk = 0;
-            }
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
-            list($width, $height) = getimagesize($target_file);
-            $myImage = imagecreatefrompng($imgSrc);
+          $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
+          mysql_select_db("conferdata");
+          $retval = mysql_query( $sql, $conn );
 
-            if ($width > $height) {
-              $xstart = ($width - $height)/2;
-              $xend = $width - $xstart;
-              $im2 = imagecrop($im, ['x' => $xstart, 'y' => 0, 'width' => $xend, 'height' => $height]);
-            } else {
-              $ystart = ($width - $height)/2;
-              $yend =  - $xstart;
-              $im2 = imagecrop($im, ['x' => 0, 'y' => $ystart, 'width' => $width, 'height' => $yend]);
-            }
-            imagepng($im2, $final_file);
+          if($retval) {
+            $query = mysql_fetch_row($retval);
 
-            $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+            $userID = $query[0];
 
-            $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
-            mysql_select_db("conferdata");
-            $retval = mysql_query( $sql, $conn );
-
-            if($retval) {
-              $query = mysql_fetch_row($retval);
-
-              $userID = $query[0];
-
-              if($userID){
-                if($EditPass == $EditPass2){
-                  if($EditPass == NULL){
-                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
-                    mysql_select_db("conferdata");
-                    mysql_query( $sql, $conn );
-                  }else{
-                    $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
-                    mysql_select_db("conferdata");
-                    mysql_query( $sql, $conn );
-                  }
+            if($userID){
+              if($EditPass == $EditPass2){
+                if($EditPass == NULL){
+                  $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
+                  mysql_select_db("conferdata");
+                  mysql_query( $sql, $conn );
+                }else{
+                  $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
+                  mysql_select_db("conferdata");
+                  mysql_query( $sql, $conn );
                 }
-              }else{
-                 echo 'User details not valid';
               }
             }else{
+               echo 'User details not valid';
             }
-
+          }else{
           }
 
           $sql = "UPDATE `userdata` SET `email`=\"{$EditEmail}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE `eventdata`.`usernumber` = {$UID};";
