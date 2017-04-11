@@ -68,17 +68,17 @@
     if(isset($_GET["EventID"]))
     {
         $EventID = $_GET["EventID"];
-        echo $EventID;
     }
     else{
       header("Location:Timetable.php");
     }
-    //
-    // $sql = ("SELECT eventtime,location,description,speaker FROM eventdata WHERE eventnumber = " . $EventID . ";");
-    // ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-    // $retval = mysqli_query( $conn ,  $sql);
-    // $query = mysqli_fetch_array($retval);
-    //
+
+    $sql = ("SELECT eventtime,location,description,speaker FROM eventdata WHERE eventnumber = " . $EventID . ";");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_array($retval);
+    echo $query;
+
     // $EventDateTime = $query['eventtime'];
     // $LocationSpaces = $query['location'];
     // $Description = $query['description'];
