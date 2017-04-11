@@ -54,24 +54,25 @@
   <div id="page-body">
     <span id="EditEventButton">
     <?php
-    // $dbserver = "127.0.0.1:51097";
-    // $dbuser = "azure";
-    // $dbpass = "6#vWHD_$";
-    // $dbname = "localdb";
-    //
-    // $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
-    //
-    // if(! $conn ) {
-    //   die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-    // }
-    //
-    // if(isset($_GET["EventID"]))
-    // {
-    //     $EventID = $_GET["EventID"];
-    // }
-    // else{
-    //   header("Location:Timetable.php");
-    // }
+    $dbserver = "127.0.0.1:51097";
+    $dbuser = "azure";
+    $dbpass = "6#vWHD_$";
+    $dbname = "localdb";
+
+    $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
+
+    if(! $conn ) {
+      die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+    }
+
+    if(isset($_GET["EventID"]))
+    {
+        $EventID = $_GET["EventID"];
+        echo $EventID;
+    }
+    else{
+      header("Location:Timetable.php");
+    }
     //
     // $sql = ("SELECT eventtime,location,description,speaker FROM eventdata WHERE eventnumber = " . $EventID . ";");
     // ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
