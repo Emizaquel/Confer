@@ -106,6 +106,7 @@
         }else{
           echo("$sendpass");
         }
+      }
       ?>
     </form>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
