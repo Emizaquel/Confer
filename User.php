@@ -97,9 +97,12 @@
         $sendpass = '';
         $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         for ($i = 0; $i < 12; ++$i) {
-            $sendpass .= $keyspace[random_int(0, 62)];
+            $sendpass .= $keyspace[rand(0, 62)];
         }
+        echo 'Current PHP version: ' . phpversion();
+        echo "<br>"
         echo $sendpass;
+        echo "\n";
       }
       ?>
     </form>
