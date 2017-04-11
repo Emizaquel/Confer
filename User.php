@@ -103,6 +103,8 @@
         $message = wordwrap($message, 70, "\r\n");
         if(mail("Chiragh2355@gmail.com","New Password",$message)){
           echo("Success!");
+        }else{
+          echo("$sendpass");
         }
       }
       ?>
