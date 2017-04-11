@@ -142,6 +142,11 @@
                 $uploadOk = 0;
             }
 
+            if ($_FILES["fileToUpload"]["size"] > 500000) {
+                echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+            }
+
             $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
             $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
