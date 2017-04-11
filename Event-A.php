@@ -107,11 +107,11 @@
     echo nl2br($Description);
     echo "<br>";
     echo "<br>";
-    echo "<a href ='https://www.google.co.uk/maps/place/";
-    echo $Location;
-    echo "'>";
+    // echo "<a href ='https://www.google.co.uk/maps/place/";
+    // echo $Location;
+    // echo "'>";
     echo $LocationSpaces;
-    echo "</a>";
+    // echo "</a>";
     echo "<br>";
     echo "<br>";
 
