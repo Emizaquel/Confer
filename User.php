@@ -26,7 +26,7 @@
           if(!isset($_COOKIE["UserID"])) {
             header("Location:login.php");
           } else {
-              $VID = $_COOKIE["UserID"]
+              $VID = $_COOKIE["UserID"];
               $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $VID . "';");
               mysql_select_db("conferdata");
               $retval = mysql_query( $sql, $conn );
