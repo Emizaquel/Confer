@@ -88,8 +88,8 @@
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
 
-    $LocationArray = split(" ", $LocationSpaces);
-    $Location = join("+", $LocationArray);
+    $LocationArray = explode(" ", $LocationSpaces);
+    $Location = implode("+", $LocationArray);
 
     echo $date;
     echo "<br>";
