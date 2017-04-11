@@ -153,7 +153,7 @@
               move_uploaded_file($_FILES["usrimgup"]["tmp_name"], $target_file);
             }else{
                 echo "Sorry, only JPG, JPEG & PNG files are allowed. <br>";
-                echo ("image file is of type {$_FILES["usrimgup"]["tmp_name"]}");
+                echo ("image file is of type {$_FILES["usrimgup"]["tmp_name"]} <br>");
                 $uploadOk = 0;
             }
 
