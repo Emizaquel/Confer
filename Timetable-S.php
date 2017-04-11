@@ -35,79 +35,80 @@
       die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
     }
 
-      $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
-      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-      $retval = mysqli_query( $conn ,  $sql);
+    $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
 
-      $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
-      $StartDate = $OldDate;
+    $OldDate = date('Y-m-d', strtotime(mktime(00,00,00,01,01,1000)));
+    $StartDate = $OldDate;
 
-      while($row = mysqli_fetch_array($retval))
-      {
-         $EventID = $row['eventnumber'];
-         $EventName = $row['eventname'];
-         $EventDateTime = $row['eventtime'];
-         $date = date('Y-m-d', strtotime($EventDateTime));
-         $time = date('H:i:s', strtotime($EventDateTime));
+    while($row = mysqli_fetch_array($retval))
+    {
+       $EventID = $row['eventnumber'];
+       $EventName = $row['eventname'];
+       $EventDateTime = $row['eventtime'];
+       $date = date('Y-m-d', strtotime($EventDateTime));
+       $time = date('H:i:s', strtotime($EventDateTime));
 
-         if($OldDate === $StartDate){
-           $OldDate  = $date;
-           echo "<div id='DateSplitter'>";
-           echo "<div id='DateHeader'>";
-           echo $date;
-           echo "</div>";
-           echo "<div id='EventHolder'>";
-         }else if(!($OldDate === $date)){
-           $OldDate  = $date;
-           echo "<div id='EventBottom'></div>";
-           echo "</div></div><br>";
-           echo "<div id='DateSplitter'>";
-           echo "<div id='DateHeader'>";
-           echo $date;
-           echo "</div><div id='EventHolder'>";
+       if($OldDate === $StartDate){
+         $OldDate  = $date;
+         echo "<div id='DateSplitter'>";
+         echo "<div id='DateHeader'>";
+         echo $date;
+         echo "</div>";
+         echo "<div id='EventHolder'>";
+       }else if(!($OldDate === $date)){
+         $OldDate  = $date;
+         echo "<div id='EventBottom'></div>";
+         echo "</div></div><br>";
+         echo "<div id='DateSplitter'>";
+         echo "<div id='DateHeader'>";
+         echo $date;
+         echo "</div><div id='EventHolder'>";
 
 
-         }
+       }
 
-         echo "<a id='EventListing' href = 'Event.php?EventID=";
-         echo $EventID;
-         echo "'>";
-         echo $time;
-         echo " - ";
-         echo $EventName;
-         echo "<br>";
-         echo "</a>";
-      }
-      echo "<div id='EventBottom'></div>";
-      echo "</div></div><br>";
+       echo "<a id='EventListing' href = 'Event.php?EventID=";
+       echo $EventID;
+       echo "'>";
+       echo $time;
+       echo " - ";
+       echo $EventName;
+       echo "<br>";
+       echo "</a>";
+    }
+    echo "<div id='EventBottom'></div>";
+    echo "</div></div><br>";
 
-      if(!isset($_COOKIE["UserID"])) {
-        header("Location:login.php");
-      } else {
-          $UID = $_COOKIE["UserID"];
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
 
-          $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-          $retval = mysqli_query( $conn ,  $sql);
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval = mysqli_query( $conn ,  $sql);
 
-          if($retval ) {
-            $query = mysqli_fetch_row($retval);
-            $userID = $query[0];
+        if($retval ) {
+          $query = mysqli_fetch_row($retval);
+          $userID = $query[0];
 
-            if($userID == 1){
-              header("Location:Timetable-U.php");
-            }else if ($userID == 2){
-            }else if ($userID == 3){
-              header("Location:Timetable-St.php");
-            }else if ($userID == 4){
-              header("Location:Timetable-A.php");
-            }else{
-              header("Location:login.php");
+          if($userID == 1){
+            header("Location:Timetable-A.php");
+          }else if ($userID == 2){
+          }else if ($userID == 3){
+            header("Location:Timetable-St.php");
+          }else if ($userID == 4){
+            header("Location:Timetable-A.php");
+          }else{
+            header("Location:login.php");
 
-            }
           }
-      }
+        }
+    }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <script>autoSizeText();</script>
   </div>
 </div>
