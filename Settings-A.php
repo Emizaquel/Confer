@@ -151,16 +151,16 @@
 
               if ($srcwidth > $srcheight) {
                 $xstart = ($srcwidth - $srcheight)/2;
-                $xend = $srcwidth - $xstart;
-                $im2 = imagecreatetruecolor(250, 250);
-                if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 250 , 250 , $xend , $srcheight )){
+                $xend = $xstart + $srcheight;
+                $im2 = imagecreatetruecolor(500, 500);
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $xend , $srcheight )){
                   echo ("success x");
                 }
               } else {
                 $ystart = ($srcheight - $srcwidth)/2;
-                $yend = $srcheight - $xstart;
-                $im2 = imagecreatetruecolor(250, 250);
-                if(imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 250 , 250 , $srcwidth , $yend )){
+                $yend = $ystart + $srcwidth;
+                $im2 = imagecreatetruecolor(500, 500);
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 500 , 500 , $srcwidth , $yend )){
                   echo ("success y");
                 }
               }
