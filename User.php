@@ -112,13 +112,36 @@
        include "vendor/autoload.php";
 
        $email = new SendGrid\Email();
+       // The list of addresses this message will be sent to
+       // [This list is used for sending multiple emails using just ONE request to SendGrid]
+       $toList = array('Chiragh2355@gmail.com', 'Chiragh2355@gmail.com');
+
+       // Specify the names of the recipients
+       $nameList = array('Name 1', 'Name 2');
+
+       // Used as an example of variable substitution
+       $timeList = array('4 PM', '5 PM');
+
+       // Set all of the above variables
+       $email->setTos($toList);
+       $email->addSubstitution('-name-', $nameList);
+       $email->addSubstitution('-time-', $timeList);
+
+       // Specify that this is an initial contact message
+       $email->addCategory("initial");
+
+       // You can optionally setup individual filters here, in this example, we have
+       // enabled the footer filter
+       $email->addFilter('footer', 'enable', 1);
+       $email->addFilter('footer', "text/plain", "Thank you for your business");
+       $email->addFilter('footer', "text/html", "Thank you for your business");
 
        // The subject of your email
-       $subject = 'New Password Request';
+       $subject = 'Example SendGrid Email';
 
        // Where is this message coming from. For example, this message can be from
        // support@yourcompany.com, info@yourcompany.com
-       $from = 'do-not-reply@ConferAtAzure.com';
+       $from = 'someone@example.com';
 
        // If you do not specify a sender list above, you can specifiy the user here. If
        // a sender list IS specified above, this email address becomes irrelevant.
@@ -133,13 +156,33 @@
        /*
         * Note the variable substitution here =)
         */
-       $text = $message;
+       $text = "
+       Hello -name-,
+       Thank you for your interest in our products. We have set up an appointment to call you at -time- EST to discuss your needs in more detail.
+       Regards,
+       Fred";
+
+       $html = "
+       <html>
+       <head></head>
+       <body>
+       <p>Hello -name-,<br>
+       Thank you for your interest in our products. We have set up an appointment
+       to call you at -time- EST to discuss your needs in more detail.
+
+       Regards,
+
+       Fred<br>
+       </p>
+       </body>
+       </html>";
 
        // set subject
        $email->setSubject($subject);
 
        // attach the body of the email
        $email->setFrom($from);
+       $email->setHtml($html);
        $email->addTo($to);
        $email->setText($text);
 
@@ -159,6 +202,6 @@
       ?>
     </form>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <script>autoSizeText();</script>
   </div>
-  <script>autoSizeText();</script>
 </div>
