@@ -74,10 +74,10 @@
     <span id="UserDetails">
 
       <?php
-      if (file_exists("/userimages/usrimg{$UID}.png")) {
-          echo "<img src=\"/userimages/usrimg{$UID}.png\">";
+      if (file_exists("/userimages/usrimg{$UID}.jpg")) {
+          echo "<img src=\"/userimages/usrimg{$UID}.jpg\">";
       } else {
-          echo "<img src=\"/userimages/usrdefault.png\">";
+          echo "<img src=\"/userimages/usrdefault.jpg\">";
       }
       echo "<br><br>";
       echo $username;
