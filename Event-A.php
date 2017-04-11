@@ -17,20 +17,20 @@
           $dbpass = "6#vWHD_$";
           $dbname = "localdb";
 
-          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
           if(! $conn ) {
-            die('Could not connect: ' . mysql_error());
+            die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
           }
 
           if(isset($_GET["EventID"])){
             $EventID = $_GET["EventID"];
             $sql = ("SELECT eventname FROM eventdata WHERE eventnumber = " . $EventID . ";");
-            mysql_select_db("conferdata");
-            $retval = mysql_query( $sql, $conn );
+            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+            $retval = mysqli_query( $conn ,  $sql);
 
             if($retval) {
-              $query = mysql_fetch_row($retval);
+              $query = mysqli_fetch_row($retval);
 
               $EName = $query[0];
 
@@ -61,10 +61,10 @@
     $dbpass = "6#vWHD_$";
     $dbname = "localdb";
 
-    $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+    $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
     if(! $conn ) {
-      die('Could not connect: ' . mysql_error());
+      die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
     }
 
     if(isset($_GET["EventID"]))
@@ -76,9 +76,9 @@
     }
 
     $sql = ("SELECT eventtime,location,description,speaker FROM eventdata WHERE eventnumber = " . $EventID . ";");
-    mysql_select_db("conferdata");
-    $retval = mysql_query( $sql, $conn );
-    $query = mysql_fetch_array($retval);
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_array($retval);
 
     $EventDateTime = $query['eventtime'];
     $LocationSpaces = $query['location'];
@@ -92,9 +92,9 @@
     $Location = join("+", $LocationArray);
 
     $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SID . ";");
-    mysql_select_db("conferdata");
-    $retval = mysql_query( $sql, $conn );
-    $query = mysql_fetch_array($retval);
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_array($retval);
 
     $Presenter = $query[0];
 
@@ -125,11 +125,11 @@
         $UID = $_COOKIE["UserID"];
 
         $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-        mysql_select_db("conferdata");
-        $retval = mysql_query( $sql, $conn );
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval = mysqli_query( $conn ,  $sql);
 
         if($retval ) {
-          $query = mysql_fetch_row($retval);
+          $query = mysqli_fetch_row($retval);
           $userID = $query[0];
 
           if($userID == 1){
@@ -160,17 +160,17 @@
         $dbpass = "6#vWHD_$";
         $dbname = "localdb";
 
-        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
         if(! $conn ) {
-          die('Could not connect: ' . mysql_error());
+          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
         }
 
           $sql = ("SELECT usernumber,name FROM `userdata` WHERE type = 2;");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval = mysqli_query( $conn ,  $sql);
 
-          while($row = mysql_fetch_array($retval))
+          while($row = mysqli_fetch_array($retval))
           {
              $UserID = $row['usernumber'];
              $Name = $row['name'];
@@ -199,10 +199,10 @@
         $dbpass = "6#vWHD_$";
         $dbname = "localdb";
 
-        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
         if(! $conn ) {
-          die('Could not connect: ' . mysql_error());
+          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
         }
 
         if( isset($_POST["sub"]) ){
@@ -213,8 +213,8 @@
           $EditLocation = addslashes($_POST['location']);
 
           $sql = "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`=\"{$EditTime}\",`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
-          mysql_select_db("conferdata");
-          mysql_query( $sql, $conn );
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          mysqli_query( $conn ,  $sql);
         }
         ?>
       </form>

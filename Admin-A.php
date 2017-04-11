@@ -49,21 +49,21 @@
         $password = addslashes($_POST['password']);
         $type = $_POST['type'];
 
-        $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
         if(! $conn ) {
-          die('Could not connect: ' . mysql_error());
+          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
         }
 
         if( isset($_POST["sub"]) ){
-          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
           $sql = ("INSERT INTO `userdata`(`usernumber`, `email`, `password`, `name`, `type`) VALUES (NULL,'{$email}','{$password}','{$name}','{$type}');");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval = mysqli_query( $conn ,  $sql);
 
           if($retval) {
-            $query = mysql_fetch_row($retval);
+            $query = mysqli_fetch_row($retval);
 
             $userID = $query[0];
 
@@ -92,19 +92,19 @@
     $dbpass = "6#vWHD_$";
     $dbname = "localdb";
 
-    $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+    $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
     if(! $conn ) {
-      die('Could not connect: ' . mysql_error());
+      die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
     }
 
       $sql = ("SELECT usernumber,name FROM `userdata`");
-      mysql_select_db("conferdata");
-      $retval = mysql_query( $sql, $conn );
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      $retval = mysqli_query( $conn ,  $sql);
 
       echo "<div id='EventTop'></div>";
 
-      while($row = mysql_fetch_array($retval))
+      while($row = mysqli_fetch_array($retval))
       {
          $UserID = $row['usernumber'];
          $UserName = $row['name'];
@@ -119,11 +119,11 @@
           $UID = $_COOKIE["UserID"];
 
           $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-          mysql_select_db("conferdata");
-          $retval = mysql_query( $sql, $conn );
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval = mysqli_query( $conn ,  $sql);
 
           if($retval ) {
-            $query = mysql_fetch_row($retval);
+            $query = mysqli_fetch_row($retval);
             $userID = $query[0];
 
             if($userID == 1){

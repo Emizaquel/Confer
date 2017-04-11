@@ -17,10 +17,10 @@
           $dbpass = "6#vWHD_$";
           $dbname = "localdb";
 
-          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
           if(! $conn ) {
-            die('Could not connect: ' . mysql_error());
+            die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
           }
 
           if(!isset($_COOKIE["UserID"])) {
@@ -28,11 +28,11 @@
           } else {
               $VID = $_COOKIE["UserID"];
               $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $VID . "';");
-              mysql_select_db("conferdata");
-              $retval = mysql_query( $sql, $conn );
+              ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+              $retval = mysqli_query( $conn ,  $sql);
 
               if($retval ) {
-                $query = mysql_fetch_row($retval);
+                $query = mysqli_fetch_row($retval);
                 $userID = $query[0];
 
                 if($userID == 1){
@@ -55,9 +55,9 @@
             $UID = $_GET["UserID"];
 
             $sql = ("SELECT name,email FROM userdata WHERE usernumber = '" . $UID . "';");
-            mysql_select_db("conferdata");
-            $retval = mysql_query( $sql, $conn );
-            $query = mysql_fetch_array($retval);
+            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+            $retval = mysqli_query( $conn ,  $sql);
+            $query = mysqli_fetch_array($retval);
 
             $username = $query['name'];
             $usermail = $query['email'];
@@ -97,7 +97,7 @@
         $sendpass = '';
         $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         for ($i = 0; $i < 12; ++$i) {
-            $sendpass .= $keyspace[rand(0, 62)];
+            $sendpass .= $keyspace[random_int(0, 62)];
         }
         $message = "Hello {$username},\r\n\r\n You have requested a new password from an administrator for this event. If you have not asked for a password, please contact the staff for this effect and report it. \r\n\r\nYour new password is : {$sendpass} \r\n\r\nWe hope this does not inconvenience you.";
         $message = wordwrap($message, 70, "\r\n");
