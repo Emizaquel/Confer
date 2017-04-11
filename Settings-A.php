@@ -92,8 +92,9 @@
       <script>autoSizeText();</script>
     </span>
     <span id="EditDetails" style="display: none">
-      <form method="POST" action="">
-        <input id="userimage" type="file" accept="image/*;capture=camera"><br>
+      <form method="POST" action="" enctype="multipart/form-data">
+        Image (Not required) :
+        <input id="usrimgup" type="file" accept="image/*;capture=camera">
         Name :<br>
         <input type="text" value="<?php echo $username ?>" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         Email :<br>
@@ -155,6 +156,48 @@
               }
             }else{
             }
+
+            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/" . "userimages/";
+            $target_file = $target_dir . basename($_FILES["usrimgup"]["2bcropped"]);
+            $final_file = $target_dir . "usrimg" . $UID . ".png";
+            $uploadOk = 1;
+            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+            $check = getimagesize($_FILES["usrimgup"]["tmp_name"]);
+            if($check !== false) {
+                $uploadOk = 1;
+            } else {
+                $uploadOk = 0;
+            }
+
+            if ($_FILES["fileToUpload"]["size"] > 500000) {
+                echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+            }
+
+            if($imageFileType == "jpg" || $imageFileType == "jpeg"){
+               imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
+            }else if($imageFileType == "png"){
+              $_FILES["usrimgup"]["tmp_name"], $target_file);
+            }else{
+                echo "Sorry, only JPG, JPEG & PNG files are allowed.";
+                $uploadOk = 0;
+            }
+
+            list($width, $height) = getimagesize($target_file);
+            $myImage = imagecreatefrompng($imgSrc);
+
+            if ($width > $height) {
+              $xstart = ($width - $height)/2;
+              $xend = $width - $xstart;
+              $im2 = imagecrop($im, ['x' => $xstart, 'y' => 0, 'width' => $xend, 'height' => $height]);
+            } else {
+              $ystart = ($width - $height)/2;
+              $yend =  - $xstart;
+              $im2 = imagecrop($im, ['x' => 0, 'y' => $ystart, 'width' => $width, 'height' => $yend]);
+            }
+            imagepng($im2, $final_file);
+
           }
 
           $sql = "UPDATE `userdata` SET `email`=\"{$EditEmail}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE `eventdata`.`usernumber` = {$UID};";
