@@ -36,10 +36,8 @@
 
               if($EName){
                 echo $EName;
-              }else{
-              }
-            }else{
-            }
+              }else{}
+            }else{}
           }
           ?></div></div>
       </div>
@@ -194,28 +192,28 @@
         <a onclick="document.getElementById('EditEventButton').style.display='block'; document.getElementById('EditEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
 
         <?php
-        $dbserver = "127.0.0.1:51097";
-        $dbuser = "azure";
-        $dbpass = "6#vWHD_$";
-        $dbname = "localdb";
-
-        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
-
-        if(! $conn ) {
-          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-        }
-
-        if( isset($_POST["sub"]) ){
-          $EditName = addslashes($_POST['name']);
-          $EditDesc = addslashes($_POST['description']);
-          $EditTime = addslashes($_POST['datetime']);
-          $EditSpeaker = addslashes($_POST['speaker']);
-          $EditLocation = addslashes($_POST['location']);
-
-          $sql = "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`=\"{$EditTime}\",`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
-          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-          mysqli_query( $conn ,  $sql);
-        }
+        // $dbserver = "127.0.0.1:51097";
+        // $dbuser = "azure";
+        // $dbpass = "6#vWHD_$";
+        // $dbname = "localdb";
+        //
+        // $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
+        //
+        // if(! $conn ) {
+        //   die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+        // }
+        //
+        // if( isset($_POST["sub"]) ){
+        //   $EditName = addslashes($_POST['name']);
+        //   $EditDesc = addslashes($_POST['description']);
+        //   $EditTime = addslashes($_POST['datetime']);
+        //   $EditSpeaker = addslashes($_POST['speaker']);
+        //   $EditLocation = addslashes($_POST['location']);
+        //
+        //   $sql = "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`=\"{$EditTime}\",`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
+        //   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        //   mysqli_query( $conn ,  $sql);
+        // }
         ?>
       </form>
     </span>
