@@ -75,7 +75,7 @@
     <span id="UserDetails">
 
       <?php
-      $usrimgpath = "//userimages/usrimg{$UID}.png";
+      $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.png";
       echo $usrimgpath;
       echo "<br>";
       echo (file_exists($usrimgpath));
