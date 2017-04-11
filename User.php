@@ -11,7 +11,60 @@
         </div>
       </div>
       <div id="title-pane">
-        <div id="title-content"><div id="content">User</div></div>
+        <div id="title-content"><div id="content"><?php
+          $dbserver = "127.0.0.1:51097";
+          $dbuser = "azure";
+          $dbpass = "6#vWHD_$";
+          $dbname = "localdb";
+
+          $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+          if(! $conn ) {
+            die('Could not connect: ' . mysql_error());
+          }
+
+          if(!isset($_COOKIE["UserID"])) {
+            header("Location:login.php");
+          } else {
+
+              $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+              mysql_select_db("conferdata");
+              $retval = mysql_query( $sql, $conn );
+
+              if($retval ) {
+                $query = mysql_fetch_row($retval);
+                $userID = $query[0];
+
+                if($userID == 1){
+                  header("Location:Home-U.php");
+                }else if ($userID == 2){
+                  header("Location:Home-S.php");
+                }else if ($userID == 3){
+                  header("Location:Admin-St.php");
+                }else if ($userID == 4){
+                }else{
+                  header("Location:login.php");
+                }
+              }
+          }
+
+
+          if(!isset($_GET["UserID"])){
+            header("Location:Admin-A.php");
+          }else{
+            $UID = $_GET["UserID"];
+            
+            $sql = ("SELECT name,email FROM userdata WHERE usernumber = '" . $UID . "';");
+            mysql_select_db("conferdata");
+            $retval = mysql_query( $sql, $conn );
+            $query = mysql_fetch_array($retval);
+
+            $username = $query['name'];
+            $usermail = $query['email'];
+
+            echo $username;
+          }
+          ?></div></div>
       </div>
     </div>
 
@@ -25,49 +78,17 @@
   </div>
   <div id="page-body">
     <?php
-    if(isset($_GET["UserID"])){
-      $UID = $_GET["UserID"]
-      $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.jpg";
-      if (file_exists($usrimgpath)) {
-        echo "<img src=\"/userimages/usrimg{$UID}.jpg\" width=\"80%\">";
-      } else {
-        echo "<img src=\"/userimages/usrdefault.jpg\" width=\"80%\">";
-      }
-      echo "<br><br>";
-      echo $username;
-      echo "<br><br>";
-      echo $usermail;
-      echo "<br><br>";
-    }else{
-      header("Location:Admin-A.php");
-    }
-
-    if(!isset($_COOKIE["UserID"])) {
-      header("Location:login.php");
+    $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.jpg";
+    if (file_exists($usrimgpath)) {
+      echo "<img src=\"/userimages/usrimg{$UID}.jpg\" width=\"80%\">";
     } else {
-        $UID = $_COOKIE["UserID"];
-
-        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-        mysql_select_db("conferdata");
-        $retval = mysql_query( $sql, $conn );
-
-        if($retval ) {
-          $query = mysql_fetch_row($retval);
-          $userID = $query[0];
-
-          if($userID == 1){
-            header("Location:Home-U.php");
-          }else if ($userID == 2){
-            header("Location:Home-S.php");
-          }else if ($userID == 3){
-            header("Location:Admin-St.php");
-          }else if ($userID == 4){
-          }else{
-            header("Location:login.php");
-
-          }
-        }
+      echo "<img src=\"/userimages/usrdefault.jpg\" width=\"80%\">";
     }
+    echo "<br><br>";
+    echo $username;
+    echo "<br><br>";
+    echo $usermail;
+    echo "<br><br>";
     ?>
     <br><button type="button" id="customButton1">New Password</button><br>
     <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
