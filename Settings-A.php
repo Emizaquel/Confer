@@ -185,13 +185,13 @@
                 $xstart = ($srcwidth - $srcheight)/2;
                 $xend = $xstart + $srcheight;
                 $im2 = imagecreatetruecolor(500, 500);
-                imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $srcheight , $srcheight )
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $srcheight , $srcheight )){
                 }
               } else {
                 $ystart = ($srcheight - $srcwidth)/2;
                 $yend = $ystart + $srcwidth;
                 $im2 = imagecreatetruecolor(500, 500);
-                imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 500 , 500 , $srcwidth , $srcwidth );
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 500 , 500 , $srcwidth , $srcwidth )){
                 }
               }
               imagepng($im2, $target_file);
