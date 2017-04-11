@@ -117,31 +117,31 @@
 
 
 
-    // if(!isset($_COOKIE["UserID"])) {
-    //   header("Location:login.php");
-    // } else {
-    //     $UID = $_COOKIE["UserID"];
-    //
-    //     $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-    //     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-    //     $retval = mysqli_query( $conn ,  $sql);
-    //
-    //     if($retval ) {
-    //       $query = mysqli_fetch_row($retval);
-    //       $userID = $query[0];
-    //
-    //       if($userID == 1){
-    //         header("Location:Event-U.php?EventID={$EventID}");
-    //       }else if ($userID == 2){
-    //         header("Location:Event-S.php?EventID={$EventID}");
-    //       }else if ($userID == 3){
-    //         header("Location:Event-St.php?EventID={$EventID}");
-    //       }else if ($userID == 4){
-    //       }else{
-    //         header("Location:login.php");
-    //       }
-    //     }
-    // }
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval = mysqli_query( $conn ,  $sql);
+
+        if($retval ) {
+          $query = mysqli_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+            header("Location:Event-U.php?EventID={$EventID}");
+          }else if ($userID == 2){
+            header("Location:Event-S.php?EventID={$EventID}");
+          }else if ($userID == 3){
+            header("Location:Event-St.php?EventID={$EventID}");
+          }else if ($userID == 4){
+          }else{
+            header("Location:login.php");
+          }
+        }
+    }
     ?>
     <a onclick="document.getElementById('EditEvent').style.display='block'; document.getElementById('EditEventButton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Edit Event</button></a>
     </span>
@@ -153,67 +153,67 @@
         <input type="datetime-local" value="<?php echo $date; echo "T"; echo $time ?>" step="1" name="datetime" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         <br>Speaker<br>
         <?php
-        // $dbserver = "127.0.0.1:51097";
-        // $dbuser = "azure";
-        // $dbpass = "6#vWHD_$";
-        // $dbname = "localdb";
-        //
-        // $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
-        //
-        // if(! $conn ) {
-        //   die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-        // }
-        //
-        //   $sql = ("SELECT usernumber,name FROM `userdata` WHERE type = 2;");
-        //   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-        //   $retval = mysqli_query( $conn ,  $sql);
-        //
-        //   while($row = mysqli_fetch_array($retval))
-        //   {
-        //      $UserID = $row['usernumber'];
-        //      $Name = $row['name'];
-        //      if($SID == $UserID){
-        //        echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
-        //        echo $UserID;
-        //        echo "\" checked=\"checked\">  ";
-        //        echo $Name;
-        //        echo "<br>";}
-        //     else {
-        //        echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
-        //        echo $UserID;
-        //        echo "\">  ";
-        //        echo $Name;
-        //        echo "<br>";
-        //     }
-        //   }
+        $dbserver = "127.0.0.1:51097";
+        $dbuser = "azure";
+        $dbpass = "6#vWHD_$";
+        $dbname = "localdb";
+
+        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
+
+        if(! $conn ) {
+          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+        }
+
+          $sql = ("SELECT usernumber,name FROM `userdata` WHERE type = 2;");
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval = mysqli_query( $conn ,  $sql);
+
+          while($row = mysqli_fetch_array($retval))
+          {
+             $UserID = $row['usernumber'];
+             $Name = $row['name'];
+             if($SID == $UserID){
+               echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
+               echo $UserID;
+               echo "\" checked=\"checked\">  ";
+               echo $Name;
+               echo "<br>";}
+            else {
+               echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
+               echo $UserID;
+               echo "\">  ";
+               echo $Name;
+               echo "<br>";
+            }
+          }
         ?>
         <br>
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
         <a onclick="document.getElementById('EditEventButton').style.display='block'; document.getElementById('EditEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
 
         <?php
-        // $dbserver = "127.0.0.1:51097";
-        // $dbuser = "azure";
-        // $dbpass = "6#vWHD_$";
-        // $dbname = "localdb";
-        //
-        // $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
-        //
-        // if(! $conn ) {
-        //   die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-        // }
-        //
-        // if( isset($_POST["sub"]) ){
-        //   $EditName = addslashes($_POST['name']);
-        //   $EditDesc = addslashes($_POST['description']);
-        //   $EditTime = addslashes($_POST['datetime']);
-        //   $EditSpeaker = addslashes($_POST['speaker']);
-        //   $EditLocation = addslashes($_POST['location']);
-        //
-        //   $sql = "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`=\"{$EditTime}\",`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
-        //   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-        //   mysqli_query( $conn ,  $sql);
-        // }
+        $dbserver = "127.0.0.1:51097";
+        $dbuser = "azure";
+        $dbpass = "6#vWHD_$";
+        $dbname = "localdb";
+
+        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
+
+        if(! $conn ) {
+          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+        }
+
+        if( isset($_POST["sub"]) ){
+          $EditName = addslashes($_POST['name']);
+          $EditDesc = addslashes($_POST['description']);
+          $EditTime = addslashes($_POST['datetime']);
+          $EditSpeaker = addslashes($_POST['speaker']);
+          $EditLocation = addslashes($_POST['location']);
+
+          $sql = "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`=\"{$EditTime}\",`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          mysqli_query( $conn ,  $sql);
+        }
         ?>
       </form>
     </span>
