@@ -128,7 +128,7 @@
           $EditName = addslashes($_POST['name']);
 
           $target_dir = "userimages/";
-          $target_file = $target_dir . "testout.png";
+          $target_file = $target_dir . basename($_FILES["usrimgup"]["name"]);
           $final_file = $target_dir . "usrimg" . $UID . ".png";
           $uploadOk = 1;
           $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
