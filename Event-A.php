@@ -83,8 +83,8 @@
     $Description = $query['description'];
     $SID = $query['speaker'];
 
-    $date = date('Y-m-d', strtotime($EventDateTime));
-    $time = date('H:i:s', strtotime($EventDateTime));
+    // $date = date('Y-m-d', strtotime($EventDateTime));
+    // $time = date('H:i:s', strtotime($EventDateTime));
 
     $LocationArray = split(" ", $LocationSpaces);
     $Location = join("+", $LocationArray);
