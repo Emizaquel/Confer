@@ -101,7 +101,7 @@
         }
         $message = "Hello {$username},\r\n\r\n You have requested a new password from an administrator for this event. If you have not asked for a password, please contact the staff for this effect and report it. \r\n\r\nYour new password is : {$sendpass} \r\n\r\nWe hope this does not inconvenience you.";
         $message = wordwrap($message, 70, "\r\n");
-        if(imap_mail("Chiragh2355@gmail.com","New Password",$message)){
+        if(mail("Chiragh2355@gmail.com","New Password",$message)){
           echo("Success!");
         }else{
           echo("$sendpass");
