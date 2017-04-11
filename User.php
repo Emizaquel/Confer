@@ -26,8 +26,8 @@
           if(!isset($_COOKIE["UserID"])) {
             header("Location:login.php");
           } else {
-
-              $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+              $VID = $_COOKIE["UserID"]
+              $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $VID . "';");
               mysql_select_db("conferdata");
               $retval = mysql_query( $sql, $conn );
 
@@ -53,7 +53,7 @@
             header("Location:Admin-A.php");
           }else{
             $UID = $_GET["UserID"];
-            
+
             $sql = ("SELECT name,email FROM userdata WHERE usernumber = '" . $UID . "';");
             mysql_select_db("conferdata");
             $retval = mysql_query( $sql, $conn );
