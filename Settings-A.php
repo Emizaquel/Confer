@@ -75,11 +75,11 @@
     <span id="UserDetails">
 
       <?php
-      $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.png";
+      $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.jpg";
       if (file_exists($usrimgpath)) {
-        echo "<img src=\"/userimages/usrimg{$UID}.png\" width=\"80%\">";
+        echo "<img src=\"/userimages/usrimg{$UID}.jpg\" width=\"80%\">";
       } else {
-        echo "<img src=\"/userimages/usrdefault.png\">";
+        echo "<img src=\"/userimages/usrdefault.jpg\">";
       }
       echo "<br><br>";
       echo $username;
@@ -128,8 +128,7 @@
           $EditName = addslashes($_POST['name']);
 
           $target_dir = "userimages/";
-          $target_file = $target_dir . "testout.png";
-          $final_file = $target_dir . "usrimg" . $UID . ".png";
+          $target_file = $target_dir . "usrimg" . $UID . ".jpg";
           $uploadOk = 1;
           $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -153,9 +152,6 @@
                 $xstart = ($srcwidth - $srcheight)/2;
                 $xend = $xstart + $srcheight;
                 $im2 = imagecreatetruecolor(500, 500);
-                imagecolortransparent($im2, imagecolorallocatealpha($new, 0, 0, 0, 127));
-                imagealphablending($im2, false);
-                imagesavealpha($im2, true);
                 if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $srcheight , $srcheight )){
                   echo ("success x");
                 }
