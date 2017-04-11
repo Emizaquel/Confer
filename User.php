@@ -24,15 +24,53 @@
     </div>
   </div>
   <div id="page-body">
-    Insert Image here
-    <br>
-    <br>Name : (First/Last)
-    <br>Email : (Insert here)
-    <br>
-    <br>Jobs :
-    <br>Insert PHP table of jobs here
-    <br>
-    <br>Insert Edit button here.
+    <?php
+    if(isset($_GET["UserID"])){
+      $UID = $_GET["UserID"]
+      $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.jpg";
+      if (file_exists($usrimgpath)) {
+        echo "<img src=\"/userimages/usrimg{$UID}.jpg\" width=\"80%\">";
+      } else {
+        echo "<img src=\"/userimages/usrdefault.jpg\" width=\"80%\">";
+      }
+      echo "<br><br>";
+      echo $username;
+      echo "<br><br>";
+      echo $usermail;
+      echo "<br><br>";
+    }else{
+      header("Location:Admin-A.php");
+    }
+
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        mysql_select_db("conferdata");
+        $retval = mysql_query( $sql, $conn );
+
+        if($retval ) {
+          $query = mysql_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+            header("Location:Home-U.php");
+          }else if ($userID == 2){
+            header("Location:Home-S.php");
+          }else if ($userID == 3){
+            header("Location:Admin-St.php");
+          }else if ($userID == 4){
+          }else{
+            header("Location:login.php");
+
+          }
+        }
+    }
+    ?>
+    <br><button type="button" id="customButton1">New Password</button><br>
+    <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>
