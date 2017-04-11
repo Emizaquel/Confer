@@ -76,16 +76,11 @@
 
       <?php
       $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.png";
-      echo $usrimgpath;
-      echo "<br>";
-      echo (file_exists($usrimgpath));
-      echo "<br>";
-      if (file_exists("/userimages/usrimg{$UID}.png")) {
-          echo("This is strange.");
+      if (file_exists($usrimgpath)) {
+        echo "<img src=\"/userimages/usrimg{$UID}.png\" width=\"80%\">";
       } else {
-          // echo "<img src=\"/userimages/usrdefault.png\">";
+          echo "<img src=\"/userimages/usrdefault.png\">";
       }
-      echo "<img src=\"/userimages/usrimg{$UID}.png\" width=\"80%\">";
       echo "<br><br>";
       echo $username;
       echo "<br><br>";
