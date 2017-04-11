@@ -172,6 +172,21 @@
                     echo ("Unsupported filetype, please use jpg, jpeg, png or gif");
                   }
 
+                  $exif = exif_read_data($_FILES['image_upload']['tmp_name']);
+                  if(!empty($exif['Orientation'])) {
+                    switch($exif['Orientation']) {
+                      case 8:
+                        $im = imagerotate($im,90,0);
+                        break;
+                      case 3:
+                        $im = imagerotate($im,180,0);
+                        break;
+                      case 6:
+                        $im = imagerotate($im,-90,0);
+                        break;
+                    }
+                  }
+
                   if ($srcwidth > $srcheight) {
                     $xstart = ($srcwidth - $srcheight)/2;
                     $xend = $xstart + $srcheight;
