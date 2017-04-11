@@ -75,11 +75,13 @@
     <span id="UserDetails">
 
       <?php
-      // if (file_exists("/userimages/usrimg{$UID}.png")) {
-          echo "<img src=\"/userimages/usrimg{$UID}.png\">";
-      // } else {
-      //     echo "<img src=\"/userimages/usrdefault.png\">";
-      // }
+      if (file_exists("/userimages/usrimg{$UID}.png")) {
+          echo("This is strange.");
+      } else {
+          // echo "<img src=\"/userimages/usrdefault.png\">";
+          echo("why?");
+      }
+      echo "<img src=\"/userimages/usrimg{$UID}.png\" width=\"80%\">";
       echo "<br><br>";
       echo $username;
       echo "<br><br>";
