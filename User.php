@@ -106,6 +106,55 @@
         }else{
           echo("$sendpass");
         }
+        /*
+        * This example is used for sendgrid-php V2.1.1 (https://github.com/sendgrid/sendgrid-php/tree/v2.1.1)
+        */
+       include "vendor/autoload.php";
+
+       $email = new SendGrid\Email();
+
+       // The subject of your email
+       $subject = 'New Password Request';
+
+       // Where is this message coming from. For example, this message can be from
+       // support@yourcompany.com, info@yourcompany.com
+       $from = 'do-not-reply@ConferAtAzure.com';
+
+       // If you do not specify a sender list above, you can specifiy the user here. If
+       // a sender list IS specified above, this email address becomes irrelevant.
+       $to = 'Chiragh2355@gmail.com';
+
+       # Create the body of the message (a plain-text and an HTML version).
+       # text is your plain-text email
+       # html is your html version of the email
+       # if the receiver is able to view html emails then only the html
+       # email will be displayed
+
+       /*
+        * Note the variable substitution here =)
+        */
+       $text = $message;
+
+       // set subject
+       $email->setSubject($subject);
+
+       // attach the body of the email
+       $email->setFrom($from);
+       $email->addTo($to);
+       $email->setText($text);
+
+       // Your SendGrid account credentials
+       $username = 'azure_caf314d7239d3e6933a43d5514d85347@azure.com';
+       $password = 'Chirag25';
+
+       // Create SendGrid object
+       $sendgrid = new SendGrid($username, $password);
+
+       // send message
+       $response = $sendgrid->send($email);
+
+       print_r($response);
+
       }
       ?>
     </form>
