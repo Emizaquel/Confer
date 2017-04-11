@@ -147,6 +147,15 @@
                 $uploadOk = 0;
             }
 
+            if($imageFileType == "jpg" || $imageFileType == "jpeg"){
+               imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
+            }else if($imageFileType == "png"){
+              $_FILES["usrimgup"]["tmp_name"], $target_file);
+            }else{
+                echo "Sorry, only JPG, JPEG & PNG files are allowed.";
+                $uploadOk = 0;
+            }
+
             $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
             $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
