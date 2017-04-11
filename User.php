@@ -125,7 +125,8 @@
         // Email Sending Details
         $mail->addAddress("Chiragh2355@gmail.com");
         $mail->Subject = "Password Request";
-        $mail->msgHTML($message);
+        $mail->isHTML(false);   
+        $mail->Body = $message;
 
         // Success or Failure
         if (!$mail->send()) {
