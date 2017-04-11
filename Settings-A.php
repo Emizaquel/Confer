@@ -94,7 +94,7 @@
     <span id="EditDetails" style="display: none">
       <form method="POST" action="" enctype="multipart/form-data">
         Image (Not required) :
-        <input id="usrimgup" type="file" accept="image/*;capture=camera">
+        <input id="usrimgup" type="file" accept="image/*;capture=camera"><br>
         Name :<br>
         <input type="text" value="<?php echo $username ?>" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         Email :<br>
