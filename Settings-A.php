@@ -152,13 +152,17 @@
               if ($srcwidth > $srcheight) {
                 $xstart = ($srcwidth - $srcheight)/2;
                 $xend = $srcwidth - $xstart;
-                imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 250 , 250 , $xend , $srcheight );
-                echo("success!");
+                $im2 = imagecreatetruecolor($srcheight, $srcheight);
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 250 , 250 , $xend , $srcheight )){
+                  echo ("success x");
+                }
               } else {
                 $ystart = ($srcheight - $srcwidth)/2;
                 $yend = $srcheight - $xstart;
-                imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 250 , 250 , $srcwidth , $yend );
-                echo("success!");
+                $im2 = imagecreatetruecolor($srcwidth, $srcwidth);
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 250 , 250 , $srcwidth , $yend )){
+                  echo ("success y");
+                }
               }
               imagepng($im2, $target_file);
             } else{
