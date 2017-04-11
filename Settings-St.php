@@ -17,7 +17,7 @@
           $dbpass = "6#vWHD_$";
           $dbname = "localdb";
 
-          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass)); 
+          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
 
           if(! $conn ) {
             die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
@@ -41,8 +41,8 @@
                 }else if ($userID == 2){
                   header("Location:Settings-S.php");
                 }else if ($userID == 3){
-                  header("Location:Settings-St.php");
                 }else if ($userID == 4){
+                  header("Location:Settings-A.php");
                 }else{
                   header("Location:login.php");
 
@@ -222,5 +222,6 @@
       </form>
     </span>
     <br><br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
+    <script>autoSizeText();</script>
   </div>
 </div>

@@ -39,10 +39,10 @@
                 if($userID == 1){
                   header("Location:Settings-U.php");
                 }else if ($userID == 2){
-                  header("Location:Settings-S.php");
                 }else if ($userID == 3){
                   header("Location:Settings-St.php");
                 }else if ($userID == 4){
+                  header("Location:Settings-A.php");
                 }else{
                   header("Location:login.php");
 
@@ -221,5 +221,6 @@
       </form>
     </span>
     <br><br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
+    <script>autoSizeText();</script>
   </div>
 </div>
