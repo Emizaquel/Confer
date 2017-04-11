@@ -77,44 +77,43 @@
     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
     $retval = mysqli_query( $conn ,  $sql);
     $query = mysqli_fetch_array($retval);
-    echo $query;
 
-    // $EventDateTime = $query['eventtime'];
-    // $LocationSpaces = $query['location'];
-    // $Description = $query['description'];
-    // $SID = $query['speaker'];
-    //
-    // $date = date('Y-m-d', strtotime($EventDateTime));
-    // $time = date('H:i:s', strtotime($EventDateTime));
-    //
-    // $LocationArray = split(" ", $LocationSpaces);
-    // $Location = join("+", $LocationArray);
-    //
-    // $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SID . ";");
-    // ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-    // $retval = mysqli_query( $conn ,  $sql);
-    // $query = mysqli_fetch_array($retval);
-    //
-    // $Presenter = $query[0];
-    //
-    // echo $date;
-    // echo "<br>";
-    // echo $time;
-    // echo "<br>";
-    // echo "<br>";
-    // echo $Presenter;
-    // echo "<br>";
-    // echo "<br>";
-    // echo nl2br($Description);
-    // echo "<br>";
-    // echo "<br>";
-    // echo "<a href ='https://www.google.co.uk/maps/place/";
-    // echo $Location;
-    // echo "'>";
-    // echo $LocationSpaces;
-    // echo "</a>";
-    // echo "<br>";
-    // echo "<br>";
+    $EventDateTime = $query['eventtime'];
+    $LocationSpaces = $query['location'];
+    $Description = $query['description'];
+    $SID = $query['speaker'];
+
+    $date = date('Y-m-d', strtotime($EventDateTime));
+    $time = date('H:i:s', strtotime($EventDateTime));
+
+    $LocationArray = split(" ", $LocationSpaces);
+    $Location = join("+", $LocationArray);
+
+    $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SID . ";");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_array($retval);
+
+    $Presenter = $query[0];
+
+    echo $date;
+    echo "<br>";
+    echo $time;
+    echo "<br>";
+    echo "<br>";
+    echo $Presenter;
+    echo "<br>";
+    echo "<br>";
+    echo nl2br($Description);
+    echo "<br>";
+    echo "<br>";
+    echo "<a href ='https://www.google.co.uk/maps/place/";
+    echo $Location;
+    echo "'>";
+    echo $LocationSpaces;
+    echo "</a>";
+    echo "<br>";
+    echo "<br>";
     //
     //
     //
