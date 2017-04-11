@@ -184,9 +184,25 @@
                 $uploadOk = 0;
             }
 
-            $sql = "UPDATE `userdata` SET `email`=\"{$EditEmail}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE `eventdata`.`usernumber` = {$UID};";
-            mysql_select_db("conferdata");
-            mysql_query( $sql, $conn );
+            list($width, $height) = getimagesize($target_file);
+            $myImage = imagecreatefrompng($imgSrc);
+
+            if ($width > $height) {
+              $xstart = ($width - $height)/2;
+              $xend = $width - $xstart;
+              $im2 = imagecrop($im, ['x' => $xstart, 'y' => 0, 'width' => $xend, 'height' => $height]);
+            } else {
+              $ystart = ($width - $height)/2;
+              $yend =  - $xstart;
+              $im2 = imagecrop($im, ['x' => 0, 'y' => $ystart, 'width' => $width, 'height' => $yend]);
+            }
+            imagepng($im2, $final_file);
+
+          }
+
+          $sql = "UPDATE `userdata` SET `email`=\"{$EditEmail}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE `eventdata`.`usernumber` = {$UID};";
+          mysql_select_db("conferdata");
+          mysql_query( $sql, $conn );
         }
         ?>
       </form>
