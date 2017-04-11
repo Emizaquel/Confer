@@ -93,6 +93,7 @@
     <form method="POST" action="">
       <input type = "submit" name = "sub" value = "New Password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
       <?php
+      require 'PHPMailerAutoload.php';
       if( isset($_POST["sub"]) ){
         $sendpass = '';
         $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -105,6 +106,28 @@
           echo("Success!");
         }else{
           echo("$sendpass");
+        }
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPAuth = true;
+        $mail->Username = "donotreplyconfer@gmail.com";
+        $mail->Password = "Chirag25";
+
+        // Email Sending Details
+        $mail->addAddress("Chiragh2355@gmail.com");
+        $mail->Subject = "Password Request";
+        $mail->msgHTML($message);
+
+        // Success or Failure
+        if (!$mail->send()) {
+        $error = "Mailer Error: " . $mail->ErrorInfo;
+        echo '<p id="para">'.$error.'</p>';
+        }
+        else {
+        echo '<p id="para">Message sent!</p>';
         }
       }
       ?>
