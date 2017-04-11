@@ -86,8 +86,8 @@
     // $date = date('Y-m-d', strtotime($EventDateTime));
     // $time = date('H:i:s', strtotime($EventDateTime));
 
-    $LocationArray = split(" ", $LocationSpaces);
-    $Location = join("+", $LocationArray);
+    // $LocationArray = split(" ", $LocationSpaces);
+    // $Location = join("+", $LocationArray);
 
     // $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SID . ";");
     // ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
@@ -96,8 +96,8 @@
     //
     // $Presenter = $query[0];
 
-    echo $date;
-    echo "<br>";
+    // echo $date;
+    // echo "<br>";
     echo $time;
     echo "<br>";
     echo "<br>";
@@ -107,13 +107,13 @@
     echo nl2br($Description);
     echo "<br>";
     echo "<br>";
-    echo "<a href ='https://www.google.co.uk/maps/place/";
-    echo $Location;
-    echo "'>";
-    echo $LocationSpaces;
-    echo "</a>";
-    echo "<br>";
-    echo "<br>";
+    // echo "<a href ='https://www.google.co.uk/maps/place/";
+    // echo $Location;
+    // echo "'>";
+    // echo $LocationSpaces;
+    // echo "</a>";
+    // echo "<br>";
+    // echo "<br>";
     //
     //
     //
