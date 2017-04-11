@@ -128,9 +128,51 @@
           $EditName = addslashes($_POST['name']);
 
           $target_dir = "userimages/";
-          $target_file = $target_dir . "usrimg" . $UID . ".png";
+          $target_file = $target_dir . basename($_FILES["usrimgup"]["name"]);
+          $final_file = $target_dir . "usrimg" . $UID . ".png";
           $uploadOk = 1;
           $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+          list($srcwidth, $srcheight) = getimagesize($_FILES["usrimgup"]["tmp_name"]);
+          if($srcwidth !== false) {
+            if ($_FILES["fileToUpload"]["size"] < 500001) {
+
+              if($imageFileType == "jpg"){
+                $im = imagecreatefromjpeg($_FILES["usrimgup"]["tmp_name"]);
+              }else if ($imageFileType == "jpeg"){
+                $im = imagecreatefromjpeg($_FILES["usrimgup"]["tmp_name"]);
+              }else if ($imageFileType == "gif"){
+                $im = imagecreatefromgif($_FILES["usrimgup"]["tmp_name"]);
+              }else if($imageFileType == "png"){
+                $im = imagecreatefrompng($_FILES["usrimgup"]["tmp_name"]);
+              }else{
+                echo ("Unsupported filetype, please use jpg, jpeg, png or gif");
+              }
+
+              if ($srcwidth > $srcheight) {
+                $xstart = ($srcwidth - $srcheight)/2;
+                $xend = $xstart + $srcheight;
+                $im2 = imagecreatetruecolor(500, 500);
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $xend , $srcheight )){
+                  echo ("success x");
+                }
+              } else {
+                $ystart = ($srcheight - $srcwidth)/2;
+                $yend = $ystart + $srcwidth;
+                $im2 = imagecreatetruecolor(500, 500);
+                if(imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 500 , 500 , $srcwidth , $srcwidth )){
+                  echo ("success y");
+                }
+              }
+              imagepng($im2, $target_file);
+            } else{
+              echo "File is too large";
+            }
+          } else {
+              echo "File is not an image.";
+          }
+
+
 
           $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
@@ -153,45 +195,6 @@
                   $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
                   mysql_select_db("conferdata");
                   mysql_query( $sql, $conn );
-                }
-
-                list($srcwidth, $srcheight) = getimagesize($_FILES["usrimgup"]["tmp_name"]);
-                if($srcwidth !== false) {
-                  if ($_FILES["fileToUpload"]["size"] < 500001) {
-
-                    if($imageFileType == "jpg"){
-                      $im = imagecreatefromjpeg($_FILES["usrimgup"]["tmp_name"]);
-                    }else if ($imageFileType == "jpeg"){
-                      $im = imagecreatefromjpeg($_FILES["usrimgup"]["tmp_name"]);
-                    }else if ($imageFileType == "gif"){
-                      $im = imagecreatefromgif($_FILES["usrimgup"]["tmp_name"]);
-                    }else if($imageFileType == "png"){
-                      $im = imagecreatefrompng($_FILES["usrimgup"]["tmp_name"]);
-                    }else{
-                      echo ("Unsupported filetype, please use jpg, jpeg, png or gif");
-                    }
-
-                    if ($srcwidth > $srcheight) {
-                      $xstart = ($srcwidth - $srcheight)/2;
-                      $xend = $xstart + $srcheight;
-                      $im2 = imagecreatetruecolor(500, 500);
-                      if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $srcheight , $srcheight )){
-                        echo ("success x");
-                      }
-                    } else {
-                      $ystart = ($srcheight - $srcwidth)/2;
-                      $yend = $ystart + $srcwidth;
-                      $im2 = imagecreatetruecolor(500, 500);
-                      if(imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 500 , 500 , $srcwidth , $srcwidth )){
-                        echo ("success y");
-                      }
-                    }
-                    imagepng($im2, $target_file);
-                  } else{
-                    echo "File is too large";
-                  }
-                } else {
-                    echo "File is not an image.";
                 }
               }
             }else{
