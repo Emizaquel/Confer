@@ -94,13 +94,7 @@
       <input type = "submit" name = "sub" value = "New Password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
       <?php
       if( isset($_POST["sub"]) ){
-        $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $str = '';
-        $max = mb_strlen($keyspace, '8bit') - 1;
-        for ($i = 0; $i < 12; ++$i) {
-            $str .= $keyspace[random_int(0, $max)];
-        }
-        echo $str;
+        echo "password placeholder";
       }
       ?>
     </form>
