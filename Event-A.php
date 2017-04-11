@@ -89,12 +89,12 @@
     $LocationArray = explode(" ", $LocationSpaces);
     $Location = implode("+", $LocationArray);
 
-    // $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SID . ";");
-    // ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-    // $retval = mysqli_query( $conn ,  $sql);
-    // $query = mysqli_fetch_array($retval);
-    //
-    // $Presenter = $query[0];
+    $sql = ("SELECT name FROM userdata WHERE usernumber = " . $SID . ";");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_array($retval);
+
+    $Presenter = $query[0];
 
     echo $date;
     echo "<br>";
@@ -115,7 +115,7 @@
     echo "<br>";
     echo "<br>";
 
-    
+
 
     // if(!isset($_COOKIE["UserID"])) {
     //   header("Location:login.php");
