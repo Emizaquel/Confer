@@ -133,46 +133,40 @@
           $uploadOk = 1;
           $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-          $check = getimagesize($_FILES["usrimgup"]["tmp_name"]);
-          if($check !== false) {
-              echo "File is an image - " . $check["mime"] . ".";
-              $uploadOk = 1;
+          list($srcwidth, $srcheight) = getimagesize($_FILES["usrimgup"]["tmp_name"]);
+          if($srcwidth !== false) {
+            if ($_FILES["fileToUpload"]["size"] < 500001) {
+
+              if($imageFileType == "jpg"){
+                $im = imagecreatefromjpeg($_FILES["usrimgup"]["tmp_name"]);
+              }else if ($imageFileType == "jpeg"){
+                $im = imagecreatefromjpeg($_FILES["usrimgup"]["tmp_name"]);
+              }else if ($imageFileType == "gif"){
+                $im = imagecreatefromgif($_FILES["usrimgup"]["tmp_name"]);
+              }else if($imageFileType == "png"){
+                $im = imagecreatefrompng($_FILES["usrimgup"]["tmp_name"]);
+              }else{
+                echo ("Unsupported filetype, please use jpg, jpeg, png or gif");
+              }
+
+              if ($srcwidth > $srcheight) {
+                $xstart = ($srcwidth - $srcheight)/2;
+                $xend = $srcwidth - $xstart;
+                imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 250 , 250 , $xend , $srcheight );
+              } else {
+                $ystart = ($srcheight - $srcwidth)/2;
+                $yend = $srcheight - $xstart;
+                imagecopyresampled ( $im2 , $im , 0 , 0 , 0 , $ystart , 250 , 250 , $srcwidth , $yend );
+              }
+              imagepng($im2, $target_file);
+            } else{
+              echo "File is too large";
+            }
           } else {
-              echo "File is not an image. <br>";
-              echo $_FILES["usrimgup"]["tmp_name"];
-              $uploadOk = 0;
+              echo "File is not an image.";
           }
 
-          if ($_FILES["fileToUpload"]["size"] > 500000) {
-              echo "Sorry, your file is too large.";
-              $uploadOk = 0;
-          }
 
-          if($imageFileType == "jpg" || $imageFileType == "jpeg"){
-             imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
-            echo ("image file is of type {$imageFileType}");
-          }else if($imageFileType == "png"){
-            move_uploaded_file($_FILES["usrimgup"]["tmp_name"], $target_file);
-            echo ("image file is of type {$imageFileType}");
-          }else{
-              echo "Sorry, only JPG, JPEG & PNG files are allowed. <br>";
-              echo ("image file is of type {$imageFileType}");
-              $uploadOk = 0;
-          }
-
-          list($width, $height) = getimagesize($target_file);
-          $myImage = imagecreatefrompng($imgSrc);
-
-          if ($width > $height) {
-            $xstart = ($width - $height)/2;
-            $xend = $width - $xstart;
-            $im2 = imagecrop($im, ['x' => $xstart, 'y' => 0, 'width' => $xend, 'height' => $height]);
-          } else {
-            $ystart = ($width - $height)/2;
-            $yend =  - $xstart;
-            $im2 = imagecrop($im, ['x' => 0, 'y' => $ystart, 'width' => $width, 'height' => $yend]);
-          }
-          imagepng($im2, $final_file);
 
           $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
