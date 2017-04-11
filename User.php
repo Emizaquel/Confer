@@ -91,7 +91,6 @@
     echo "<br><br>";
     ?>
     <br><button type="button" id="customButton1">New Password</button><br>
-    <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>
