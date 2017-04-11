@@ -157,33 +157,6 @@
             }else{
             }
 
-            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/" . "userimages/";
-            $target_file = $target_dir . basename($_FILES["usrimgup"]["2bcropped"]);
-            $final_file = $target_dir . "usrimg" . $UID . ".png";
-            $uploadOk = 1;
-            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
-            $check = getimagesize($_FILES["usrimgup"]["tmp_name"]);
-            if($check !== false) {
-                $uploadOk = 1;
-            } else {
-                $uploadOk = 0;
-            }
-
-            if ($_FILES["fileToUpload"]["size"] > 500000) {
-                echo "Sorry, your file is too large.";
-                $uploadOk = 0;
-            }
-
-            if($imageFileType == "jpg" || $imageFileType == "jpeg"){
-               imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
-            }else if($imageFileType == "png"){
-              $_FILES["usrimgup"]["tmp_name"], $target_file);
-            }else{
-                echo "Sorry, only JPG, JPEG & PNG files are allowed.";
-                $uploadOk = 0;
-            }
-
           }
 
           $sql = "UPDATE `userdata` SET `email`=\"{$EditEmail}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE `eventdata`.`usernumber` = {$UID};";
