@@ -128,6 +128,20 @@
           $EditName = addslashes($_POST['name']);
 
           if( isset($_POST["sub"]) ){
+
+            $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/" . "userimages/";
+            $target_file = $target_dir . basename($_FILES["usrimgup"]["2bcropped"]);
+            $final_file = $target_dir . "usrimg" . $UID . ".png";
+            $uploadOk = 1;
+            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+            $check = getimagesize($_FILES["usrimgup"]["tmp_name"]);
+            if($check !== false) {
+                $uploadOk = 1;
+            } else {
+                $uploadOk = 0;
+            }
+
             $conn = mysql_connect($dbserver, $dbuser, $dbpass, $dbname);
 
             $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
