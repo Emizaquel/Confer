@@ -172,7 +172,7 @@
                     echo ("Unsupported filetype, please use jpg, jpeg, png or gif");
                   }
 
-                  $exif = exif_read_data($_FILES['image_upload']['tmp_name']);
+                  $exif = exif_read_data($_FILES['usrimgup']['tmp_name']);
                   if(!empty($exif['Orientation'])) {
                     switch($exif['Orientation']) {
                       case 8:
