@@ -100,12 +100,12 @@
         for ($i = 0; $i < 12; ++$i) {
             $sendpass .= $keyspace[random_int(0, 62)];
         }
-        $message = "Hello {$username},
-
-        You have requested a new password from an administrator for this event. If you have not asked for a password, please contact the staff for this effect and report it.
-
-        Your new password is : {$sendpass}
-
+        $message = "Hello {$username},\r\n
+        \r\n
+        You have requested a new password from an administrator for this event. If you have not asked for a password, please contact the staff for this effect and report it.\r\n
+        \r\n
+        Your new password is : {$sendpass}\r\n
+        \r\n
         We hope this does not inconvenience you.";
         $message = wordwrap($message, 70, "\r\n");
         if(mail("Chiragh2355@gmail.com","New Password",$message)){
