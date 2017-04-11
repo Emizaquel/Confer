@@ -41,8 +41,8 @@
                 }else if ($userID == 2){
                   header("Location:Settings-S.php");
                 }else if ($userID == 3){
-                  header("Location:Settings-St.php");
                 }else if ($userID == 4){
+                  header("Location:Settings-A.php");
                 }else{
                   header("Location:login.php");
 
