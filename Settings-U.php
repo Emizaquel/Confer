@@ -37,12 +37,12 @@
                 $userID = $query[0];
 
                 if($userID == 1){
-                  header("Location:Settings-U.php");
                 }else if ($userID == 2){
                   header("Location:Settings-S.php");
                 }else if ($userID == 3){
                   header("Location:Settings-St.php");
                 }else if ($userID == 4){
+                  header("Location:Settings-A.php");
                 }else{
                   header("Location:login.php");
 
@@ -66,7 +66,6 @@
   <div id="footer">
     <div id="nav-bar">
       <div id="image-border"><a href="timetable.php"><img src="home.png" height="100%"></a></div>
-      <div id="image-border"><a href="admin.php"><img src="admin.png" height="100%"></a></div>
       <div id="image-border"><a href="help.php"><img src="help.png" height="100%"></a></div>
       <div id="image-border"><a href="settings.php"><img src="setting.png" height="100%"></a></div>
     </div>
