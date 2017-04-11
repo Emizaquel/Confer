@@ -153,39 +153,39 @@
         <input type="datetime-local" value="<?php echo $date; echo "T"; echo $time ?>" step="1" name="datetime" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         <br>Speaker<br>
         <?php
-        $dbserver = "127.0.0.1:51097";
-        $dbuser = "azure";
-        $dbpass = "6#vWHD_$";
-        $dbname = "localdb";
-
-        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
-
-        if(! $conn ) {
-          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-        }
-
-          $sql = ("SELECT usernumber,name FROM `userdata` WHERE type = 2;");
-          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-          $retval = mysqli_query( $conn ,  $sql);
-
-          while($row = mysqli_fetch_array($retval))
-          {
-             $UserID = $row['usernumber'];
-             $Name = $row['name'];
-             if($SID == $UserID){
-               echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
-               echo $UserID;
-               echo "\" checked=\"checked\">  ";
-               echo $Name;
-               echo "<br>";}
-            else {
-               echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
-               echo $UserID;
-               echo "\">  ";
-               echo $Name;
-               echo "<br>";
-            }
-          }
+        // $dbserver = "127.0.0.1:51097";
+        // $dbuser = "azure";
+        // $dbpass = "6#vWHD_$";
+        // $dbname = "localdb";
+        //
+        // $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
+        //
+        // if(! $conn ) {
+        //   die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+        // }
+        //
+        //   $sql = ("SELECT usernumber,name FROM `userdata` WHERE type = 2;");
+        //   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        //   $retval = mysqli_query( $conn ,  $sql);
+        //
+        //   while($row = mysqli_fetch_array($retval))
+        //   {
+        //      $UserID = $row['usernumber'];
+        //      $Name = $row['name'];
+        //      if($SID == $UserID){
+        //        echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
+        //        echo $UserID;
+        //        echo "\" checked=\"checked\">  ";
+        //        echo $Name;
+        //        echo "<br>";}
+        //     else {
+        //        echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
+        //        echo $UserID;
+        //        echo "\">  ";
+        //        echo $Name;
+        //        echo "<br>";
+        //     }
+        //   }
         ?>
         <br>
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
