@@ -75,7 +75,11 @@
     <span id="UserDetails">
 
       <?php
-      echo (file_exists("/userimages/usrimg{$UID}.png"));
+      $usrimgpath = "/userimages/usrimg{$UID}.png";
+      echo $usrimgpath;
+      echo "<br>";
+      echo (file_exists($usrimgpath));
+      echo "<br>";
       if (file_exists("/userimages/usrimg{$UID}.png")) {
           echo("This is strange.");
       } else {
