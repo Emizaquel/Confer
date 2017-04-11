@@ -153,6 +153,9 @@
                 $xstart = ($srcwidth - $srcheight)/2;
                 $xend = $xstart + $srcheight;
                 $im2 = imagecreatetruecolor(500, 500);
+                imagecolortransparent($im2, imagecolorallocatealpha($new, 0, 0, 0, 127));
+                imagealphablending($im2, false);
+                imagesavealpha($im2, true);
                 if(imagecopyresampled ( $im2 , $im , 0 , 0 , $xstart , 0 , 500 , 500 , $srcheight , $srcheight )){
                   echo ("success x");
                 }
