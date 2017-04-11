@@ -93,7 +93,7 @@
     <form method="POST" action="">
       <input type = "submit" name = "sub" value = "New Password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
       <?php
-      require 'PHPMailerAutoload.php';
+      require 'PHPMailer/PHPMailerAutoload.php';
       if( isset($_POST["sub"]) ){
         $sendpass = '';
         $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
