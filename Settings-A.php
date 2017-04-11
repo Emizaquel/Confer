@@ -130,7 +130,7 @@
           if( isset($_POST["sub"]) ){
 
             $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/" . "userimages/";
-            $target_file = $target_dir . basename($_FILES["usrimgup"]["2bcropped"]);
+            $target_file = $target_dir . basename($_FILES["usrimgup"]["name"]);
             $final_file = $target_dir . "usrimg" . $UID . ".png";
             $uploadOk = 1;
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -153,7 +153,7 @@
               move_uploaded_file($_FILES["usrimgup"]["tmp_name"], $target_file);
             }else{
                 echo "Sorry, only JPG, JPEG & PNG files are allowed. <br>";
-                echo ("image file is of type {$_FILES["usrimgup"]["tmp_name"]} <br>");
+                echo ("image file is of type {$check}");
                 $uploadOk = 0;
             }
 
