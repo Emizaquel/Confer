@@ -148,7 +148,7 @@
             }
 
             if($imageFileType == "jpg" || $imageFileType == "jpeg"){
-               imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])), $target_file);
+               imagepng(imagecreatefromstring(file_get_contents($_FILES["usrimgup"]["tmp_name"])));
             }else if($imageFileType == "png"){
               $_FILES["usrimgup"]["tmp_name"], $target_file);
             }else{
