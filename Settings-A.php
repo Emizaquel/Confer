@@ -79,7 +79,7 @@
       if (file_exists($usrimgpath)) {
         echo "<img src=\"/userimages/usrimg{$UID}.png\" width=\"80%\">";
       } else {
-          echo "<img src=\"/userimages/usrdefault.png\">";
+        echo "<img src=\"/userimages/usrdefault.png\">";
       }
       echo "<br><br>";
       echo $username;
@@ -93,6 +93,7 @@
     </span>
     <span id="EditDetails" style="display: none">
       <form method="POST" action="">
+        <input id="userimage" type="file" accept="image/*;capture=camera"><br>
         Name :<br>
         <input type="text" value="<?php echo $username ?>" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         Email :<br>
