@@ -99,10 +99,7 @@
         for ($i = 0; $i < 12; ++$i) {
             $sendpass .= $keyspace[rand(0, 62)];
         }
-        echo 'Current PHP version: ' . phpversion();
-        echo "<br>";
-        echo $sendpass;
-        echo "\n";
+        mail("ChiragH2355@gmail.com","New Password","Hello {$username},\n\n You have requested a new password from an administrator for this event. If you have not asked for a password, please contact the staff for this effect and report it. \n\nYour new password is : {$sendpass} \n\nWe hope this does not inconveniance you.");
       }
       ?>
     </form>
