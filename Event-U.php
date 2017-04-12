@@ -149,12 +149,14 @@
       if(mysqli_query( $conn ,  $sql)){
         echo "<br> Success!";
       }
+      echo "tried forgetting";
     }else if(isset($_POST["forgetme"])){
       $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$userID} AND eventnumber = {$EventID}");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       if(mysqli_query( $conn ,  $sql)){
         echo "<br> Success!";
       }
+      echo "tried Remembering";
     }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
