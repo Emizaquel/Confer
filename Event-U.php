@@ -136,11 +136,11 @@
     if($query){
       echo"<form method=\"POST\" action=\"\">
         <input type = \"submit\" name = \"forgetme\" value = \"Submit\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
-      </form>"
+      </form>";
     }else{
       echo"<form method=\"POST\" action=\"\">
         <input type = \"submit\" name = \"remindme\" value = \"Submit\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
-      </form>"
+      </form>";
     }
 
     if(isset($_GET["forgetme"])){
