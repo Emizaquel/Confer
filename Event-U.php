@@ -135,11 +135,11 @@
 
     if($query){
       echo"<form method=\"POST\" action=\"\">
-        <input type = \"submit\" name = \"forgetme\" value = \"Submit\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+        <input type = \"submit\" name = \"forgetme\" value = \"Don't Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
       </form>";
     }else{
       echo"<form method=\"POST\" action=\"\">
-        <input type = \"submit\" name = \"remindme\" value = \"Submit\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+        <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
       </form>";
     }
 
