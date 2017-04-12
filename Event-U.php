@@ -101,7 +101,7 @@
     echo $Location;
     echo "'>";
     echo $LocationSpaces;
-    echo "</a>";
+    echo "</a><br><br>";
     if(!isset($_COOKIE["UserID"])) {
       header("Location:login.php");
     } else {
@@ -144,19 +144,19 @@
     }
 
     if(isset($_POST["forgetme"])){
-      $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
-      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-      if(mysqli_query( $conn ,  $sql)){
-        echo "<br> Success!";
-      }
-      echo "tried forgetting";
-    }else if(isset($_POST["forgetme"])){
+      echo "<br>tried forgetting";
       $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$userID} AND eventnumber = {$EventID}");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       if(mysqli_query( $conn ,  $sql)){
-        echo "<br> Success!";
+        echo "<br>Success!";
       }
-      echo "tried Remembering";
+    }else if(isset($_POST["forgetme"])){
+      echo "<br>tried Remembering";
+      $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      if(mysqli_query( $conn ,  $sql)){
+        echo "<br>Success!";
+      }
     }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
