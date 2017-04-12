@@ -143,13 +143,13 @@
       </form>";
     }
 
-    if(isset($_GET["forgetme"])){
+    if(isset($_POST["forgetme"])){
       $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       if(mysqli_query( $conn ,  $sql)){
         echo "<br> Success!";
       }
-    }else if(isset($_GET["forgetme"])){
+    }else if(isset($_POST["forgetme"])){
       $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$userID} AND eventnumber = {$EventID}");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       if(mysqli_query( $conn ,  $sql)){
