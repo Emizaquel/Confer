@@ -133,7 +133,25 @@
     $retval = mysqli_query( $conn ,  $sql);
     $query = mysqli_fetch_array($retval);
 
-    if($query){
+    if(isset($_POST["forgetme"])){
+      $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$userID} AND eventnumber = {$EventID}");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      if(mysqli_query( $conn ,  $sql)){
+        echo "<form method=\"POST\" action=\"\">
+          <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+        </form>
+        <br>Success!";
+      }
+    }else if(isset($_POST["remindme"])){
+      $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      if(mysqli_query( $conn ,  $sql)){
+        echo "<form method=\"POST\" action=\"\">
+          <input type = \"submit\" name = \"forgetme\" value = \"Don't Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+        </form>
+        <br>Success!";
+      }
+    }else if($query){
       echo"<form method=\"POST\" action=\"\">
         <input type = \"submit\" name = \"forgetme\" value = \"Don't Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
       </form>";
@@ -141,22 +159,6 @@
       echo"<form method=\"POST\" action=\"\">
         <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
       </form>";
-    }
-
-    if(isset($_POST["forgetme"])){
-      echo "<br>tried forgetting";
-      $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$userID} AND eventnumber = {$EventID}");
-      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-      if(mysqli_query( $conn ,  $sql)){
-        echo "<br>Success!";
-      }
-    }else if(isset($_POST["remindme"])){
-      echo "<br>tried Remembering";
-      $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
-      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-      if(mysqli_query( $conn ,  $sql)){
-        echo "<br>Success!";
-      }
     }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
