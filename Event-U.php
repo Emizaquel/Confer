@@ -139,8 +139,7 @@
       if(mysqli_query( $conn ,  $sql)){
         echo "<form method=\"POST\" action=\"\">
           <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
-        </form>
-        <br>Success!";
+        </form>";
       }
     }else if(isset($_POST["remindme"])){
       $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
@@ -148,8 +147,7 @@
       if(mysqli_query( $conn ,  $sql)){
         echo "<form method=\"POST\" action=\"\">
           <input type = \"submit\" name = \"forgetme\" value = \"Don't Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
-        </form>
-        <br>Success!";
+        </form>";
       }
     }else if($query){
       echo"<form method=\"POST\" action=\"\">
