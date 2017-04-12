@@ -90,18 +90,18 @@
     $Location = implode("+", $LocationArray);
 
     echo $date;
-    echo "<br>";
+    echo "\n<br>\n";
     echo $time;
-    echo "<br>";
-    echo "<br>";
+    echo "\n<br>";
+    echo "<br>\n";
     echo $Description;
-    echo "<br>";
-    echo "<br>";
+    echo "\n<br>";
+    echo "<br>\n";
     echo "<a href ='https://www.google.co.uk/maps/place/";
     echo $Location;
     echo "'>";
     echo $LocationSpaces;
-    echo "</a><br><br>";
+    echo "</a><br><br>\n";
     if(!isset($_COOKIE["UserID"])) {
       header("Location:login.php");
     } else {
