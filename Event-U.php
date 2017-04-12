@@ -150,7 +150,7 @@
       if(mysqli_query( $conn ,  $sql)){
         echo "<br>Success!";
       }
-    }else if(isset($_POST["forgetme"])){
+    }else if(isset($_POST["remindme"])){
       echo "<br>tried Remembering";
       $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
