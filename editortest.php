@@ -9,4 +9,8 @@
         CKEDITOR.replace( 'editor1' );
     </script>
     <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
+    <?php
+        $editor_data = $_POST[ 'editor1' ];
+        echo $editor_data;
+    ?>
 </form>
