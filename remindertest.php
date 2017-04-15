@@ -57,6 +57,7 @@ We hope this e-mail has been useful.";
       $retval3 = mysqli_query( $conn ,  $sql3);
       $query3 = mysqli_fetch_array($retval3);
       $mail->AddBCC($query3);
+      echo ("email to " + $query3);
     }
     $mail->Subject = "Reminder for {$EventName}";
     $mail->isHTML(false);
