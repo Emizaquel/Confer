@@ -56,15 +56,18 @@
         if (strpos($workline, 'style') == false) {
           if (strpos($workline, 'img') !== false) {
             $order = "img";
-            $replace = "img style = \"width = 50%\"";
+            $replace = "img width = \"100%\"";
             $workline = str_replace($order, $replace, $workline);
           }
         }
       }
       $withp = implode(PHP_EOL,$linesplit);
-      $order = array("<p>", "</p>");
-      $replace = "<br>";
-      $strout = str_replace($order, $replace, $withp);
+      $order = array("</p>");
+      $replace = "<br><br>";
+      $withbr = str_replace($order, $replace, $withp);
+      $order = array("<p>");
+      $replace = "";
+      $strout = str_replace($order, $replace, $withbr);
       echo $strout;
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
