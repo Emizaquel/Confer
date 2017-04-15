@@ -57,8 +57,7 @@
           if (strpos($workline, 'img') !== false) {
             $order = "img";
             $replace = "img style = \"width = 100%\"";
-            $strout = str_replace($order, $replace, $withp);
-            echo $strout;
+            $workline = str_replace($order, $replace, $workline);
           }
         }
       }
