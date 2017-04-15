@@ -53,14 +53,15 @@
     <?php
       $linesplit = explode("\n\n",$current);
       foreach ($linesplit as &$workline) {
+        echo "ping";
         if (strpos($workline, 'style') == false) {
-          echo $workline;
         }
       }
       $withp = implode("\n\n",$linesplit);
       $order = array("<p>", "</p>");
       $replace = "<br>";
       $strout = str_replace($order, $replace, $withp);
+      echo $strout;
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
