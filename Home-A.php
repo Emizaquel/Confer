@@ -56,7 +56,7 @@
         if (strpos($workline, 'style') == false) {
           if (strpos($workline, 'img') !== false) {
             $order = "img";
-            $replace = "img style = \"width = 100%\"";
+            $replace = "img style = \"width = 50%\"";
             $workline = str_replace($order, $replace, $workline);
           }
         }
