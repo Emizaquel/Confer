@@ -142,13 +142,13 @@
         }
     }
 
-    $sql = ("SELECT * FROM reminderdata WHERE eventnumber = {$EventID} AND usernumber = {$userID};");
+    $sql = ("SELECT * FROM reminderdata WHERE eventnumber = {$EventID} AND usernumber = {$UID};");
     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
     $retval = mysqli_query( $conn ,  $sql);
     $query = mysqli_fetch_array($retval);
 
     if(isset($_POST["forgetme"])){
-      $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$userID} AND eventnumber = {$EventID}");
+      $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$UID} AND eventnumber = {$EventID}");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       if(mysqli_query( $conn ,  $sql)){
         echo "<form method=\"POST\" action=\"\">
@@ -156,7 +156,7 @@
         </form>";
       }
     }else if(isset($_POST["remindme"])){
-      $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
+      $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$UID}', '{$EventID}');");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       if(mysqli_query( $conn ,  $sql)){
         echo "<form method=\"POST\" action=\"\">
