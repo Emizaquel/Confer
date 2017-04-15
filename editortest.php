@@ -17,7 +17,7 @@
   	$editor_data = $_POST[ 'editor1' ];
     $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
     echo $editor_data;
-    $linesplit = explode("\n\n",$editor_data)
+    $linesplit = explode("\n\n",$editor_data);
     foreach ($linesplit as &$workline) {
       if (strpos($workline, 'img') !== false) {
         if (strpos($workline, 'style') == false) {
@@ -27,7 +27,7 @@
         }
       }
     }
-    $withp = implode($linesplit)
+    $withp = implode($linesplit);
     $replace = array("<p>", "</p>");
     $order = "<br />";
     $strout = str_replace($order, $replace, $linesplit);
