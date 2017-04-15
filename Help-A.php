@@ -47,7 +47,7 @@
     </span>
     <a onclick="document.getElementById('EditPage').style.display='block'; document.getElementById('EditPageButton').style.display='none';" class="link">
       <span id="EditPageButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
-        Edit Homepage
+        Edit Help Page
       </span>
     </a><br><br>
     <?php
