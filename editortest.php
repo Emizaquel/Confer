@@ -27,10 +27,10 @@
         }
       }
     }
-    $withp = implode("\n\n",$linesplit);
-    $replace = array("<p>", "</p>");
-    $order = "<br />";
-    $strout = str_replace($order, $replace, $withp);
+    // $withp = implode("\n\n",$linesplit);
+    // $replace = array("<p>", "</p>");
+    // $order = "<br />";
+    // $strout = str_replace($order, $replace, $withp);
     echo(file_put_contents($file, $editor_data));
   ?>
 </body>
