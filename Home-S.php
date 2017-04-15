@@ -24,6 +24,8 @@
   </div>
   <div id="page-body">
     <?php
+    $file = $_SERVER['DOCUMENT_ROOT'] . "/helptext.txt";
+    $current = file_get_contents ($file);
       $linesplit = explode(PHP_EOL,$current);
       foreach ($linesplit as &$workline) {
         if (strpos($workline, 'style') == false) {
