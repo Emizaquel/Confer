@@ -55,7 +55,10 @@
       foreach ($linesplit as &$workline) {
         if (strpos($workline, 'style') == false) {
           if (strpos($workline, 'img') !== false) {
-            $workline = "ping";
+            $order = "img";
+            $replace = "img style = \"width = 100%\"";
+            $strout = str_replace($order, $replace, $withp);
+            echo $strout;
           }
         }
       }
