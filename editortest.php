@@ -18,11 +18,9 @@
     $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
     echo $editor_data;
     $linesplit = explode("\n\n",$editor_data);
-    $order = "img";
-    $replace = "img style=\"width:100%\"";
     foreach ($linesplit as &$workline) {
       if (strpos($workline, 'style') == false) {
-        str_replace($order, $replace, $workline);
+        echo "ping";
       }
     }
     $withp = implode("\n\n",$linesplit);
