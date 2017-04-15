@@ -85,13 +85,12 @@
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
+    $displaydate = date('l jS \of F Y h:i:s A', strtotime($EventDateTime));
 
     $LocationArray = explode(" ", $LocationSpaces);
     $Location = implode("+", $LocationArray);
 
-    echo $date;
-    echo "\n<br>\n";
-    echo $time;
+    echo $displaydate;
     echo "\n<br>";
     echo "<br>\n";
     echo $Description;
@@ -159,7 +158,7 @@
       </form>";
     }
     ?>
-    <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>
 </div>

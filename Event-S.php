@@ -85,13 +85,12 @@
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
+    $displaydate = date('l jS \of F Y h:i:s A', strtotime($EventDateTime));
 
     $LocationArray = explode(" ", $LocationSpaces);
     $Location = implode("+", $LocationArray);
 
-    echo $date;
-    echo "<br>";
-    echo $time;
+    echo $displaydate;
     echo "<br>";
     echo "<br>";
     echo $Description;
@@ -130,8 +129,39 @@
           }
         }
     }
+
+    $sql = ("SELECT * FROM reminderdata WHERE eventnumber = {$EventID} AND usernumber = {$userID};");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_array($retval);
+
+    if(isset($_POST["forgetme"])){
+      $sql = ("DELETE FROM `reminderdata` WHERE usernumber = {$userID} AND eventnumber = {$EventID}");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      if(mysqli_query( $conn ,  $sql)){
+        echo "<form method=\"POST\" action=\"\">
+          <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+        </form>";
+      }
+    }else if(isset($_POST["remindme"])){
+      $sql = ("INSERT INTO `reminderdata` (`usernumber`, `eventnumber`) VALUES ('{$userID}', '{$EventID}');");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      if(mysqli_query( $conn ,  $sql)){
+        echo "<form method=\"POST\" action=\"\">
+          <input type = \"submit\" name = \"forgetme\" value = \"Don't Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+        </form>";
+      }
+    }else if($query){
+      echo"<form method=\"POST\" action=\"\">
+        <input type = \"submit\" name = \"forgetme\" value = \"Don't Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+      </form>";
+    }else{
+      echo"<form method=\"POST\" action=\"\">
+        <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+      </form>";
+    }
     ?>
-    <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>
 </div>
