@@ -54,11 +54,9 @@
       $linesplit = explode(PHP_EOL,$current);
       foreach ($linesplit as &$workline) {
         if (strpos($workline, 'style') == false) {
-          if (strpos($workline, 'img') !== false) {
-            $order = "img";
-            $replace = "img width = \"100%\"";
-            $workline = str_replace($order, $replace, $workline);
-          }
+          $order = "img";
+          $replace = "img width = \"100%\"";
+          $workline = str_replace($order, $replace, $workline);
         }
       }
       $withp = implode(PHP_EOL,$linesplit);
@@ -70,7 +68,7 @@
       $strout = str_replace($order, $replace, $withbr);
       echo $strout;
     ?>
-    <br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>
 </div>
