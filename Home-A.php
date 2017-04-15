@@ -51,7 +51,7 @@
       </span>
     </a><br>
     <?php
-      $linesplit = explode("\n\n",$current);
+      $linesplit = explode("PHP_EOL",$current);
       foreach ($linesplit as &$workline) {
         echo "ping";
         if (strpos($workline, 'style') == false) {
