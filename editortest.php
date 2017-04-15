@@ -10,4 +10,5 @@
   if( isset($_POST["sub"]) ){
     $text = addslashes($_POST['editor1']);
     echo $text;
+  }
   ?>
