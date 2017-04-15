@@ -18,11 +18,11 @@
     $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
     echo $editor_data;
     $linesplit = explode("\n\n",$editor_data);
+    $search = "/[^img](.*)[^alt]/";
+    $replace = " style="width:100%" ";
     foreach ($linesplit as &$workline) {
       if (strpos($workline, 'img') !== false) {
         if (strpos($workline, 'style') == false) {
-    //       $search = "/[^img](.*)[^alt]/";
-    //       $replace = " style="width:100%" ";
           // echo preg_replace($search,$replace,$workline);
         }
       }
