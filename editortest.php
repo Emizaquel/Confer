@@ -1,12 +1,24 @@
-<script src="ckeditor/ckeditor.js"></script>
-<form>
-    <textarea name="editor1" rows="10" cols="80" class="ckeditor">
-        This is my textarea to be replaced with CKEditor.
-    </textarea>
-    <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
-    <?php
-        $editor_data = $_POST["editor1"];
-        echo $_POST;
-        echo $editor_data;
-    ?>
-</form>
+<html>
+<head>
+	<title>Sample CKEditor Site</title>
+	<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+</head>
+<body>
+	<form method="post">
+		<p>
+			My Editor:<br />
+			<textarea id="editor1" name="editor1">&lt;p&gt;Initial value.&lt;/p&gt;</textarea>
+			<script type="text/javascript">
+				CKEDITOR.replace( 'editor1' );
+			</script>
+		</p>
+		<p>
+			<input type="submit" />
+		</p>
+	</form>
+  <?php
+  	$editor_data = $_POST[ 'editor1' ];
+    echo $editor_data;
+  ?>
+</body>
+</html>
