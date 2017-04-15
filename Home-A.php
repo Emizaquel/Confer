@@ -41,7 +41,7 @@
     			</script>
     		<p>
     			<input type="submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" /><br>
-          <a onclick="document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
+          <a onclick="document.getElementById('EditPageButton').style.display='block'; document.getElementById('EditPage').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
     		</p>
     	</form>
     </span>
@@ -51,7 +51,7 @@
       </span>
     </a><br>
     <?php
-      $linesplit = explode("PHP_EOL",$current);
+      $linesplit = explode(PHP_EOL,$current);
       foreach ($linesplit as &$workline) {
         echo "ping";
         if (strpos($workline, 'style') == false) {
