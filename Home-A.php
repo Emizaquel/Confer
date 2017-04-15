@@ -54,7 +54,7 @@
       $linesplit = explode(PHP_EOL,$current);
       foreach ($linesplit as &$workline) {
         if (strpos($workline, 'style') == false) {
-          if (strpos($workline, 'style') == false) {
+          if (strpos($workline, 'img') !== false) {
             $workline = "ping";
           }
         }
