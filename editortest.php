@@ -20,7 +20,7 @@
   	$editor_data = $_POST[ 'editor1' ];
     $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
     echo $editor_data;
-    file_put_contents($file, $editor_data);
+    echo(file_put_contents($file, $editor_data));
   ?>
 </body>
 </html>
