@@ -25,48 +25,49 @@
     </div>
   </div>
   <div id="page-body">
-    <form method="post">
-        <textarea id="editor1" name="editor1"><?php
-        $file = $_SERVER['DOCUMENT_ROOT'] . "/helptext.txt";
-        if(isset($_POST[ 'editor1' ])){
-          $editor_data = $_POST[ 'editor1' ];
-          file_put_contents($file, $editor_data);
-        }
-        $current = file_get_contents ($file);
-        echo $current;
-         ?></textarea>
-        <script type="text/javascript">
-          CKEDITOR.replace( 'editor1' );
-        </script>
-      <p>
-        <input type="submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" /><br>
-        <a onclick="document.getElementById('EditPageButton').style.display='block'; document.getElementById('EditPage').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
-      </p>
-    </form>
-  </span>
-  <a onclick="document.getElementById('EditPage').style.display='block'; document.getElementById('EditPageButton').style.display='none';" class="link">
-    <span id="EditPageButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
-      Edit Homepage
+    <span id="EditPage" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;">
+      <form method="post">
+          <textarea id="editor1" name="editor1"><?php
+          $file = $_SERVER['DOCUMENT_ROOT'] . "/helptext.txt";
+          if(isset($_POST[ 'editor1' ])){
+            $editor_data = $_POST[ 'editor1' ];
+            file_put_contents($file, $editor_data);
+          }
+          $current = file_get_contents ($file);
+          echo $current;
+           ?></textarea>
+          <script type="text/javascript">
+            CKEDITOR.replace( 'editor1' );
+          </script>
+        <p>
+          <input type="submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" /><br>
+          <a onclick="document.getElementById('EditPageButton').style.display='block'; document.getElementById('EditPage').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
+        </p>
+      </form>
     </span>
-  </a><br><br>
-  <?php
-    $linesplit = explode(PHP_EOL,$current);
-    foreach ($linesplit as &$workline) {
-      if (strpos($workline, 'style') == false) {
-        $order = "img";
-        $replace = "img width = \"100%\"";
-        $workline = str_replace($order, $replace, $workline);
+    <a onclick="document.getElementById('EditPage').style.display='block'; document.getElementById('EditPageButton').style.display='none';" class="link">
+      <span id="EditPageButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
+        Edit Homepage
+      </span>
+    </a><br><br>
+    <?php
+      $linesplit = explode(PHP_EOL,$current);
+      foreach ($linesplit as &$workline) {
+        if (strpos($workline, 'style') == false) {
+          $order = "img";
+          $replace = "img width = \"100%\"";
+          $workline = str_replace($order, $replace, $workline);
+        }
       }
-    }
-    $withp = implode(PHP_EOL,$linesplit);
-    $order = array("</p>");
-    $replace = "<br><br>";
-    $withbr = str_replace($order, $replace, $withp);
-    $order = array("<p>");
-    $replace = "";
-    $strout = str_replace($order, $replace, $withbr);
-    echo $strout;
-  ?>
+      $withp = implode(PHP_EOL,$linesplit);
+      $order = array("</p>");
+      $replace = "<br><br>";
+      $withbr = str_replace($order, $replace, $withp);
+      $order = array("<p>");
+      $replace = "";
+      $strout = str_replace($order, $replace, $withbr);
+      echo $strout;
+    ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>
