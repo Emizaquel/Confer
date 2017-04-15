@@ -5,11 +5,10 @@
   <script>
     CKEDITOR.replace('editor1');
   </script>
+  <?php
+  if( isset($_POST["sub"]) ){
+    $text = $_POST['editor1'];
+    echo $text;
+  }
+  ?>
 </form>
-
-<?php
-if( isset($_POST["sub"]) ){
-  $text = $_POST['editor1'];
-  echo $text;
-}
-?>
