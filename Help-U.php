@@ -23,7 +23,24 @@
     </div>
   </div>
   <div id="page-body">
-    Add FAQ here
+    <?php
+      $linesplit = explode(PHP_EOL,$current);
+      foreach ($linesplit as &$workline) {
+        if (strpos($workline, 'style') == false) {
+          $order = "img";
+          $replace = "img width = \"100%\"";
+          $workline = str_replace($order, $replace, $workline);
+        }
+      }
+      $withp = implode(PHP_EOL,$linesplit);
+      $order = array("</p>");
+      $replace = "<br><br>";
+      $withbr = str_replace($order, $replace, $withp);
+      $order = array("<p>");
+      $replace = "";
+      $strout = str_replace($order, $replace, $withbr);
+      echo $strout;
+    ?>
     <br>
     <br> Add a Q/A form here with PHP
     <br><!-- This is for readability on a computer, don't get rid of it. -->
