@@ -9,7 +9,6 @@
       $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
       if(isset($_POST[ 'editor1' ])){
         $editor_data = $_POST[ 'editor1' ];
-        echo $editor_data;
         file_put_contents($file, $editor_data);
       }
       $current = file_get_contents ($file);
