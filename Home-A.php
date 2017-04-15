@@ -40,11 +40,12 @@
     				CKEDITOR.replace( 'editor1' );
     			</script>
     		<p>
-    			<input type="submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" />
+    			<input type="submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" /><br>
+          <a onclick="document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
     		</p>
     	</form>
     </span>
-    <a onclick="document.getElementById('EditPage').style.display='block'; document.getElementById('NewEventButton').style.display='none';" class="link">
+    <a onclick="document.getElementById('EditPage').style.display='block'; document.getElementById('EditPageButton').style.display='none';" class="link">
       <span id="EditPageButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
         Edit Homepage
       </span>
