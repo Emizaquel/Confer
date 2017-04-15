@@ -5,7 +5,11 @@
 </head>
 <body>
 	<form method="post">
-			<textarea id="editor1" name="editor1">&lt;p&gt;Initial value.&lt;/p&gt;</textarea>
+			<textarea id="editor1" name="editor1"><?php
+      $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
+      $current = file_get_contents ($file);
+      echo $current;
+       ?></textarea>
 			<script type="text/javascript">
 				CKEDITOR.replace( 'editor1' );
 			</script>
@@ -15,19 +19,8 @@
 	</form>
   <?php
   	$editor_data = $_POST[ 'editor1' ];
-    $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
     echo $editor_data;
-    $linesplit = explode("\n\n",$editor_data);
-    foreach ($linesplit as &$workline) {
-      if (strpos($workline, 'style') == false) {
-        $workline = "ping";
-      }
-    }
-    $withp = implode("\n\n",$linesplit);
-    $order = array("<p>", "</p>");
-    $replace = "<br>";
-    $strout = str_replace($order, $replace, $withp);
-    file_put_contents($file, $strout);
+    file_put_contents($file, $editor_data);
   ?>
 </body>
 </html>
