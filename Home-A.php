@@ -40,7 +40,7 @@
     				CKEDITOR.replace( 'editor1' );
     			</script>
     		<p>
-    			<input type="submit" />
+    			<input type="submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" />
     		</p>
     	</form>
     </span>
