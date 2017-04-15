@@ -12,3 +12,4 @@
     echo $text;
   }
   ?>
+</form>
