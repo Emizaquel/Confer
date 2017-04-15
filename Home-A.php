@@ -53,11 +53,11 @@
     <?php
       $linesplit = explode(PHP_EOL,$current);
       foreach ($linesplit as &$workline) {
-        echo "ping";
         if (strpos($workline, 'style') == false) {
+          echo "ping";
         }
       }
-      $withp = implode("\n\n",$linesplit);
+      $withp = implode(PHP_EOL,$linesplit);
       $order = array("<p>", "</p>");
       $replace = "<br>";
       $strout = str_replace($order, $replace, $withp);
