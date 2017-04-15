@@ -20,11 +20,11 @@
     $linesplit = explode("\n\n",$editor_data);
     foreach ($linesplit as &$workline) {
       if (strpos($workline, 'img') !== false) {
-    //     if (strpos($workline, 'style') == false) {
+        if (strpos($workline, 'style') == false) {
     //       $search = "/[^img](.*)[^alt]/";
     //       $replace = " style="width:100%" ";
-    //       echo preg_replace($search,$replace,$workline);
-    //     }
+          // echo preg_replace($search,$replace,$workline);
+        }
       }
     }
     $withp = implode("\n\n",$linesplit);
