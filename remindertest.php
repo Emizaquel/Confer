@@ -56,9 +56,9 @@ We hope this e-mail has been useful.";
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       $retval3 = mysqli_query( $conn ,  $sql3);
       $query3 = mysqli_fetch_array($retval3);
-      $mail->AddBCC($query3);
+      $mail->AddBCC($query3['email']);
       echo ("email to ");
-      echo ($query3);
+      echo ($query3['email']);
       echo ("<br>");
     }
     $mail->Subject = "Reminder for {$EventName}";
