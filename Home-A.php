@@ -53,8 +53,10 @@
     <?php
       $linesplit = explode(PHP_EOL,$current);
       foreach ($linesplit as &$workline) {
-        if (strpos($workline, 'img') !== false) {
-          echo "ping";
+        if (strpos($workline, 'style') == false) {
+          $order = array("img");
+          $replace = "img style = \"width = 100%\"";
+          $workline = str_replace($order, $replace, $workline);
         }
       }
       $withp = implode(PHP_EOL,$linesplit);
