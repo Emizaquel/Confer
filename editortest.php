@@ -21,10 +21,8 @@
     $order = "img";
     $replace = "img style=\"width:100%\"";
     foreach ($linesplit as &$workline) {
-      if (strpos($workline, 'img') !== false) {
-        if (strpos($workline, 'style') == false) {
-          str_replace($order, $replace, $workline);
-        }
+      if (strpos($workline, 'style') == false) {
+        str_replace($order, $replace, $workline);
       }
     }
     $withp = implode("\n\n",$linesplit);
