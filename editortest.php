@@ -20,14 +20,14 @@
     $linesplit = explode("\n\n",$editor_data);
     foreach ($linesplit as &$workline) {
       if (strpos($workline, 'style') == false) {
-        echo "ping";
+        $workline = "ping";
       }
     }
     $withp = implode("\n\n",$linesplit);
     $order = array("<p>", "</p>");
     $replace = "<br>";
     $strout = str_replace($order, $replace, $withp);
-    echo(file_put_contents($file, $strout));
+    file_put_contents($file, $strout);
   ?>
 </body>
 </html>
