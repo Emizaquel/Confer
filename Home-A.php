@@ -49,9 +49,18 @@
       <span id="EditPageButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
         Edit Homepage
       </span>
-    </a><br><br>
+    </a><br>
     <?php
-      echo $current;
+      $linesplit = explode("\n\n",$current);
+      foreach ($linesplit as &$workline) {
+        if (strpos($workline, 'style') == false) {
+          echo $workline;
+        }
+      }
+      $withp = implode("\n\n",$linesplit);
+      $order = array("<p>", "</p>");
+      $replace = "<br>";
+      $strout = str_replace($order, $replace, $withp);
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
