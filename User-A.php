@@ -202,7 +202,7 @@ We hope this does not inconvenience you.";
           echo "<br>Empty";
         }else{
           if (in_array("1", $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[1]);");
+            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ({$SubUID},1);");
             ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
             mysqli_query( $conn ,  $sql3);
             echo "<br>1";
@@ -213,7 +213,7 @@ We hope this does not inconvenience you.";
             echo "<br>1";
           }
           if(in_array('2', $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[2]);");
+            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ({$SubUID},2);");
             ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
             mysqli_query( $conn ,  $sql3);
             echo "<br>2";
@@ -224,7 +224,7 @@ We hope this does not inconvenience you.";
             echo "<br>2";
           }
           if(in_array("3", $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[3]);");
+            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ({$SubUID},3);");
             ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
             mysqli_query( $conn ,  $sql3);
             echo "<br>3";
@@ -235,7 +235,7 @@ We hope this does not inconvenience you.";
             echo "<br>3";
           }
           if(in_array("4", $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[4]);");
+            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ({$SubUID},4);");
             ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
             mysqli_query( $conn ,  $sql3);
             echo "<br>4";
