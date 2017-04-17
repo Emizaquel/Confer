@@ -195,7 +195,8 @@ We hope this does not inconvenience you.";
         $EditJobs = $_POST["Job"];
 
         if((empty($EditJobs)){
-          $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID};");
+          echo "DELETE FROM `jobdata` WHERE usernumber = {$SubUID};";
+          // $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID};");
           // ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
           // mysqli_query( $conn ,  $sql3);
         }//else{
