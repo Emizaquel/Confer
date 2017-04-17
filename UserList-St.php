@@ -109,7 +109,7 @@
          $UserID = $row['usernumber'];
          $UserName = $row['name'];
 
-         echo "<a id='EventListing' href = 'User-A.php?UserID={$UserID}'>{$UserName}<br></a>";
+         echo "<a id='EventListing' href = 'User-St.php?UserID={$UserID}'>{$UserName}<br></a>";
       }
       echo "<div id='UserBottom'></div>";
 
@@ -131,12 +131,27 @@
             }else if ($userID == 2){
               header("Location:Home-S.php");
             }else if ($userID == 3){
-              header("Location:Home-St.php");
             }else if ($userID == 4){
+              header("Location:Admin-A.php");
             }else{
               header("Location:login.php");
 
             }
+          }
+
+          $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber <> 2;");
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval = mysqli_query( $conn ,  $sql);
+          if($retval){
+            $query = mysqli_fetch_row($retval);
+            $JobID = $query[0];
+
+            $JobValue = FALSE;
+            if($JobID != 2){
+              header("Location:Admin-St.php");
+            }
+          }else{
+            header("Location:Admin-St.php");
           }
       }
     ?>

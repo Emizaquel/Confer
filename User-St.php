@@ -40,8 +40,8 @@
                 }else if ($userID == 2){
                   header("Location:Home-S.php");
                 }else if ($userID == 3){
-                  header("Location:Admin-St.php");
                 }else if ($userID == 4){
+                  header("Location:Admin-A.php");
                 }else{
                   header("Location:login.php");
                 }
@@ -92,8 +92,55 @@
     ?>
     <form method="POST" action="">
       <input type = "submit" name = "sub" value = "New Password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
+      <br><br>
+      <span id="deletebutton">
+        <a onclick="document.getElementById('deleteconfirm').style.display='block'; document.getElementById('deletebutton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Delete</button></a>
+      </span>
+      <span id="deleteconfirm">
+        <br><br>Are you sure?<br><br>
+        <input type = "submit" name = "del" value = "Yes" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
+        <br><br>
+        <a onclick="document.getElementById('deletebutton').style.display='block'; document.getElementById('deleteconfirm').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">No</button></a><br><br>
+      </span>
       <?php
       require 'PHPMailer/PHPMailerAutoload.php';
+
+      if( isset($_POST["del"]) ){
+        $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        mysqli_query( $conn ,  $sql3);
+
+        $message = "Hello {$username},
+
+Your account has been deleted by an admin. Please contact the event staff if there are any further issues.
+
+We hope this does not inconvenience you.";
+
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPAuth = true;
+        $mail->Username = "donotreplyconfer@gmail.com";
+        $mail->Password = "Chirag25";
+
+        // Email Sending Details
+        $mail->addAddress($usermail);
+        $mail->Subject = "Password Request";
+        $mail->isHTML(false);
+        $mail->Body = $message;
+
+        // Success or Failure
+        if (!$mail->send()) {
+        $error = "Mailer Error: " . $mail->ErrorInfo;
+        echo '<p id="para">'.$error.'</p>';
+        }
+        else {
+        echo '<p id="para">Message sent!</p>';
+        }
+      }
+
       if( isset($_POST["sub"]) ){
         $sendpass = '';
         $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -118,7 +165,7 @@ We hope this does not inconvenience you.";
         $mail->Password = "Chirag25";
 
         // Email Sending Details
-        $mail->addAddress("Chiragh2355@gmail.com");
+        $mail->addAddress($usermail);
         $mail->Subject = "Password Request";
         $mail->isHTML(false);
         $mail->Body = $message;

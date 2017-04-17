@@ -28,6 +28,17 @@
     <span id="EditPage" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;">
       <form method="post">
           <textarea id="editor1" name="editor1"><?php
+          $dbserver = "127.0.0.1:51097";
+          $dbuser = "azure";
+          $dbpass = "6#vWHD_$";
+          $dbname = "localdb";
+
+          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
+
+          if(! $conn ) {
+            die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+          }
+          
           $file = $_SERVER['DOCUMENT_ROOT'] . "/helptext.txt";
           if(isset($_POST[ 'editor1' ])){
             $editor_data = $_POST[ 'editor1' ];
@@ -67,6 +78,32 @@
       $replace = "";
       $strout = str_replace($order, $replace, $withbr);
       echo $strout;
+
+      if(!isset($_COOKIE["UserID"])) {
+        header("Location:login.php");
+      } else {
+          $UID = $_COOKIE["UserID"];
+
+          $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval = mysqli_query( $conn ,  $sql);
+
+          if($retval ) {
+            $query = mysqli_fetch_row($retval);
+            $userID = $query[0];
+
+            if($userID == 1){
+              header("Location:Help-U.php");
+            }else if ($userID == 2){
+              header("Location:Help-S.php");
+            }else if ($userID == 3){
+              header("Location:Help-St.php");
+            }else if ($userID == 4){
+            }else{
+              header("Location:login.php");
+            }
+          }
+      }
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>

@@ -107,6 +107,16 @@
         <input type="password" name="password3" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''"><br><br>
         <a onclick="document.getElementById('UserDetails').style.display=''; document.getElementById('EditDetails').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
+        <br><br>
+        <span id="deletebutton">
+          <a onclick="document.getElementById('deleteconfirm').style.display='block'; document.getElementById('deletebutton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Delete</button></a>
+        </span>
+        <span id="deleteconfirm">
+          <br><br>Are you sure?<br><br>
+          <input type = "submit" name = "del" value = "Yes" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
+          <br><br>
+          <a onclick="document.getElementById('deletebutton').style.display='block'; document.getElementById('deleteconfirm').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">No</button></a><br><br>
+        </span>
 
         <?php
         $dbserver = "127.0.0.1:51097";
@@ -118,6 +128,12 @@
 
         if(! $conn ) {
           die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+        }
+
+        if( isset($_POST["del"]) ){
+          $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          mysqli_query( $conn ,  $sql3);
         }
 
         if( isset($_POST["sub"]) ){

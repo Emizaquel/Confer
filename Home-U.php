@@ -24,6 +24,36 @@
   </div>
   <div id="page-body">
     <?php
+    if(! $conn ) {
+      die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
+    }
+
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval = mysqli_query( $conn ,  $sql);
+
+        if($retval ) {
+          $query = mysqli_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+            header("Location:Home-U.php");
+          }else if ($userID == 2){
+            header("Location:Home-S.php");
+          }else if ($userID == 3){
+            header("Location:Home-St.php");
+          }else if ($userID == 4){
+          }else{
+            header("Location:login.php");
+          }
+        }
+    }
+    
     $file = $_SERVER['DOCUMENT_ROOT'] . "/helptext.txt";
     $current = file_get_contents ($file);
       $linesplit = explode(PHP_EOL,$current);
