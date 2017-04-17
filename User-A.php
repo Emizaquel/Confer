@@ -98,9 +98,6 @@
         $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID};");
         ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
         $retval = mysqli_query( $conn ,  $sql);
-        if(in_array(1,$retval)){
-          echo "boop";
-        }
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
 
@@ -118,6 +115,8 @@
            }else if($JobNumber == 4){
              $Job4 = 1;
            }
+
+           echo "{$Job1}, {$Job2}, {$Job3}, {$Job4}"
         }
         echo "Permissions<br><br>";
         if($Job1 == 1){
