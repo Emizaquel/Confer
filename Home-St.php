@@ -71,7 +71,6 @@
       $query = mysqli_fetch_row($retval);
       $JobID = $query[0];
 
-      $JobValue = FALSE;
       if($JobID == 4){
         echo "<span id=\"EditPage\" style=\"display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;\">
           <form method=\"post\">
