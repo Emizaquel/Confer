@@ -142,7 +142,6 @@
       ?>
       <input type = "submit" name = "per" value = "Set Permissions" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
       <input type = "submit" name = "sub" value = "New Password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
-      <br><br>
       <span id="deletebutton">
         <a onclick="document.getElementById('deleteconfirm').style.display='block'; document.getElementById('deletebutton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Delete</button></a>
       </span>
