@@ -69,17 +69,11 @@
                 }
               }
 
-              $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber == 1;");
+              $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber == 3;");
               ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
               $retval = mysqli_query( $conn ,  $sql);
               if($retval){
-                $query = mysqli_fetch_row($retval);
-                $JobID = $query[0];
-
-                $JobValue = FALSE;
-                if($JobID == 1){
-                  $JobValue = TRUE;
-                }
+                $JobValue = TRUE;
               }
           }
           ?></div></div>
@@ -186,7 +180,7 @@
           <textarea name=\"description\" style=\"height: 135px;width: 98%;font-size: 35px;margin: 5px;\"><?php echo $Description ?></textarea><br>
           <input type=\"text\"  value=\"<?php echo $LocationSpaces ?>\" name=\"location\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\"><br>
           <input type=\"datetime-local\" value=\"<?php echo $date; echo \"T\"; echo $time ?>\" step=\"1\" name=\"datetime\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\"><br>
-          <br>Speaker<br>"
+          <br>Speaker<br>";
           $sql = ("SELECT usernumber,name FROM `userdata` WHERE type = 2;");
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
           $retval = mysqli_query( $conn ,  $sql);
@@ -200,8 +194,8 @@
                echo $UserID;
                echo "\" checked=\"checked\">  ";
                echo $Name;
-               echo "<br>";}
-            else {
+               echo "<br>";
+             }else{
                echo " <input type=\"radio\" name=\"speaker\" style=\"width:2em;height:2em;\" value=\"";
                echo $UserID;
                echo "\">  ";
