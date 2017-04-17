@@ -106,6 +106,7 @@
     echo nl2br($Description);
     echo "<br>";
     echo "<br>";
+    echo "Speaker - {$ESpeaker}<br>{$ESDesc}<br><br>";
     echo "<a href ='https://www.google.co.uk/maps/place/";
     echo $Location;
     echo "'>";
