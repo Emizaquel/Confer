@@ -101,6 +101,7 @@
         while($row = mysqli_fetch_array($retval))
         {
            $JobNumber = $row['jobnumber'];
+           echo $JobNumber;
 
            $Job1 = FALSE;
            $Job2 = FALSE;
