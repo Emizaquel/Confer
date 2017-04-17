@@ -100,42 +100,45 @@
         $retval = mysqli_query( $conn ,  $sql);
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
-           $Job4 = 0;
 
-           echo $JobNumber;
+           $Job1 = FALSE;
+           $Job2 = FALSE;
+           $Job3 = FALSE;
+           $Job4 = FALSE;
 
-           if($JobNumber == 1){
-             $Job4 = $Job4 + 1;
-           }else if($JobNumber == 2){
-             $Job4 = $Job4 + 10;
+           if($JobNumber == 4){
+             $Job1 = TRUE;
            }else if($JobNumber == 3){
-             $Job4 = $Job4 + 100;
-           }else if($JobNumber == 4){
-             $Job4 = $Job4 + 1000;
+             $Job2 = TRUE;
+           }else if($JobNumber == 2){
+             $Job3 = TRUE;
+           }else if($JobNumber == 1){
+             $Job4 = TRUE;
            }
         }
-        echo "{$Job4} <br><br>";
+        echo "{$Job1}, {$Job2}, {$Job3}, {$Job4}<br>";
         echo "Permissions<br><br>";
-        if($Job1 == 1){
+        if($Job1 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
           echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\"> Add, Remove or Edit Events<br>";
         }
-        if($Job2 == 1){
+        if($Job2 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\" checked> Add and Remove Users<br>";
           echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\"> Add and Remove Users<br>";
         }
-        if($Job3 == 1){
+        if($Job3 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\" checked> Edit Help Page<br>";
           echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\"> Edit Help Page<br>";
         }
-        if($Job4 == 1){
+        if($Job4 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\" checked> Edit Home Page<br>";
+          echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\"> Edit Home Page<br>";
         }
