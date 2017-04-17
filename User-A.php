@@ -100,7 +100,6 @@
         $retval = mysqli_query( $conn ,  $sql);
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
-           echo $JobNumber;
 
            $Job1 = FALSE;
            $Job2 = FALSE;
@@ -109,12 +108,16 @@
 
            if($JobNumber == 1){
              $Job1 = TRUE;
+             echo $JobNumber;
            }else if($JobNumber == 2){
              $Job2 = TRUE;
+             echo $JobNumber;
            }else if($JobNumber == 3){
              $Job3 = TRUE;
+             echo $JobNumber;
            }else if($JobNumber == 4){
              $Job4 = TRUE;
+             echo $JobNumber;
            }
         }
         echo "Permissions<br><br>";
