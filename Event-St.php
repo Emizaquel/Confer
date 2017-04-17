@@ -66,6 +66,8 @@
       die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
     }
 
+    echo "<span id=\"EditEventButton\">";
+
     if(isset($_GET["EventID"]))
     {
         $EventID = $_GET["EventID"];
@@ -160,6 +162,18 @@
         <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
       </form>";
     }
+
+    echo "<a onclick=\"document.getElementById('EditEvent').style.display='block'; document.getElementById('EditEventButton').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Edit Event</button></a>
+    </span>
+    <span id=\"EditEvent\" style=\"display: none;\">
+      <form method=\"POST\" action=\"\">
+        <input type=\"text\" value=\"<?php echo $EName ?>\" name=\"name\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\"><br>
+        <textarea name=\"description\" style=\"height: 135px;width: 98%;font-size: 35px;margin: 5px;\"><?php echo $Description ?></textarea><br>
+        <input type=\"text\"  value=\"<?php echo $LocationSpaces ?>\" name=\"location\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\"><br>
+        <input type=\"datetime-local\" value=\"<?php echo $date; echo \"T\"; echo $time ?>\" step=\"1\" name=\"datetime\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\"><br>
+        <br>Speaker<br>
+      </form>
+    </span>";
     ?>
     <br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
