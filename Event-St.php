@@ -92,6 +92,16 @@
         }
     }
 
+    $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber = 1;");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    if($retval){
+      $jobholder = TRUE;
+    }
+    if($jobholder == TRUE){
+      echo "<span id=\"EditEventButton\">";
+    }
+
     if(isset($_GET["EventID"]))
     {
         $EventID = $_GET["EventID"];
@@ -115,16 +125,6 @@
 
     $LocationArray = explode(" ", $LocationSpaces);
     $Location = implode("+", $LocationArray);
-
-    $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber = 1;");
-    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-    $retval = mysqli_query( $conn ,  $sql);
-    if($retval){
-      $jobholder = TRUE;
-    }
-    if($jobholder == TRUE){
-      echo "<span id=\"EditEventButton\">";
-    }
 
     echo $displaydate;
     echo "<br>";
