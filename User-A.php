@@ -101,7 +101,6 @@
         echo $retval;
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
-           echo $JobNumber;
 
            $Job1 = FALSE;
            $Job2 = FALSE;
@@ -119,22 +118,22 @@
            }
         }
         echo "Permissions<br><br>";
-        if($Job1){
+        if($Job1 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\"> Add, Remove or Edit Events<br>";
         }
-        if($Job2){
+        if($Job2 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\" checked> Add and Remove Users<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\"> Add and Remove Users<br>";
         }
-        if($Job3){
+        if($Job3 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\" checked> Edit Help Page<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\"> Edit Help Page<br>";
         }
-        if($Job4){
+        if($Job4 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\" checked> Edit Home Page<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\"> Edit Home Page<br>";
