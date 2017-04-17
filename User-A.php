@@ -108,12 +108,14 @@
 
            if($JobNumber == 1){
              $Job1 = 1;
-           }else if($JobNumber == 2){
+           }
+           if($JobNumber == 2){
              $Job2 = 1;
-           }else if($JobNumber == 3){
+           }
+           if($JobNumber == 3){
              $Job3 = 1;
-             echo "hi";
-           }else if($JobNumber == 4){
+           }
+           if($JobNumber == 4){
              $Job4 = 1;
            }
         }
