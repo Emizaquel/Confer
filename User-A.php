@@ -108,36 +108,36 @@
 
            if($JobNumber == 1){
              $Job1 = TRUE;
-             echo $JobNumber;
            }else if($JobNumber == 2){
              $Job2 = TRUE;
-             echo $JobNumber;
            }else if($JobNumber == 3){
              $Job3 = TRUE;
-             echo $JobNumber;
            }else if($JobNumber == 4){
              $Job4 = TRUE;
-             echo $JobNumber;
            }
         }
         echo "Permissions<br><br>";
         if($Job1 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
+          echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\"> Add, Remove or Edit Events<br>";
         }
         if($Job2 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\" checked> Add and Remove Users<br>";
+          echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\"> Add and Remove Users<br>";
         }
         if($Job3 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\" checked> Edit Help Page<br>";
+          echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\"> Edit Help Page<br>";
         }
         if($Job4 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\" checked> Edit Home Page<br>";
+          echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\"> Edit Home Page<br>";
         }
