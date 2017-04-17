@@ -49,6 +49,7 @@
   <div id="footer">
     <div id="nav-bar">
       <div id="image-border"><a href="timetable.php"><img src="home.png" height="100%"></a></div>
+      <div id="image-border"><a href="admin.php"><img src="admin.png" height="100%"></a></div>
       <div id="image-border"><a href="help.php"><img src="help.png" height="100%"></a></div>
       <div id="image-border"><a href="settings.php"><img src="setting.png" height="100%"></a></div>
     </div>
