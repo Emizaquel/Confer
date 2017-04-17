@@ -43,37 +43,37 @@
             }
           }
 
-          // if(!isset($_COOKIE["UserID"])) {
-          //   header("Location:login.php");
-          // } else {
-          //     $UID = $_COOKIE["UserID"];
-          //
-          //     $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-          //     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-          //     $retval = mysqli_query( $conn ,  $sql);
-          //
-          //     if($retval ) {
-          //       $query = mysqli_fetch_row($retval);
-          //       $userID = $query[0];
-          //
-          //       if($userID == 1){
-          //         header("Location:Event-U.php?EventID={$EventID}");
-          //       }else if ($userID == 2){
-          //         header("Location:Event-S.php?EventID={$EventID}");
-          //       }else if ($userID == 3){
-          //       }else if ($userID == 4){
-          //         header("Location:Event-A.php?EventID={$EventID}");
-          //       }else{
-          //         header("Location:login.php");
-          //       }
-          //     }
-          //
-          //     $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber == 3;");
-          //     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-          //     $retval = mysqli_query( $conn ,  $sql);
-          //     if($retval){
-          //       $JobValue = TRUE;
-          //     }
+          if(!isset($_COOKIE["UserID"])) {
+            header("Location:login.php");
+          } else {
+              $UID = $_COOKIE["UserID"];
+
+              $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+              ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+              $retval = mysqli_query( $conn ,  $sql);
+
+              if($retval ) {
+                $query = mysqli_fetch_row($retval);
+                $userID = $query[0];
+
+                if($userID == 1){
+                  header("Location:Event-U.php?EventID={$EventID}");
+                }else if ($userID == 2){
+                  header("Location:Event-S.php?EventID={$EventID}");
+                }else if ($userID == 3){
+                }else if ($userID == 4){
+                  header("Location:Event-A.php?EventID={$EventID}");
+                }else{
+                  header("Location:login.php");
+                }
+              }
+
+              $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber == 3;");
+              ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+              $retval = mysqli_query( $conn ,  $sql);
+              if($retval){
+                $JobValue = TRUE;
+              }
           }
           ?></div></div>
       </div>
@@ -214,6 +214,7 @@
             <br><br>
             <a onclick=\"document.getElementById('deletebutton').style.display='block'; document.getElementById('deleteconfirm').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">No</button></a><br><br>
           </span>";
+        }
           if( isset($_POST["del"]) ){
             $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");
             ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
