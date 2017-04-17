@@ -115,9 +115,8 @@
            }else if($JobNumber == 4){
              $Job4 = 1;
            }
-
-           echo "{$Job1}, {$Job2}, {$Job3}, {$Job4}";
         }
+        echo "{$Job1}, {$Job2}, {$Job3}, {$Job4} <br><br>";
         echo "Permissions<br><br>";
         if($Job1 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
