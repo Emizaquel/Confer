@@ -224,7 +224,7 @@
         <span id="deletebutton">
           <a onclick="document.getElementById('deleteconfirm').style.display='block'; document.getElementById('deletebutton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Delete</button></a>
         </span>
-        <span id="deleteconfirm">
+        <span id="deleteconfirm" style="display: none;">
           <br><br>Are you sure?<br><br>
           <input type = "submit" name = "del" value = "Yes" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
           <br><br>
