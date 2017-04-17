@@ -191,52 +191,52 @@ We hope this does not inconvenience you.";
         }
       }
 
-      if( isset($_POST["per"]) ){
-        $EditJobs = $_POST["Job"];
-
-        if((empty($EditJobs)){
-          $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID};");
-          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-          mysqli_query( $conn ,  $sql3);
-        }else{
-          if (in_array("1", $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[1]);");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }else{
-            $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 1;");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }
-          if(in_array('2', $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[2]);");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }else{
-            $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 2;");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }
-          if(in_array("3", $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[3]);");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }else{
-            $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 3;");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }
-          if(in_array("4", $EditJobs)){
-            $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[4]);");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }else{
-            $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 4;");
-            ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-            mysqli_query( $conn ,  $sql3);
-          }
-        }
-      }
+      // if( isset($_POST["per"]) ){
+      //   $EditJobs = $_POST["Job"];
+      //
+      //   if((empty($EditJobs)){
+      //     $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID};");
+      //     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //     mysqli_query( $conn ,  $sql3);
+      //   }else{
+      //     if (in_array("1", $EditJobs)){
+      //       $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[1]);");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }else{
+      //       $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 1;");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }
+      //     if(in_array('2', $EditJobs)){
+      //       $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[2]);");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }else{
+      //       $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 2;");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }
+      //     if(in_array("3", $EditJobs)){
+      //       $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[3]);");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }else{
+      //       $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 3;");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }
+      //     if(in_array("4", $EditJobs)){
+      //       $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[4]);");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }else{
+      //       $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID} AND jobnumber = 4;");
+      //       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      //       mysqli_query( $conn ,  $sql3);
+      //     }
+      //   }
+      // }
 
       if( isset($_POST["sub"]) ){
         $sendpass = '';
