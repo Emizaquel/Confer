@@ -74,7 +74,7 @@
       header("Location:Timetable.php");
     }
 
-    $sql = ("SELECT eventtime,location,description FROM eventdata WHERE eventnumber = " . $EventID . ";");
+    $sql = ("SELECT eventtime,location,description,speaker FROM eventdata WHERE eventnumber = " . $EventID . ";");
     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
     $retval = mysqli_query( $conn ,  $sql);
     $query = mysqli_fetch_array($retval);
@@ -82,6 +82,20 @@
     $EventDateTime = $query['eventtime'];
     $LocationSpaces = $query['location'];
     $Description = $query['description'];
+    $ESN = $query['speaker'];
+
+    $sql = ("SELECT name FROM `userdata` WHERE usernumber = {$ESN};");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_row($retval);
+    $ESpeaker = $query[0];
+
+    $sql = ("SELECT description FROM `speakerbio` WHERE usernumber = {$ESN};");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_row($retval);
+    $ESD = $query[0];
+    $ESDesc = nl2br($ESD);
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
@@ -101,7 +115,7 @@
     echo $Location;
     echo "'><br><br>";
     echo $LocationSpaces;
-    echo "</a>";
+    echo "</a><br><br>";
 
 
 
