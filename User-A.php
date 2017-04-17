@@ -116,7 +116,7 @@
              $Job4 = 1;
            }
 
-           echo "{$Job1}, {$Job2}, {$Job3}, {$Job4}"
+           echo "{$Job1}, {$Job2}, {$Job3}, {$Job4}";
         }
         echo "Permissions<br><br>";
         if($Job1 == 1){
