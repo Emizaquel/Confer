@@ -66,14 +66,30 @@
       die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
     }
 
-    $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber = 1;");
-    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-    $retval = mysqli_query( $conn ,  $sql);
-    if($retval){
-      $jobholder = TRUE;
-    }
-    if($jobholder == TRUE){
-      echo "<span id=\"EditEventButton\">";
+    if(!isset($_COOKIE["UserID"])) {
+      header("Location:login.php");
+    } else {
+        $UID = $_COOKIE["UserID"];
+
+        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval = mysqli_query( $conn ,  $sql);
+
+        if($retval ) {
+          $query = mysqli_fetch_row($retval);
+          $userID = $query[0];
+
+          if($userID == 1){
+            header("Location:Event-U.php?EventID={$EventID}");
+          }else if ($userID == 2){
+            header("Location:Event-S.php?EventID={$EventID}");
+          }else if ($userID == 3){
+          }else if ($userID == 4){
+            header("Location:Event-A.php?EventID={$EventID}");
+          }else{
+            header("Location:login.php");
+          }
+        }
     }
 
     if(isset($_GET["EventID"]))
@@ -100,6 +116,16 @@
     $LocationArray = explode(" ", $LocationSpaces);
     $Location = implode("+", $LocationArray);
 
+    $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber = 1;");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    if($retval){
+      $jobholder = TRUE;
+    }
+    if($jobholder == TRUE){
+      echo "<span id=\"EditEventButton\">";
+    }
+
     echo $displaydate;
     echo "<br>";
     echo "<br>";
@@ -111,34 +137,6 @@
     echo "'>";
     echo $LocationSpaces;
     echo "</a><br><br>";
-
-
-
-    if(!isset($_COOKIE["UserID"])) {
-      header("Location:login.php");
-    } else {
-        $UID = $_COOKIE["UserID"];
-
-        $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-        $retval = mysqli_query( $conn ,  $sql);
-
-        if($retval ) {
-          $query = mysqli_fetch_row($retval);
-          $userID = $query[0];
-
-          if($userID == 1){
-            header("Location:Event-U.php?EventID={$EventID}");
-          }else if ($userID == 2){
-            header("Location:Event-S.php?EventID={$EventID}");
-          }else if ($userID == 3){
-          }else if ($userID == 4){
-            header("Location:Event-A.php?EventID={$EventID}");
-          }else{
-            header("Location:login.php");
-          }
-        }
-    }
 
     $sql = ("SELECT * FROM reminderdata WHERE eventnumber = {$EventID} AND usernumber = {$UID};");
     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
