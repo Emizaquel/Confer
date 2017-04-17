@@ -1,4 +1,3 @@
-
 <head>
 <link rel="stylesheet" type="text/css" href="general.css">
 <link rel="icon" type="image/png" href="icon.ico">
@@ -44,37 +43,37 @@
             }
           }
 
-          if(!isset($_COOKIE["UserID"])) {
-            header("Location:login.php");
-          } else {
-              $UID = $_COOKIE["UserID"];
-
-              $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
-              ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-              $retval = mysqli_query( $conn ,  $sql);
-
-              if($retval ) {
-                $query = mysqli_fetch_row($retval);
-                $userID = $query[0];
-
-                if($userID == 1){
-                  header("Location:Event-U.php?EventID={$EventID}");
-                }else if ($userID == 2){
-                  header("Location:Event-S.php?EventID={$EventID}");
-                }else if ($userID == 3){
-                }else if ($userID == 4){
-                  header("Location:Event-A.php?EventID={$EventID}");
-                }else{
-                  header("Location:login.php");
-                }
-              }
-
-              $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber == 3;");
-              ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-              $retval = mysqli_query( $conn ,  $sql);
-              if($retval){
-                $JobValue = TRUE;
-              }
+          // if(!isset($_COOKIE["UserID"])) {
+          //   header("Location:login.php");
+          // } else {
+          //     $UID = $_COOKIE["UserID"];
+          //
+          //     $sql = ("SELECT type FROM userdata WHERE usernumber = '" . $UID . "';");
+          //     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          //     $retval = mysqli_query( $conn ,  $sql);
+          //
+          //     if($retval ) {
+          //       $query = mysqli_fetch_row($retval);
+          //       $userID = $query[0];
+          //
+          //       if($userID == 1){
+          //         header("Location:Event-U.php?EventID={$EventID}");
+          //       }else if ($userID == 2){
+          //         header("Location:Event-S.php?EventID={$EventID}");
+          //       }else if ($userID == 3){
+          //       }else if ($userID == 4){
+          //         header("Location:Event-A.php?EventID={$EventID}");
+          //       }else{
+          //         header("Location:login.php");
+          //       }
+          //     }
+          //
+          //     $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber == 3;");
+          //     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          //     $retval = mysqli_query( $conn ,  $sql);
+          //     if($retval){
+          //       $JobValue = TRUE;
+          //     }
           }
           ?></div></div>
       </div>
@@ -171,7 +170,7 @@
         <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
       </form>";
     }
-    if($JobValue){
+    if($JobValue == TRUE){
       echo "<a onclick=\"document.getElementById('EditEvent').style.display='block'; document.getElementById('EditEventButton').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Edit Event</button></a>
       </span>
       <span id=\"EditEvent\" style=\"display: none;\">
@@ -185,8 +184,7 @@
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
           $retval = mysqli_query( $conn ,  $sql);
 
-          while($row = mysqli_fetch_array($retval))
-          {
+          while($row = mysqli_fetch_array($retval)){
              $UserID = $row['usernumber'];
              $Name = $row['name'];
              if($SID == $UserID){
