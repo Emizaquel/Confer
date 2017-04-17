@@ -103,16 +103,16 @@
            $Job4 = 0;
 
            if($JobNumber == 1){
-             $Job4 += 1;
+             $Job4 = $Job4 + 1;
            }else if($JobNumber == 2){
-             $Job4 += 10;
+             $Job4 = $Job4 + 10;
            }else if($JobNumber == 3){
-             $Job4 += 100;
+             $Job4 = $Job4 + 100;
            }else if($JobNumber == 4){
-             $Job4 += 1000;
+             $Job4 = $Job4 + 1000;
            }
         }
-        echo "{$Job4} <br><br>";
+        echo "{$Job1}, {$Job2}, {$Job3}, {$Job4} <br><br>";
         echo "Permissions<br><br>";
         if($Job1 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
