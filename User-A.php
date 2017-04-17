@@ -112,6 +112,7 @@
              $Job2 = 1;
            }else if($JobNumber == 3){
              $Job3 = 1;
+             echo "hi";
            }else if($JobNumber == 4){
              $Job4 = 1;
            }
