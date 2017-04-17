@@ -100,23 +100,19 @@
         $retval = mysqli_query( $conn ,  $sql);
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
-
-           $Job1 = "0";
-           $Job2 = "0";
-           $Job3 = "0";
-           $Job4 = "0";
+           $Job4 = 0;
 
            if($JobNumber == 1){
-             $Job1 = "1";
+             $Job4 += 1;
            }else if($JobNumber == 2){
-             $Job2 = "1";
+             $Job4 += 10;
            }else if($JobNumber == 3){
-             $Job3 = "1";
+             $Job4 += 100;
            }else if($JobNumber == 4){
-             $Job4 = "1";
+             $Job4 += 1000;
            }
         }
-        echo "{$Job1}, {$Job2}, {$Job3}, {$Job4} <br><br>";
+        echo "{$Job4} <br><br>";
         echo "Permissions<br><br>";
         if($Job1 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
