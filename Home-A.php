@@ -25,7 +25,7 @@
     </div>
   </div>
   <div id="page-body">
-    <span id="EditPage" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;">
+    <span id="EditPage" style="background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;">
       <form method="post">
     			<textarea id="editor1" name="editor1"><?php
           $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
