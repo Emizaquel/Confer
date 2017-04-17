@@ -101,44 +101,41 @@
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
 
-           $Job1 = FALSE;
-           $Job2 = FALSE;
-           $Job3 = FALSE;
-           $Job4 = FALSE;
+           $Job1 = 0;
+           $Job2 = 0;
+           $Job3 = 0;
+           $Job4 = 0;
 
            if($JobNumber == 1){
-             $Job1 = TRUE;
-             echo "hi";
+             $Job1 = 1;
            }else if($JobNumber == 2){
-             $Job2 = TRUE;
-             echo "hi";
+             $Job2 = 1;
            }else if($JobNumber == 3){
-             $Job3 = TRUE;
-             echo "hi";
+             $Job3 = 1;
            }else if($JobNumber == 4){
-             $Job4 = TRUE;
+             $Job4 = 1;
            }
         }
         echo "Permissions<br><br>";
-        if($Job1 == TRUE){
+        if($Job1 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
           echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\"> Add, Remove or Edit Events<br>";
         }
-        if($Job2 == TRUE){
+        if($Job2 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\" checked> Add and Remove Users<br>";
           echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"2\"> Add and Remove Users<br>";
         }
-        if($Job3 == TRUE){
+        if($Job3 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\" checked> Edit Help Page<br>";
           echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"3\"> Edit Help Page<br>";
         }
-        if($Job4 == TRUE){
+        if($Job4 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\" checked> Edit Home Page<br>";
           echo "Is this activating?<br>";
         }else{
