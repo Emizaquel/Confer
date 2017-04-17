@@ -202,13 +202,86 @@
           <a onclick=\"document.getElementById('deleteconfirm').style.display='block'; document.getElementById('deletebutton').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Delete</button></a>
         </span>
         <span id=\"deleteconfirm\" style=\"display: none;\">
-          <br><br>Are you sure?<br><br>
+          Are you sure?<br><br>
           <input type = \"submit\" name = \"del\" value = \"Yes\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
           <br><br>
           <a onclick=\"document.getElementById('deletebutton').style.display='block'; document.getElementById('deleteconfirm').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">No</button></a><br><br>
         </span>";
         echo "</form>
     </span>";
+
+    if( isset($_POST["del"]) ){
+      $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      mysqli_query( $conn ,  $sql3);
+    }
+
+    if( isset($_POST["sub"]) ){
+      $EditName = addslashes($_POST['name']);
+      $EditDesc = addslashes($_POST['description']);
+      $EditTime = addslashes($_POST['datetime']);
+      $EditSpeaker = addslashes($_POST['speaker']);
+      $EditLocation = addslashes($_POST['location']);
+
+      $sql3 = ("SELECT name FROM userdata WHERE usernumber = {$EditSpeaker};");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      $retval3 = mysqli_query( $conn ,  $sql3);
+      $editspeakername = mysqli_fetch_array($retval3);
+
+      $editdisplaydate = date('l jS \of F Y h:i:s A', strtotime($EditTime));
+
+      $sql = "UPDATE `eventdata` SET `eventname`=\"{$EditName}\",`description`=\"{$EditDesc}\",`eventtime`=\"{$EditTime}\",`speaker`=$EditSpeaker,`location`=\"$EditLocation\" WHERE `eventdata`.`eventnumber` = {$EventID};";
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      if(mysqli_query( $conn ,  $sql)){
+        $sql2 = ("SELECT usernumber FROM reminderdata WHERE eventnumber = {$EventID};");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval2 = mysqli_query( $conn ,  $sql2);
+
+        $message = "Dear User,
+
+You have opted to be reminded for {$EventName}.
+
+The event has been modified by an administrator. It now is represented by the following information.
+
+Name : {$EditName}
+
+Date : {$editdisplaydate}
+
+Presenter : {$editspeakername}
+
+Description :
+{$EditDesc}
+
+Location : {$EditLocation}
+
+We hope this does not cause any incovenience.";
+
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPAuth = true;
+        $mail->Username = "donotreplyconfer@gmail.com";
+        $mail->Password = "Chirag25";
+
+        // Email Sending Details
+        while($row2 = mysqli_fetch_array($retval2)){
+          $UID = $row2['usernumber'];
+
+          $sql3 = ("SELECT email FROM userdata WHERE usernumber = {$UID};");
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval3 = mysqli_query( $conn ,  $sql3);
+          $query3 = mysqli_fetch_array($retval3);
+          $mail->AddBCC($query3);
+        }
+        $mail->Subject = "Changes to {$EventName}";
+        $mail->isHTML(false);
+        $mail->Body = $message;
+
+        $mail->send();
+      }
+    }
     ?>
     <br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
