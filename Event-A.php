@@ -81,7 +81,20 @@
     $EventDateTime = $query['eventtime'];
     $LocationSpaces = $query['location'];
     $Description = $query['description'];
-    $SID = $query['speaker'];
+    $ESN = $query['speaker'];
+
+    $sql = ("SELECT name FROM `userdata` WHERE usernumber = {$ESN};");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_row($retval);
+    $ESpeaker = $query[0];
+
+    $sql = ("SELECT description FROM `speakerbio` WHERE usernumber = {$ESN};");
+    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+    $retval = mysqli_query( $conn ,  $sql);
+    $query = mysqli_fetch_row($retval);
+    $ESD = $query[0];
+    $ESDesc = nl2br($ESD);
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
