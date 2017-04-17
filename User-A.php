@@ -101,10 +101,7 @@
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
 
-           $Job1 = 0;
-           $Job2 = 0;
-           $Job3 = 0;
-           $Job4 = 0;
+
 
            if($JobNumber == 1){
              $Job1 = 1;
@@ -213,7 +210,7 @@ We hope this does not inconvenience you.";
             ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
             mysqli_query( $conn ,  $sql3);
           }
-          if(in_array('2', $EditJobs)){
+          if(in_array('2', $EditJobs)){1
             $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ({$SubUID},2);");
             ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
             mysqli_query( $conn ,  $sql3);
