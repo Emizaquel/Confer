@@ -98,7 +98,7 @@
         $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID};");
         ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
         $retval = mysqli_query( $conn ,  $sql);
-        echo $retval;
+        echo "hi";
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
 
