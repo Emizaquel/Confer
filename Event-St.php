@@ -70,6 +70,9 @@
     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
     $retval = mysqli_query( $conn ,  $sql);
     if($retval){
+      $jobholder = TRUE;
+    }
+    if($jobholder == TRUE){
       echo "<span id=\"EditEventButton\">";
     }
 
@@ -168,10 +171,7 @@
       </form>";
     }
 
-    $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID} AND jobnumber = 1;");
-    ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-    $retval = mysqli_query( $conn ,  $sql);
-    if($retval){
+    if($jobholder == TRUE){
       echo "<a onclick=\"document.getElementById('EditEvent').style.display='block'; document.getElementById('EditEventButton').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Edit Event</button></a>
     </span>
     <span id=\"EditEvent\" style=\"display: none;\">
