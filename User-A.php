@@ -192,7 +192,7 @@ We hope this does not inconvenience you.";
       }
 
       if( isset($_POST["per"]) ){
-        $EditJobs = $_POST["Job"]
+        $EditJobs = $_POST["Job"];
 
         if((empty($EditJobs)){
           $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID};");
