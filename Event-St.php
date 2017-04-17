@@ -100,7 +100,7 @@
     echo $Location;
     echo "'>";
     echo $LocationSpaces;
-    echo "</a>";
+    echo "</a><br><br>";
 
 
 
