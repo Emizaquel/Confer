@@ -56,8 +56,8 @@
           }else if ($userID == 2){
             header("Location:Home-S.php");
           }else if ($userID == 3){
-            header("Location:Home-St.php");
           }else if ($userID == 4){
+            header("Location:Home-A.php");
           }else{
             header("Location:login.php");
           }
@@ -68,36 +68,36 @@
     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
     $retval = mysqli_query( $conn ,  $sql);
     if($retval){
-      // $query = mysqli_fetch_row($retval);
-      // $JobID = $query[0];
-      //
-      // if($JobID == 4){
-      //   // echo "<span id=\"EditPage\" style=\"display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;\">
-      //   //   <form method=\"post\">
-      //   //       <textarea id=\"editor1\" name=\"editor1\">";
-      //   // $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
-      //   // if(isset($_POST[ 'editor1' ])){
-      //   //   $editor_data = $_POST[ 'editor1' ];
-      //   //   file_put_contents($file, $editor_data);
-      //   // }
-      //   // $current = file_get_contents ($file);
-      //   // echo $current;
-      //   // echo "</textarea>
-      //   // <script type=\"text/javascript\">
-      //   //  CKEDITOR.replace( 'editor1' );
-      //   // </script>
-      //   // <p>
-      //   // <input type=\"submit\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\" /><br>
-      //   // <a onclick=\"document.getElementById('EditPageButton').style.display='block'; document.getElementById('EditPage').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Cancel</button></a>
-      //   // </p>
-      //   // </form>
-      //   // </span>
-      //   // <a onclick=\"document.getElementById('EditPage').style.display='block'; document.getElementById('EditPageButton').style.display='none';\" class=\"link\">
-      //   // <span id=\"EditPageButton\" style=\"display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;\">
-      //   // Edit Homepage
-      //   // </span>
-      //   // </a><br><br>";
-      // }
+      $query = mysqli_fetch_row($retval);
+      $JobID = $query[0];
+
+      if($JobID == 4){
+        echo "<span id=\"EditPage\" style=\"display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;\">
+          <form method=\"post\">
+              <textarea id=\"editor1\" name=\"editor1\">";
+        $file = $_SERVER['DOCUMENT_ROOT'] . "/hometext.txt";
+        if(isset($_POST[ 'editor1' ])){
+          $editor_data = $_POST[ 'editor1' ];
+          file_put_contents($file, $editor_data);
+        }
+        $current = file_get_contents ($file);
+        echo $current;
+        echo "</textarea>
+        <script type=\"text/javascript\">
+         CKEDITOR.replace( 'editor1' );
+        </script>
+        <p>
+        <input type=\"submit\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\" /><br>
+        <a onclick=\"document.getElementById('EditPageButton').style.display='block'; document.getElementById('EditPage').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Cancel</button></a>
+        </p>
+        </form>
+        </span>
+        <a onclick=\"document.getElementById('EditPage').style.display='block'; document.getElementById('EditPageButton').style.display='none';\" class=\"link\">
+        <span id=\"EditPageButton\" style=\"display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;\">
+        Edit Homepage
+        </span>
+        </a><br><br>";
+      }
     }
 
     $file = $_SERVER['DOCUMENT_ROOT'] . "/helptext.txt";

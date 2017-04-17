@@ -44,16 +44,16 @@
           if($userID == 1){
             header("Location:Home-U.php");
           }else if ($userID == 2){
-            header("Location:Home-S.php");
           }else if ($userID == 3){
             header("Location:Home-St.php");
           }else if ($userID == 4){
+            header("Location:Home-A.php");
           }else{
             header("Location:login.php");
           }
         }
     }
-    
+
     $file = $_SERVER['DOCUMENT_ROOT'] . "/helptext.txt";
     $current = file_get_contents ($file);
       $linesplit = explode(PHP_EOL,$current);
