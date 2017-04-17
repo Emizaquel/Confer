@@ -91,7 +91,7 @@
       echo "<br><br>";
       echo $usermail;
       echo "<br><br>";
-      echo $Desc;
+      echo nl2br($Desc);
       echo "<br><br>";
       ?>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link"><button type="button" id="customButton1">Edit Details</button></a><br>

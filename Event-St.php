@@ -131,7 +131,8 @@
     ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
     $retval = mysqli_query( $conn ,  $sql);
     $query = mysqli_fetch_row($retval);
-    $ESDesc = $query[0];
+    $ESD = $query[0];
+    $ESDesc = nl2br($ESD);
 
     $date = date('Y-m-d', strtotime($EventDateTime));
     $time = date('H:i:s', strtotime($EventDateTime));
