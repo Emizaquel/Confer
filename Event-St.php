@@ -194,6 +194,19 @@
              echo "<br>";
           }
         }
+        echo "<br>
+        <input type = \"submit\" name = \"sub\" value = \"Submit\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+        <a onclick=\"document.getElementById('EditEventButton').style.display='block'; document.getElementById('EditEvent').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Cancel</button></a>
+        <br><br>
+        <span id=\"deletebutton\">
+          <a onclick=\"document.getElementById('deleteconfirm').style.display='block'; document.getElementById('deletebutton').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Delete</button></a>
+        </span>
+        <span id=\"deleteconfirm\">
+          <br><br>Are you sure?<br><br>
+          <input type = \"submit\" name = \"del\" value = \"Yes\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
+          <br><br>
+          <a onclick=\"document.getElementById('deletebutton').style.display='block'; document.getElementById('deleteconfirm').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">No</button></a><br><br>
+        </span>";
         echo "</form>
     </span>";
     ?>
