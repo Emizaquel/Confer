@@ -98,6 +98,9 @@
         $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID};");
         ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
         $retval = mysqli_query( $conn ,  $sql);
+        if(in_array(1,$retval)){
+          echo "boop";
+        }
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
 
@@ -137,7 +140,6 @@
         }
         if($Job4 == 1){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\" checked> Edit Home Page<br>";
-          echo "Is this activating?<br>";
         }else{
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"4\"> Edit Home Page<br>";
         }
