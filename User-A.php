@@ -196,8 +196,8 @@ We hope this does not inconvenience you.";
 
         if((empty($EditJobs)){
           $sql3 = ("DELETE FROM `jobdata` WHERE usernumber = {$SubUID};");
-          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-          $retval = mysqli_query( $conn ,  $sql3);
+          // ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          // mysqli_query( $conn ,  $sql3);
         }//else{
         //   if (in_array("1", $EditJobs)){
         //     $sql3 = ("INSERT INTO `jobdata`(`usernumber`, `jobnnumber`) VALUES ([{$SubUID}],[1]);");
