@@ -74,6 +74,12 @@
     <span id="UserDetails">
 
       <?php
+      $sql = ("SELECT description FROM `speakerbio` WHERE usernumber = {$UID};");
+      ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+      $retval = mysqli_query( $conn ,  $sql);
+      $query = mysqli_fetch_row($retval);
+      $Desc = $query[0];
+
       $usrimgpath = $_SERVER['DOCUMENT_ROOT'] . "/userimages/usrimg{$UID}.jpg";
       if (file_exists($usrimgpath)) {
         echo "<img src=\"/userimages/usrimg{$UID}.jpg\" width=\"80%\">";
@@ -84,6 +90,8 @@
       echo $username;
       echo "<br><br>";
       echo $usermail;
+      echo "<br><br>";
+      echo $Desc;
       echo "<br><br>";
       ?>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link"><button type="button" id="customButton1">Edit Details</button></a><br>
@@ -98,6 +106,8 @@
         <input type="text" value="<?php echo $username ?>" name="name" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         Email :<br>
         <input type="text"  value="<?php echo $usermail ?>" name="email" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
+        Description :<br>
+        <textarea name="description" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;"><?php echo $Desc; ?></textarea><br>
         Current Password :<br>
         <input type="password" name="password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         New Password (not required) :<br>
@@ -141,6 +151,7 @@
           $EditPass = addslashes($_POST['password2']);
           $EditPass2 = addslashes($_POST['password3']);
           $EditName = addslashes($_POST['name']);
+          $EditDesc = addslashes($_POST['description']);
 
           $target_dir = "userimages/";
           $target_file = $target_dir . "usrimg" . $UID . ".jpg";
@@ -164,8 +175,24 @@
                   $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
+
+                  $sql = ("DELETE FROM `speakerbio` WHERE usernumber = {$UID};");
+                  ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+                  mysqli_query( $conn ,  $sql);
+
+                  $sql = ("INSERT INTO `speakerbio`(`usernumber`, `description`) VALUES ($UID,$EditDesc);");
+                  ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+                  mysqli_query( $conn ,  $sql);
                 }else{
                   $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
+                  ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+                  mysqli_query( $conn ,  $sql);
+
+                  $sql = ("DELETE FROM `speakerbio` WHERE usernumber = {$UID};");
+                  ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+                  mysqli_query( $conn ,  $sql);
+
+                  $sql = ("INSERT INTO `speakerbio`(`usernumber`, `description`) VALUES ($UID,$EditDesc);");
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
                 }
