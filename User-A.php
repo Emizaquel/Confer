@@ -98,25 +98,23 @@
         $sql = ("SELECT jobnumber FROM jobdata WHERE usernumber = {$UID};");
         ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
         $retval = mysqli_query( $conn ,  $sql);
+        $Job1 = FALSE;
+        $Job2 = FALSE;
+        $Job3 = FALSE;
+        $Job4 = FALSE;
         while($row = mysqli_fetch_array($retval)){
            $JobNumber = $row['jobnumber'];
 
-           $Job1 = FALSE;
-           $Job2 = FALSE;
-           $Job3 = FALSE;
-           $Job4 = FALSE;
-
-           if($JobNumber == 4){
+           if($JobNumber == 1){
              $Job1 = TRUE;
-           }else if($JobNumber == 3){
-             $Job2 = TRUE;
            }else if($JobNumber == 2){
+             $Job2 = TRUE;
+           }else if($JobNumber == 3){
              $Job3 = TRUE;
-           }else if($JobNumber == 1){
+           }else if($JobNumber == 4){
              $Job4 = TRUE;
            }
         }
-        echo "{$Job1}, {$Job2}, {$Job3}, {$Job4}<br>";
         echo "Permissions<br><br>";
         if($Job1 == TRUE){
           echo "<input type=\"checkbox\" name=\"Job[]\" value=\"1\" checked> Add, Remove or Edit Events<br>";
