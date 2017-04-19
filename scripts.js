@@ -22,7 +22,7 @@ autoSizeText = function() {
     var style1 = window.getComputedStyle(el1, null).getPropertyValue('height');
     var contentHeight = parseFloat(style1);
   }
-  setTimeout(refreshData, 5000);
+  setTimeout(autoSizeText, 5000);
 };
 
 $(document).ready(function() {
