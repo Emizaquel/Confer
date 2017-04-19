@@ -20,8 +20,8 @@ body {
     margin:10px;
     position: relative;
     display: block;
-    height: 89vh;//100% view height
-    width: 100vw;// 100% view width
+    height: 89%;//100% view height
+    width: 100%;// 100% view width
     overflow-y: hidden;
   }
 
@@ -37,12 +37,12 @@ body {
 @media (min-width:800px)  {/* tablet, landscape iPad, lo-res laptops ands desktops */
   #wrapper{
     margin:10px;
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-left: 5%;
+    margin-right: 5%;
     position: relative;
     display: block;
-    height: 89vh;//100% view height
-    width: 90vw;// 100% view width
+    height: 89%;//100% view height
+    width: 90%;// 100% view width
     overflow-y: hidden;
   }
 
@@ -58,8 +58,8 @@ body {
 @media (min-width:1025px) {/* big landscape tablets, laptops, and desktops */
   #wrapper{
     margin:10px;
-    margin-left: 30vw;
-    margin-right: 30vw;
+    margin-left: 30%;
+    margin-right: 30%;
     position: relative;
     display: block;
     height: 100vh;//100% view height
@@ -83,8 +83,8 @@ body {
     margin-right: 35vw;
     position: relative;
     display: block;
-    height: 100vh;//100% view height
-    width: 30vw;// 100% view width
+    height: 100%;//100% view height
+    width: 30%;// 100% view width
     overflow-y: hidden;
   }
 
