@@ -5,35 +5,6 @@ html, body {
   background-color: #9CC2E5;
 }
 
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-  html {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-
-  #wrapper{
-    margin:10px;
-    position: relative;
-    display: block;
-    height: 89vh;//100% view height
-    width: 100vw;// 100% view width
-    overflow-y: hidden;
-  }
-
-  #image-border{
-    display: block;
-    height: 100%;
-    border-radius: 15px;
-    border-color: grey;
-    border-width: 10px;
-    overflow: hidden;
-}
-
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */
   #wrapper{
     margin:10px;
