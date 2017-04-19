@@ -186,15 +186,13 @@
                 $retval = mysqli_query( $conn ,  $sql);
                 $query = mysqli_fetch_row($retval);
 
-
-                echo "hi : {$query}<br>";
                 if($query !== NULL){
                   $sql = ("UPDATE `speakerbio` SET `description` = $EditDesc where usernumber = $UID;")
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
                   echo "hi1";
                 }else{
-                  $sql = ("INSERT INTO `speakerbio`(`usernumber`, `description`) VALUES ($UID,$EditDesc);");
+                  $sql = ("INSERT INTO `speakerbio` (`usernumber`, `description`) VALUES ($UID, $EditDesc);");
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
                   echo "hi2";
