@@ -89,7 +89,7 @@
     <span id="NewEvent">
       <form method="POST" action="">
         <input type="text" placeholder="Search Here" name="searchtext" style="height: 45px;width: 65%;font-size: 35px;margin: 5px;">
-        <input type = "submit" name = "search" value = "Submit" style="height: 45px;width: 20%;font-size: 35px;margin: 5px;">
+        <input type = "submit" name = "search" value = "Go" style="height: 45px;width: 20%;font-size: 35px;margin: 5px;">
       </form>
     </span>
     <?php
@@ -116,7 +116,7 @@
          $UserName = $row['name'];
          if(isset($_POST['search'])){
            $SearchTerm = $_POST['searchtext'];
-           if(strpos($UserName,$SearchTerm)){
+           if(strstr($UserName,$SearchTerm)){
              echo "<a id='EventListing' href = 'User-A.php?UserID={$UserID}'>{$UserName}<br></a>";
            }
          }else{
