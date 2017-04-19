@@ -4,7 +4,7 @@ html {
   background-color: #9CC2E5;
 }
 
-@media (orientation: landscape){
+@media (orientation: landscape) and (max-width:800px){
   body{
     width:100vh;
     height:100vw;
