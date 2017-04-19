@@ -84,6 +84,13 @@
     <form method="POST" action="">
       <textarea name="helptext" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;">Enter help request here</textarea><br>
       <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
+      <?php
+      require 'PHPMailer/PHPMailerAutoload.php';
+
+      if( isset($_POST["sub"]) ){
+        $message = $_POST['helptext'];
+      }
+      ?>
     </form>
     <br><br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
