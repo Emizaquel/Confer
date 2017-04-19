@@ -7,18 +7,16 @@ body {
 
 @media (orientation: landscape){
   html{
-    width:100vh;
-    height:100vw;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    -webkit-transform-origin(0% 0%);
-    -moz-transform-origin(0% 0%);
-    -o-transform-origin(0% 0%);
-    -ms-transform-origin(0% 0%);
-    transform-origin(0% 0%);
+    -webkit-transform-origin(0 0);
+    -moz-transform-origin(0 0);
+    -o-transform-origin(0 0);
+    -ms-transform-origin(0 0);
+    transform-origin(0 0);
     position: absolute;
     left: 100%;
   }
