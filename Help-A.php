@@ -106,7 +106,7 @@
       }
     ?>
 
-
+    <br><br>
     <form method="POST" action="">
       <textarea name="helptext" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;">Enter help request here</textarea><br>
       <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
