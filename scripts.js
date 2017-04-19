@@ -1,6 +1,7 @@
 var autoSizeText;
 
 autoSizeText = function() {
+  setInterval(function() {
   var el1 = document.getElementById('content');
   var style1 = window.getComputedStyle(el1, null).getPropertyValue('height');
   var contentHeight = parseFloat(style1);
@@ -22,6 +23,7 @@ autoSizeText = function() {
     var style1 = window.getComputedStyle(el1, null).getPropertyValue('height');
     var contentHeight = parseFloat(style1);
   }
+}, 10 * 1000); // 60 * 1000 milsec
 };
 
 $(document).ready(function() {
