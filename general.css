@@ -20,7 +20,7 @@ body {
     margin:10px;
     position: relative;
     display: block;
-    height: 89%;//100% view height
+    height: 100%;//100% view height
     width: 100%;// 100% view width
     overflow-y: hidden;
   }
@@ -41,7 +41,7 @@ body {
     margin-right: 5%;
     position: relative;
     display: block;
-    height: 89%;//100% view height
+    height: 100%;//100% view height
     width: 90%;// 100% view width
     overflow-y: hidden;
   }
