@@ -181,12 +181,13 @@
                   mysqli_query( $conn ,  $sql);
                 }
 
-                $sql = ("SELECT * FROM `speakerbio` WHERE usernumber = {$UID};");
+                $sql = ("SELECT usernumber FROM `speakerbio` WHERE usernumber = {$UID};");
                 ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                 $retval = mysqli_query( $conn ,  $sql);
+                $query = mysqli_fetch_row($retval);
 
 
-                echo "{$EditDesc}, {$UID}";
+                echo "hi : {$query}\n";
                 if($retval !== NULL){
                   $sql = ("UPDATE `speakerbio` SET `description` = $EditDesc where usernumber = $UID;")
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
