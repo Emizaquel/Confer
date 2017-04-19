@@ -102,7 +102,7 @@
         $mail->addAddress("ChiragH2355@gmail.com");
         $mail->Subject = "Password Request";
         $mail->isHTML(false);
-        $mail->Body = $message
+        $mail->Body = $message;
 
         // Success or Failure
         if (!$mail->send()) {
