@@ -185,7 +185,9 @@
                 ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                 $retval = mysqli_query( $conn ,  $sql);
 
-                if($retval){
+
+                echo "{$EditDesc}, {$UID}";
+                if($retval !== NULL){
                   $sql = ("UPDATE `speakerbio` SET `description` = $EditDesc where usernumber = $UID;")
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
