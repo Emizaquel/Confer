@@ -86,6 +86,11 @@
       </span>
     </a>
     <br>
+    <form method="POST" action="">
+      <input type="text" placeholder="Search Here" name="serchtext" style="height: 45px;width: 70%;font-size: 35px;margin: 5px;">
+      <input type = "submit" name = "search" value = "Submit" style="height: 45px;width: 25%;font-size: 35px;margin: 5px;">
+    </form>
+    <br>
     <?php
     $dbserver = "127.0.0.1:51097";
     $dbuser = "azure";
@@ -109,7 +114,14 @@
          $UserID = $row['usernumber'];
          $UserName = $row['name'];
 
-         echo "<a id='EventListing' href = 'User-St.php?UserID={$UserID}'>{$UserName}<br></a>";
+         if(isset($_POST['search'])){
+           $SearchTerm = $_POST['serchtext'];
+           if(strpos($UserName,$SearchTerm)){
+             echo "<a id='EventListing' href = 'User-A.php?UserID={$UserID}'>{$UserName}<br></a>";
+           }
+         }else{
+           echo "<a id='EventListing' href = 'User-A.php?UserID={$UserID}'>{$UserName}<br></a>";
+         }
       }
       echo "<div id='UserBottom'></div>";
 
