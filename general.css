@@ -4,8 +4,16 @@ html, body {
   overflow: hidden;
   background-color: #9CC2E5;
 }
-@viewport {
-  orientation: portrait;
+
+@media only screen and (orientation:landscape){
+  #container {
+    height: 100vw;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
 }
 
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */
