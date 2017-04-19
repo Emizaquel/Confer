@@ -92,6 +92,7 @@
         <input type = "submit" name = "search" value = "Go" style="height: 45px;width: 15%;font-size: 35px;margin: 5px;">
       </form>
     </span>
+    <br><br>
     <?php
     $dbserver = "127.0.0.1:51097";
     $dbuser = "azure";
