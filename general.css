@@ -7,6 +7,8 @@ body {
 
 @media (orientation: landscape){
   html{
+    width:100vh;
+    height:100vw;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
