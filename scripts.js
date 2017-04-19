@@ -8,7 +8,7 @@ autoSizeText = function() {
   var el2 = document.getElementById('title-content');
   var style2 = window.getComputedStyle(el2, null).getPropertyValue('height');
   var containerHeight = parseFloat(style2);
-  
+
   var fontSize = 200;
   var newFont = fontSize - 1;
 
@@ -20,7 +20,6 @@ autoSizeText = function() {
     var style1 = window.getComputedStyle(el1, null).getPropertyValue('height');
     var contentHeight = parseFloat(style1);
   }
-  setTimeout(autoSizeText, 5000);
 };
 
 $(document).ready(function() {
