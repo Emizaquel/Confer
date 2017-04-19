@@ -9,7 +9,9 @@ autoSizeText = function() {
   var style2 = window.getComputedStyle(el2, null).getPropertyValue('height');
   var containerHeight = parseFloat(style2);
 
-  var fontSize = 200;
+  var el = document.getElementById('title-content');
+  var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+  var fontSize = parseFloat(style);
   var newFont = fontSize - 1;
 
   while(contentHeight > containerHeight) {
