@@ -8,6 +8,7 @@ html, body {
 @media only screen and (orientation:landscape){
   html {
     height: 100vw;
+    width: 89vh;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
