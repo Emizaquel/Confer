@@ -181,7 +181,7 @@
                   mysqli_query( $conn ,  $sql);
                 }
 
-                $sql = ("SELECT usernumber FROM speakerbio WHERE usernumber = {$UID};");
+                $sql = ("SELECT * FROM `speakerbio` WHERE usernumber = {$UID};");
                 ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                 $retval = mysqli_query( $conn ,  $sql);
 
@@ -189,10 +189,12 @@
                   $sql = ("UPDATE `speakerbio` SET `description` = $EditDesc where usernumber = $UID;")
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
+                  echo "hi1";
                 }else{
                   $sql = ("INSERT INTO `speakerbio`(`usernumber`, `description`) VALUES ($UID,$EditDesc);");
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
+                  echo "hi2";
                 }
               }
 
