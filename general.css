@@ -29,8 +29,8 @@
     margin:10px;
     position: relative;
     display: block;
-    height: 89vh;//100% view height
-    width: 100vw;// 100% view width
+    height: 89vw;//100% view height
+    width: 100vh;// 100% view width
     overflow-y: hidden;
   }
 
