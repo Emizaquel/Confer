@@ -13,7 +13,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content"><div id="content">
-          Title
+          Users
         </div></div>
       </div>
     </div>

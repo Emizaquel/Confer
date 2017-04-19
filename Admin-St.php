@@ -12,7 +12,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content"><div id="content">
-          Title
+          Permissions
         </div></div>
       </div>
     </div>
