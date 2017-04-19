@@ -86,10 +86,12 @@
       </span>
     </a>
     <br>
-    <form method="POST" action="">
-      <input type="text" placeholder="Search Here" name="searchtext" style="height: 45px;width: 65%;font-size: 35px;margin: 5px;">
-      <input type = "submit" name = "search" value = "Submit" style="height: 45px;width: 25%;font-size: 35px;margin: 5px;">
-    </form>
+    <span id="NewEvent">
+      <form method="POST" action="">
+        <input type="text" placeholder="Search Here" name="searchtext" style="height: 45px;width: 65%;font-size: 35px;margin: 5px;">
+        <input type = "submit" name = "search" value = "Submit" style="height: 45px;width: 25%;font-size: 35px;margin: 5px;">
+      </form>
+    </span>
     <?php
     $dbserver = "127.0.0.1:51097";
     $dbuser = "azure";
