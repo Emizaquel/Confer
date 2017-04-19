@@ -197,7 +197,6 @@
               }
 
               list($srcwidth, $srcheight) = getimagesize($_FILES["usrimgup"]["tmp_name"]);
-              echo "Width : {$srcwidth}, Height : {$srcheight}";
               if($srcwidth !== NULL) {
                 if ($_FILES["fileToUpload"]["size"] < 500001) {
 
