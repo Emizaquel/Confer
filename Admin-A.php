@@ -86,7 +86,7 @@
       </span>
     </a>
     <br>
-    <span style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;overflow-y: hidden;max-height: 55px;text-align:center;">
+    <span style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;overflow-y: hidden;max-height: 60px;text-align:center;">
       <form method="POST" action="">
         <input type="text" placeholder="Search Here" name="searchtext" style="height: 45px;width: 65%;font-size: 35px;margin: 5px;">
         <input type = "submit" name = "search" value = "Go" style="height: 45px;width: 15%;font-size: 35px;margin: 5px;">
