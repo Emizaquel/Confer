@@ -116,7 +116,7 @@
         }
       ?>
     </form>
-    <br><br><br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
+    <br><br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>
 </div>
