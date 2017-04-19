@@ -9,7 +9,9 @@ autoSizeText = function() {
   var style2 = window.getComputedStyle(el2, null).getPropertyValue('height');
   var containerHeight = parseFloat(style2);
 
-  var fontSize = 200;
+  var el = document.getElementById('title-content');
+  var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
+  var fontSize = parseFloat(style);
   var newFont = fontSize - 1;
 
   while(contentHeight > containerHeight) {
@@ -20,10 +22,9 @@ autoSizeText = function() {
     var style1 = window.getComputedStyle(el1, null).getPropertyValue('height');
     var contentHeight = parseFloat(style1);
   }
+  setTimeout(refreshData, 5000);
 };
 
 $(document).ready(function() {
-  window.setInterval(function(){
   return autoSizeText();
-}, 5000);
 });
