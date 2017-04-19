@@ -88,11 +88,11 @@
     <br>
     <span style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;text-align:center;">
       <form method="POST" action="">
-        <input type="text" placeholder="Search Here" name="searchtext" style="height: 45px;width: 65%;font-size: 35px;margin: 5px;">
-        <input type = "submit" name = "search" value = "Go" style="height: 45px;width: 15%;font-size: 35px;margin: 5px;">
+        <input type="text" placeholder="Search Here" name="searchtext" style="width: 65%;font-size: 35px;margin: 5px;">
+        <input type = "submit" name = "search" value = "Go" style="width: 15%;font-size: 35px;margin: 5px;">
       </form>
     </span>
-    <br><br>
+    <br>
     <?php
     $dbserver = "127.0.0.1:51097";
     $dbuser = "azure";
