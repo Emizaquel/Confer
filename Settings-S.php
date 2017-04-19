@@ -187,8 +187,8 @@
                 $query = mysqli_fetch_row($retval);
 
 
-                echo "hi : {$query}\n";
-                if($retval !== NULL){
+                echo "hi : {$query}<br>";
+                if($query !== NULL){
                   $sql = ("UPDATE `speakerbio` SET `description` = $EditDesc where usernumber = $UID;")
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);

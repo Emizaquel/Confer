@@ -89,6 +89,20 @@
 
       if( isset($_POST["sub"]) ){
         $message = $_POST['helptext'];
+        $mail = new PHPMailer;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPSecure = 'tls';
+        $mail->SMTPAuth = true;
+        $mail->Username = "donotreplyconfer@gmail.com";
+        $mail->Password = "ConferEmailPassword";
+
+        // Email Sending Details
+        $mail->addAddress(ChiragH2355@gmail.com);
+        $mail->Subject = "Password Request";
+        $mail->isHTML(false);
+        $mail->Body = $message
       }
       ?>
     </form>
