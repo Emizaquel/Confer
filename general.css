@@ -4,6 +4,9 @@ html, body {
   overflow: hidden;
   background-color: #9CC2E5;
 }
+@viewport {
+  orientation: portrait;
+}
 
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */
   #wrapper{
