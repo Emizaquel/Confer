@@ -82,7 +82,7 @@
     ?>
     <br><br>
     <form method="POST" action="">
-      <textarea name="helptext" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;">Enter help request here</textarea><br>
+      <textarea name="helptext" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;">Enter help request here, you will be randomly assigned to one of the staff. Please wait for a response.</textarea><br>
       <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
       <?php
       require 'PHPMailer/PHPMailerAutoload.php';
@@ -99,8 +99,33 @@
         $mail->Password = "ConferEmailPassword";
 
         // Email Sending Details
-        $mail->addAddress("ChiragH2355@gmail.com");
-        $mail->Subject = "Password Request";
+
+        $sql = ("SELECT email FROM userdata WHERE type = '4';");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval = mysqli_query( $conn ,  $sql);
+
+        $validuser = array();
+        while($row = mysqli_fetch_array($retval)){
+          $validuser[] = $row[0];
+        }
+
+        $sql = ("SELECT usernumber FROM jobdata WHERE jobnumber = '3';");
+        ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+        $retval = mysqli_query( $conn ,  $sql);
+
+        while($row = mysqli_fetch_array($retval)){
+          $sql2 = ("SELECT email FROM userdata WHERE usernumber = '{$row[0]}';");
+          ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+          $retval2 = mysqli_query( $conn ,  $sql2);
+          $query2 = mysqli_fetch_row($retval2);
+          $validuser[] = $query2[0];
+        }
+
+        $size = count($validuser);
+        $randomuser = rand(0,$size);
+
+        $mail->addAddress($validuser[$randomuser]);
+        $mail->Subject = "Help Request";
         $mail->isHTML(false);
         $mail->Body = $message;
 
