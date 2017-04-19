@@ -119,6 +119,42 @@
       $strout = str_replace($order, $replace, $withbr);
       echo $strout;
     ?>
+    <br><br>
+    <form method="POST" action="">
+      <textarea name="helptext" style="height: 135px;width: 98%;font-size: 35px;margin: 5px;">Enter help request here</textarea><br>
+      <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
+      <?php
+        require 'PHPMailer/PHPMailerAutoload.php';
+
+        if( isset($_POST["sub"]) ){
+          $message = $_POST['helptext'];
+
+          $mail = new PHPMailer;
+          $mail->isSMTP();
+          $mail->Host = 'smtp.gmail.com';
+          $mail->Port = 587;
+          $mail->SMTPSecure = 'tls';
+          $mail->SMTPAuth = true;
+          $mail->Username = "donotreplyconfer@gmail.com";
+          $mail->Password = "ConferEmailPassword";
+
+          // Email Sending Details
+          $mail->addAddress(ChiragH2355@gmail.com);
+          $mail->Subject = "Password Request";
+          $mail->isHTML(false);
+          $mail->Body = $message;
+
+          // Success or Failure
+          if (!$mail->send()) {
+            $error = "Mailer Error: " . $mail->ErrorInfo;
+            echo '<p id="para">'.$error.'</p>';
+          }
+          else {
+            echo '<p id="para">Message sent!</p>';
+          }
+        }
+      ?>
+    </form>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
   </div>

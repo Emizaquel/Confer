@@ -170,7 +170,7 @@ We hope this does not inconvenience you.";
         $mail->SMTPSecure = 'tls';
         $mail->SMTPAuth = true;
         $mail->Username = "donotreplyconfer@gmail.com";
-        $mail->Password = "Chirag25";
+        $mail->Password = "ConferEmailPassword";
 
         // Email Sending Details
         $mail->addAddress($usermail);
@@ -256,7 +256,7 @@ We hope this does not inconvenience you.";
         $mail->SMTPSecure = 'tls';
         $mail->SMTPAuth = true;
         $mail->Username = "donotreplyconfer@gmail.com";
-        $mail->Password = "Chirag25";
+        $mail->Password = "ConferEmailPassword";
 
         // Email Sending Details
         $mail->addAddress($usermail);

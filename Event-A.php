@@ -310,7 +310,7 @@ We hope this does not cause any incovenience.";
             $mail->SMTPSecure = 'tls';
             $mail->SMTPAuth = true;
             $mail->Username = "donotreplyconfer@gmail.com";
-            $mail->Password = "Chirag25";
+            $mail->Password = "ConferEmailPassword";
 
             // Email Sending Details
             while($row2 = mysqli_fetch_array($retval2)){

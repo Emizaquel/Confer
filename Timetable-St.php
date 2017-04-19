@@ -94,20 +94,6 @@
               $sql = ("INSERT INTO `eventdata` (`eventnumber`, `eventname`, `description`, `eventtime`, `speaker`, `location`) VALUES (NULL, \"{$eventname}\", \"{$description}\", \"{$eventtime}\", \"{$speaker}\", \"{$location}\");");
               ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
               $retval = mysqli_query( $conn ,  $sql);
-
-              if($retval) {
-                $query = mysqli_fetch_row($retval);
-
-                $userID = $query[0];
-
-                if($userID){
-                  setcookie("UserID", $userID, time() + (86400 * 30), "/");
-                  header("Location:Home.php");
-                }else{
-                   echo 'User details not valid';
-                }
-              }else{
-              }
             }
 
             echo "<a onclick=\"document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';\" class=\"link\"><button type=\"button\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;\">Cancel</button></a>
