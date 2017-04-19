@@ -120,7 +120,7 @@
         <span id="deletebutton">
           <a onclick="document.getElementById('deleteconfirm').style.display='block'; document.getElementById('deletebutton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Delete</button></a>
         </span>
-        <span id="deleteconfirm">
+        <span id="deleteconfirm" style="display: none;">
           <br><br>Are you sure?<br><br>
           <input type = "submit" name = "del" value = "Yes" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
           <br><br>
@@ -175,23 +175,21 @@
                   $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
-
-                  $sql = ("DELETE FROM `speakerbio` WHERE usernumber = {$UID};");
+                }else{
+                  $sql = ("UPDATE `userdata`  `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
+                }
 
-                  $sql = ("INSERT INTO `speakerbio`(`usernumber`, `description`) VALUES ($UID,$EditDesc);");
+                $sql = ("SELECT usernumber FROM speakerbio WHERE usernumber = {$UID};");
+                ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
+                $retval = mysqli_query( $conn ,  $sql);
+
+                if($retval){
+                  $sql = ("UPDATE `speakerbio` SET `description` = $EditDesc where usernumber = $UID;")
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
                 }else{
-                  $sql = ("UPDATE `userdata` SET `email`=\"{$email}\",`password`=\"{$EditPass}\",`name`=\"{$EditName}\" WHERE usernumber = {$UID};");
-                  ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-                  mysqli_query( $conn ,  $sql);
-
-                  $sql = ("DELETE FROM `speakerbio` WHERE usernumber = {$UID};");
-                  ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
-                  mysqli_query( $conn ,  $sql);
-
                   $sql = ("INSERT INTO `speakerbio`(`usernumber`, `description`) VALUES ($UID,$EditDesc);");
                   ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
                   mysqli_query( $conn ,  $sql);
@@ -248,7 +246,6 @@
                   echo "File is too large";
                 }
               } else {
-                  echo "File is not an image.";
               }
 
             }else{
