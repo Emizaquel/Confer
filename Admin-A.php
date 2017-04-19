@@ -117,7 +117,7 @@
          $UserName = $row['name'];
          if(isset($_POST['search'])){
            $SearchTerm = $_POST['searchtext'];
-           if(strstr($UserName,$SearchTerm)){
+           if(strstr($UserName,$SearchTerm) || $SearchTerm == NULL){
              echo "<a id='EventListing' href = 'User-A.php?UserID={$UserID}'>{$UserName}<br></a>";
            }
          }else{
