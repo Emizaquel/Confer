@@ -86,10 +86,12 @@
       </span>
     </a>
     <br>
-    <form method="POST" action="">
-      <input type="text" placeholder="Search Here" name="serchtext" style="height: 45px;width: 70%;font-size: 35px;margin: 5px;">
-      <input type = "submit" name = "search" value = "Submit" style="height: 45px;width: 25%;font-size: 35px;margin: 5px;">
-    </form>
+    <span style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;overflow-y: hidden;max-height: 60px;text-align:center;">
+      <form method="POST" action="">
+        <input type="text" placeholder="Search Here" name="searchtext" style="height: 45px;width: 65%;font-size: 35px;margin: 5px;">
+        <input type = "submit" name = "search" value = "Go" style="height: 45px;width: 15%;font-size: 35px;margin: 5px;">
+      </form>
+    </span>
     <br>
     <?php
     $dbserver = "127.0.0.1:51097";
@@ -115,8 +117,8 @@
          $UserName = $row['name'];
 
          if(isset($_POST['search'])){
-           $SearchTerm = $_POST['serchtext'];
-           if(strpos($UserName,$SearchTerm)){
+           $SearchTerm = $_POST['searchtext'];
+           if(strstr($UserName,$SearchTerm) || $SearchTerm == NULL){
              echo "<a id='EventListing' href = 'User-A.php?UserID={$UserID}'>{$UserName}<br></a>";
            }
          }else{
