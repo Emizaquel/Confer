@@ -4,14 +4,14 @@ html {
   background-color: #9CC2E5;
 }
 
-@media (orientation: landscape) and (max-width:900px) and (max-height:600px){
+@media (orientation: landscape) and (max-width:2000px) and (max-height:1200px){
   html {
     overflow: scroll;
   }
 
   body{
     width:86%;
-    height:200%;
+    height:300%;
     /*-webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
