@@ -71,13 +71,7 @@
         }
       }
       $withp = implode(PHP_EOL,$linesplit);
-      $order = array("</p>");
-      $replace = "<br><br>";
-      $withbr = str_replace($order, $replace, $withp);
-      $order = array("<p>");
-      $replace = "";
-      $strout = str_replace($order, $replace, $withbr);
-      echo $strout;
+      echo $withp;
 
       if(!isset($_COOKIE["UserID"])) {
         header("Location:login.php");

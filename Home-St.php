@@ -112,13 +112,7 @@
         }
       }
       $withp = implode(PHP_EOL,$linesplit);
-      $order = array("</p>");
-      $replace = "<br><br>";
-      $withbr = str_replace($order, $replace, $withp);
-      $order = array("<p>");
-      $replace = "";
-      $strout = str_replace($order, $replace, $withbr);
-      echo $strout;
+      echo $withp;
       ?>
     <br><br><br><br><br><br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>
