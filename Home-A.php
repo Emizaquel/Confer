@@ -49,7 +49,7 @@
       <span id="EditPageButton" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 36px;padding: 10px;text-align:center;">
         Edit Homepage
       </span>
-    </a><br>
+    </a>
     <?php
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['pass']);
