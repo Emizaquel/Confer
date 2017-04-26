@@ -67,7 +67,7 @@ html {
     overflow: hidden;
   }
 }
-@media (min-width:1025px) and (max-width:1281px) and (orientation: portrait) {/* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) and (max-width:1281px){/* big landscape tablets, laptops, and desktops */
   #wrapper{
     margin:10px;
     margin-left: 30%;
@@ -88,7 +88,7 @@ html {
     overflow: hidden;
   }
 }
-@media (min-width:1281px) and (orientation: portrait) {/* hi-res laptops and desktops */
+@media (min-width:1281px){/* hi-res laptops and desktops */
   #wrapper{
     margin:10px;
     margin-left: 35vw;
