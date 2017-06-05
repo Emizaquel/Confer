@@ -28,12 +28,13 @@
     <span id="EditPage" style="display: block;background-color: white;border-radius: 15px;border-style: solid;border-color: grey;border-width: 10px;color: black;overflow-x: hidden;min-height: 72px;padding: 10px;padding-top: 45px;display: none;">
       <form method="post">
           <textarea id="editor1" name="editor1"><?php
-          $dbserver = "127.0.0.1:51097";
+          $dbserver = "127.0.0.1";
+          $port = "51097";
           $dbuser = "azure";
           $dbpass = "6#vWHD_$";
           $dbname = "localdb";
 
-          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass));
+          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
 
           if(! $conn ) {
             die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
