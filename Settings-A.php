@@ -131,8 +131,6 @@
           $uploadOk = 1;
           $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
           $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
           $retval = mysqli_query( $conn ,  $sql);

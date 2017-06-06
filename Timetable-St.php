@@ -72,8 +72,6 @@
             include("baseconnect.php");
 
             if( isset($_POST["sub"]) ){
-              $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
               $sql = ("INSERT INTO `eventdata` (`eventnumber`, `eventname`, `description`, `eventtime`, `speaker`, `location`) VALUES (NULL, \"{$eventname}\", \"{$description}\", \"{$eventtime}\", \"{$speaker}\", \"{$location}\");");
               ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
               $retval = mysqli_query( $conn ,  $sql);

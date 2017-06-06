@@ -48,8 +48,6 @@
         include("baseconnect.php");
 
         if( isset($_POST["sub"]) ){
-          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
           $sql = ("INSERT INTO `userdata`(`usernumber`, `email`, `password`, `name`, `type`) VALUES (NULL,'{$email}','{$password}','{$name}','{$type}');");
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
           $retval = mysqli_query( $conn ,  $sql);

@@ -61,7 +61,6 @@
         }
 
         if( isset($_POST["sub"]) ){
-          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
 
           $sql = ("SELECT usernumber FROM userdata WHERE email = '" . $email . "' AND password = '" . $password . "';");
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
