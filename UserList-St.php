@@ -40,21 +40,12 @@
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
 
         <?php
-        $dbserver = "127.0.0.1";
-        $port = "51097";
-        $dbuser = "azure";
-        $dbpass = "6#vWHD_$";
-        $dbname = "localdb";
         $name = addslashes($_POST['name']);
         $email = addslashes($_POST['email']);
         $password = addslashes($_POST['password']);
         $type = $_POST['type'];
 
-        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
-        if(! $conn ) {
-          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-        }
+        include("baseconnect.php");
 
         if( isset($_POST["sub"]) ){
           $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
@@ -77,6 +68,7 @@
           }else{
           }
         }
+        mysqli_close($conn);
         ?>
         <a onclick="document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
       </form>
@@ -95,17 +87,7 @@
     </span>
     <br>
     <?php
-    $dbserver = "127.0.0.1";
-    $port = "51097";
-    $dbuser = "azure";
-    $dbpass = "6#vWHD_$";
-    $dbname = "localdb";
-
-    $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
-    if(! $conn ) {
-      die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-    }
+    include("baseconnect.php");
 
       $sql = ("SELECT usernumber,name FROM `userdata`");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
@@ -170,6 +152,7 @@
             header("Location:Admin-St.php");
           }
       }
+      mysqli_close($conn);
     ?>
     <br><!-- This is for readability on a computer, don't get rid of it. -->
     <script>autoSizeText();</script>

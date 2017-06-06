@@ -12,17 +12,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content"><div id="content"><?php
-          $dbserver = "127.0.0.1";
-          $port = "51097";
-          $dbuser = "azure";
-          $dbpass = "6#vWHD_$";
-          $dbname = "localdb";
-
-          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
-          if(! $conn ) {
-            die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-          }
+          include("baseconnect.php");
 
           if(!isset($_COOKIE["UserID"])) {
             header("Location:login.php");
@@ -90,6 +80,7 @@
     echo "<br><br>";
     echo $usermail;
     echo "<br><br>";
+    mysqli_close($conn);
     ?>
     <form method="POST" action="">
       <input type = "submit" name = "sub" value = "New Password" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br><br>
@@ -180,6 +171,7 @@ We hope this does not inconvenience you.";
         echo '<p id="para">Message sent!</p>';
         }
       }
+      mysqli_close($conn);
       ?>
     </form>
     <br><!-- This is for readability on a computer, don't get rid of it. -->

@@ -12,17 +12,7 @@
       </div>
       <div id="title-pane">
         <div id="title-content"><div id="content"><?php
-          $dbserver = "127.0.0.1";
-          $port = "51097";
-          $dbuser = "azure";
-          $dbpass = "6#vWHD_$";
-          $dbname = "localdb";
-
-          $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
-          if(! $conn ) {
-            die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-          }
+          include("baseconnect.php");
 
           if(!isset($_COOKIE["UserID"])) {
             header("Location:login.php");
@@ -87,6 +77,7 @@
       echo "<br><br>";
       echo $usermail;
       echo "<br><br>";
+      mysqli_close($conn);
       ?>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link"><button type="button" id="customButton1">Edit Details</button></a><br>
       <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
@@ -120,17 +111,7 @@
         </span>
 
         <?php
-        $dbserver = "127.0.0.1";
-        $port = "51097";
-        $dbuser = "azure";
-        $dbpass = "6#vWHD_$";
-        $dbname = "localdb";
-
-        $conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
-
-        if(! $conn ) {
-          die('Could not connect: ' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
-        }
+        include("baseconnect.php");
 
         if( isset($_POST["del"]) ){
           $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");
@@ -236,6 +217,7 @@
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
           mysqli_query( $conn ,  $sql);
         }
+        mysqli_close($conn);
         ?>
       </form>
     </span>
