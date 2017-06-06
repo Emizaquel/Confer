@@ -49,7 +49,6 @@
              echo $Name;
              echo "<br>";
           }
-          mysqli_close($conn);
         ?>
         <br>
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;" onclick="document.getElementById('login_text'.style.display=''">
@@ -61,14 +60,11 @@
         $speaker = $_POST['speaker'];
         $location = addslashes($_POST['location']);
 
-        include("baseconnect.php");
-
         if( isset($_POST["sub"]) ){
           $sql = ("INSERT INTO `eventdata` (`eventnumber`, `eventname`, `description`, `eventtime`, `speaker`, `location`) VALUES (NULL, \"{$eventname}\", \"{$description}\", \"{$eventtime}\", \"{$speaker}\", \"{$location}\");");
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
           $retval = mysqli_query( $conn ,  $sql);
         }
-        mysqli_close($conn);
         ?>
         <a onclick="document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
       </form>
@@ -80,8 +76,6 @@
     </a>
     <br>
     <?php
-    include("baseconnect.php");
-
       $sql = ("SELECT eventnumber,eventname,eventtime FROM `eventdata` ORDER BY `eventdata`.`eventtime` ASC");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
       $retval = mysqli_query( $conn ,  $sql);

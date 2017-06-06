@@ -66,7 +66,6 @@
           }else{
           }
         }
-        mysqli_close($conn);
         ?>
         <a onclick="document.getElementById('NewEventButton').style.display='block'; document.getElementById('NewEvent').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Cancel</button></a>
       </form>
@@ -85,7 +84,6 @@
     </span>
     <br>
     <?php
-    include("baseconnect.php");
 
       $sql = ("SELECT usernumber,name FROM `userdata`");
       ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));

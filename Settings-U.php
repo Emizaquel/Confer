@@ -50,7 +50,6 @@
           $usermail = $query['email'];
 
           echo $username;
-          mysqli_close($conn);
           ?></div></div>
       </div>
     </div>
@@ -110,8 +109,6 @@
         </span>
 
         <?php
-        include("baseconnect.php");
-
         if( isset($_POST["del"]) ){
           $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));

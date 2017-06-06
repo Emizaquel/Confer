@@ -35,7 +35,6 @@
           }
           $current = file_get_contents ($file);
           echo $current;
-          mysqli_close($conn);
            ?></textarea>
     			<script type="text/javascript">
     				CKEDITOR.replace( 'editor1' );
@@ -54,7 +53,7 @@
     <?php
     $email = addslashes($_POST['email']);
     $password = addslashes($_POST['pass']);
-    
+
     include("baseconnect.php");
 
     if(!isset($_COOKIE["UserID"])) {

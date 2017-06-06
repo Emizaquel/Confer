@@ -30,7 +30,6 @@
               }else{}
             }else{}
           }
-          mysqli_close($conn);
           ?></div></div>
       </div>
     </div>
@@ -46,7 +45,6 @@
   <div id="page-body">
     <span id="EditEventButton">
     <?php
-    include("baseconnect.php");
 
     if(isset($_GET["EventID"]))
     {
@@ -169,7 +167,6 @@
         <input type = \"submit\" name = \"remindme\" value = \"Remind Me\" style=\"height: 45px;width: 98%;font-size: 35px;margin: 5px;\">
       </form>";
     }
-    mysqli_close($conn);
     ?>
     <a onclick="document.getElementById('EditEvent').style.display='block'; document.getElementById('EditEventButton').style.display='none';" class="link"><button type="button" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;border-radius: 0;">Edit Event</button></a>
     </span>
@@ -181,7 +178,6 @@
         <input type="datetime-local" value="<?php echo $date; echo "T"; echo $time ?>" step="1" name="datetime" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;"><br>
         <br>Speaker<br>
         <?php
-        include("baseconnect.php");
 
           $sql = ("SELECT usernumber,name FROM `userdata` WHERE type = 2;");
           ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));
@@ -205,7 +201,6 @@
                echo "<br>";
             }
           }
-          mysqli_close($conn);
         ?>
         <br>
         <input type = "submit" name = "sub" value = "Submit" style="height: 45px;width: 98%;font-size: 35px;margin: 5px;">
@@ -222,7 +217,6 @@
         </span>
 
         <?php
-        include("baseconnect.php");
 
         if( isset($_POST["del"]) ){
           $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");

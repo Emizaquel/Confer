@@ -69,8 +69,6 @@
             $speaker = $_POST['speaker'];
             $location = addslashes($_POST['location']);
 
-            include("baseconnect.php");
-
             if( isset($_POST["sub"]) ){
               $sql = ("INSERT INTO `eventdata` (`eventnumber`, `eventname`, `description`, `eventtime`, `speaker`, `location`) VALUES (NULL, \"{$eventname}\", \"{$description}\", \"{$eventtime}\", \"{$speaker}\", \"{$location}\");");
               ((bool)mysqli_query($GLOBALS["___mysqli_ston"], "USE " . conferdata));

@@ -77,7 +77,6 @@
       echo "<br><br>";
       echo $usermail;
       echo "<br><br>";
-      mysqli_close($conn);
       ?>
       <br><a onclick="document.getElementById('EditDetails').style.display=''; document.getElementById('UserDetails').style.display='none';" class="link"><button type="button" id="customButton1">Edit Details</button></a><br>
       <br><a href="logout.php"><button type="button" id="customButton1">logout</button></a>
@@ -111,7 +110,6 @@
         </span>
 
         <?php
-        include("baseconnect.php");
 
         if( isset($_POST["del"]) ){
           $sql3 = ("DELETE FROM `eventdata` WHERE eventnumber = {$EventID};");

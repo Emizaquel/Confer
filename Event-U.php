@@ -33,7 +33,6 @@
             }else{
             }
           }
-          mysqli_close($conn);
           ?></div></div>
       </div>
     </div>
@@ -47,7 +46,6 @@
   </div>
   <div id="page-body">
     <?php
-    include("baseconnect.php");
 
     if(isset($_GET["EventID"]))
     {
