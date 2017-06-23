@@ -1,6 +1,6 @@
 <?php
 
-$dbserver = "127.0.0.1";
+$dbserver = "p:127.0.0.1";
 $port = "51097";
 $dbuser = "azure";
 $dbpass = "6#vWHD_$";
