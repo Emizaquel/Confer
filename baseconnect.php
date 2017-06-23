@@ -6,6 +6,6 @@ $dbuser = "azure";
 $dbpass = "6#vWHD_$";
 $dbname = "localdb";
 
-$conn = new mysqli($dbserver,  $dbuser,  $dbpass, $port);
+$conn = ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbserver,  $dbuser,  $dbpass, $port));
 
 ?>
